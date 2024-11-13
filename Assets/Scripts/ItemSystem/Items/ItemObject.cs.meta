@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 925c115f5ebecac4ca35c317e09a99fe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - groundItemPrefab: {fileID: 7373938329685547577, guid: aae73ee18c435cd4eb8ca04a8ca4f493, type: 3}
+  - ability: {instanceID: 0}
+  - uiDisplay: {instanceID: 0}
+  - placeableObjectPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

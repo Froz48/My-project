@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925c115f5ebecac4ca35c317e09a99fe, type: 3}
+  m_Name: Helm0
+  m_EditorClassIdentifier: 
+  Name: helm0
+  Id: 0
+  isInitialized: 0
+  groundItemPrefab: {fileID: 7373938329685547577, guid: aae73ee18c435cd4eb8ca04a8ca4f493, type: 3}
+  ability: {fileID: 0}
+  buffs:
+  - attribute: 4
+    valueToAdd: 0
+    addMin: 1
+    addMax: 10
+  uiDisplay: {fileID: 8443743, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  stackable: 0
+  type: 0
+  description: 
+  placeableObjectPrefab: {fileID: 0}

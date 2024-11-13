@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e36ffbd5443cf48bf452354abd153e, type: 3}
+  m_Name: NullAbility
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -291930538, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  damage: 1
+  cooldown: 1
+  nextUseTime: 0
+  lifetime: 1

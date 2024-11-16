@@ -9,6 +9,7 @@ public class Flamestrike : Ability{
 
     [ServerRpc]
     public override void AbilityUseServerRpc(Vector2 _position){
+        Debug.Log("Flamestrike ServerRpc");
         GameObject flamestrikeObject = Instantiate(prefab, _position, Quaternion.identity);
         flamestrikeObject.AddComponent<FlamestrikeEffect>().Initialize(damage, lifetime);
         
@@ -16,5 +17,8 @@ public class Flamestrike : Ability{
         networkObj.Spawn();
     }
 
+    // public Flamestrike CreateInstance(){
+    //     return (Flamestrike)this.MemberwiseClone();
+    // }
 
 }

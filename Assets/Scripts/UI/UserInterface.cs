@@ -48,7 +48,6 @@ public class UserInterface : NetworkBehaviour{
     }
 
     protected void UpdateUI(object sender, EventArgs e){
-        Debug.Log("Trying to update");
         foreach (var slot in slotsOnInterface){
             if (slot.Value.item.Id == -1){
                 slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = null;

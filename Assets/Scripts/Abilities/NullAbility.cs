@@ -11,7 +11,7 @@ public class NullAbility : Ability{
         //null ability
     }
 
-    public NullAbility CreateInstance(){
-        return (NullAbility)this.MemberwiseClone();
-    }
+    // public NullAbility CreateInstance(){
+    //     return (NullAbility)this.MemberwiseClone();
+    // }
 }

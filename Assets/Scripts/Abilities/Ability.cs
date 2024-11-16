@@ -18,6 +18,8 @@ public abstract class Ability : ScriptableObject {
         if (nextUseTime == float.NaN) return 0;
         return Mathf.Max(0, nextUseTime - Time.time);
     }
-
+    public Ability CreateInstance(){
+        return (Ability)this.MemberwiseClone();
+    }
 
 }

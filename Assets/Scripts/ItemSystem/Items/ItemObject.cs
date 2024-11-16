@@ -55,6 +55,8 @@ public class ItemObject : ScriptableObject
             Debug.Log("Using item " + Name);
             var a = Instantiate(placeableObjectPrefab, position, Quaternion.identity);
             a.GetComponent<NetworkObject>().Spawn();
+        } else {
+            Debug.Log("Tried to use item, but there's no placeableObjectPrefab");
         }
     }
 

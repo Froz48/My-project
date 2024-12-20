@@ -7,15 +7,18 @@ using UnityEngine.UI;
 
 public class Player : NetworkBehaviour
 {
+    #region Constants
+    public const int MAX_ABILITIES = 4;
+    #endregion
+    
     #region Delegates
-    public static event EventHandler OnAnyPlayerSpawned;
+    // public static event EventHandler OnAnyPlayerSpawned;
     public event EventHandler OnHealthChanged;
-    public event EventHandler OnAbilityChanged;
+    public event EventHandler OnAnyAbilityChanged;
     #endregion
 
     #region Public Variables
     [SerializeField] public Attribute[] attributes;
-    public static Player LocalInstance { get; private set; }
     [SerializeField] public Ability[] abilities;
     #endregion
 
@@ -36,10 +39,13 @@ public class Player : NetworkBehaviour
     public override void OnNetworkSpawn() {
         if (!IsOwner) {
             enabled = false;
+            return;
+            
         } 
-        LocalInstance = this;
+        //NetworkObject.Spawn();
         transform.position = new Vector3(0, 0, -1);
-        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+        DoStartThings();
+        // OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -50,12 +56,14 @@ public class Player : NetworkBehaviour
         }
     }
 
-    private void Start(){
+    private void DoStartThings(){ // Fuck Start
+        
         InitializeBaseValues();
         InitializeEvents();
         InitializeAbilities();
         input.onHotbarButton += () => UseHotbarSlot();
-        MakeUIs();   
+        MakeUIs();
+           
     }
 
     private void FixedUpdate()
@@ -81,7 +89,7 @@ public class Player : NetworkBehaviour
     }
 
     private void MakeUIs(){
-        GetComponentInChildren<AbilityCooldownUI>()?.MakeInterface(this);       
+        GetComponentInChildren<AbilityCooldownUI>()?.MakeInterface(this);    // this exact line took me a day   
         GetComponentInChildren<HealthInterface>()?.MakeHealthUI(this);
         GetComponentInChildren<StatsInterface>()?.makeUI(attributes);
         GetComponentInChildren<InventoryUI>()?.makeUI(inventory);
@@ -89,7 +97,7 @@ public class Player : NetworkBehaviour
     }
 
     private void InitializeAbilities(){
-        abilities = new Ability[4];
+        abilities = new Ability[MAX_ABILITIES]; 
         for (int i = 0; i < abilities.Length; i++)
         {
             int bullshit = i;
@@ -190,7 +198,7 @@ public class Player : NetworkBehaviour
 
     private void ChangeAbilityInstance(int index, Ability ability){
         abilities[index] = ability.CreateInstance();
-        OnAbilityChanged?.Invoke(this, EventArgs.Empty);
+        OnAnyAbilityChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void Atack(object sender, EventArgs e){

@@ -5,10 +5,10 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AbilityCooldownSlot : NetworkBehaviour{
+public class AbilityCooldownSlot : MonoBehaviour{
     [SerializeField] public TextMeshProUGUI cooldownText;
     [SerializeField] public Image cooldownFill;
-    [SerializeField] public Image[] abilitySprites;
+    [SerializeField] public Image[] abilitySprites; // set in observer
     [SerializeField] public Image abilityBackground;
 
     public void SetSprite(Sprite sprite){

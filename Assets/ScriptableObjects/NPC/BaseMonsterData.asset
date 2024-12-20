@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
-  m_Name: AllOneMonsterData
+  m_Name: BaseMonsterData
   m_EditorClassIdentifier: 
   detectionRadius: 1
+  attackDamage: 1
   atackSpeed: 1
   giveUpRadius: 1
   movementSpeed: 1
   maxHealth: 1
+  lootDrop: []

@@ -7,8 +7,8 @@ public class EnemySpawner : NetworkBehaviour
 {
     private int enemyCountPerPlayer = 20; //20
     private float spawnCooldown = 5f; // 5
-    [SerializeField] private Transform enemyPrefab;
-    [SerializeField] private MonsterData[] monsterData;
+    // [SerializeField] private Transform enemyPrefab;
+    [SerializeField] private Transform[] monsterData;
     private float spawnMaxRadius = 30;
     private float spawnMinRadius = 15;
     public int spawnedEntityCounter = 0;
@@ -23,15 +23,20 @@ public class EnemySpawner : NetworkBehaviour
         // Debug.Log("EnemySpawner started coroutine");
     }
 
+    private IEnumerator SpawnEnemies()
+    {
+        while (true)
+        {
+            EnemySpawnTry();
+            yield return new WaitForSeconds(spawnCooldown);
+        }
+    }
+
     private void EnemySpawnTry(){
         int playerCount = NetworkManager.Singleton.ConnectedClients.Count;
         if (playerCount == 0){
-            // Debug.Log("EnemySpawnTry havent found any players");
             return;
-        }
-        // Debug.Log("enemyCountPerPlayer = " + enemyCountPerPlayer);
-        // Debug.Log("playerCount: " + playerCount);
-        // Debug.Log("spawnCount <= playerCount*enemyCountPerPlayer : " + spawnedEntityCounter + " <= " + playerCount*enemyCountPerPlayer);
+        } 
         if (spawnedEntityCounter <= playerCount*enemyCountPerPlayer){
             Transform player = NetworkManager.Singleton.ConnectedClientsList[Random.Range(0,playerCount)].PlayerObject.gameObject.transform;
             Vector2 spawnPosition = player.position;
@@ -41,8 +46,6 @@ public class EnemySpawner : NetworkBehaviour
             }
         }
     }
-
-    
 
     private bool CheckIsValidSpawnPosition(Vector2 position){
         foreach (var collider in Physics2D.OverlapCircleAll(position, spawnMinRadius)){
@@ -57,35 +60,27 @@ public class EnemySpawner : NetworkBehaviour
         return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f,1f)).normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
     }
 
-    private MonsterData GetRandomMonster(){
+    private Transform GetRandomMonster(){
         if (monsterData.Length == 0){
-            // Debug.Log("No monster data");
             return null;
         }
         int i = Random.Range(0, monsterData.Length);
         return monsterData[i];
     }
 
-
-
     private void SpawnRandomEnemy(Vector2 spawnPos){
-            // Debug.Log("Spawning enemy");
-            Transform enemyTransform = Instantiate(enemyPrefab, spawnPos, Quaternion.identity, transform);
-            enemyTransform.GetComponent<MonsterWorld>().SetMonsterData(GetRandomMonster());
-            enemyTransform.SetParent(gameObject.transform);
+
+            Transform enemyTransform = Instantiate(GetRandomMonster(), spawnPos, Quaternion.identity, transform);
+            enemyTransform.SetParent(gameObject.transform); //dosnt work
             spawnedEntityCounter++;
-            enemyTransform.GetComponent<NetworkObject>().Spawn();
+            var networkObject = enemyTransform.GetComponent<NetworkObject>();
+            if (networkObject && !networkObject.IsSpawned)
+            {
+                networkObject.Spawn();
+            }
+            // enemyTransform.GetComponent<NetworkObject>().Spawn();
     }
 
-    private IEnumerator SpawnEnemies()
-    {
-        while (true)
-        {
-            EnemySpawnTry();
-            // Vector2 spawnPos = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f,1f)).normalized;
-            // spawnPos *= Random.Range(spawnMinRadius, spawnMaxRadius);
-            yield return new WaitForSeconds(spawnCooldown);
-        }
-    }
+
 
 }

@@ -12,9 +12,11 @@ public class PlayerInput : NetworkBehaviour
     public OnAbilityUse[] onAbilityUse;
     public OnLeftMouseButton onHotbarButton;
     private PlayerInputActions playerInputActions;
+    [SerializeField] private Animator animator;
 
     private void Awake(){
         onAbilityUse = new OnAbilityUse[4];
+        //animator = GetComponent<Animator>();
     }
 
     public override void OnNetworkSpawn(){
@@ -31,6 +33,16 @@ public class PlayerInput : NetworkBehaviour
     public Vector2 GetMovementVectorNormalized(){
         Vector2 inputVector = playerInputActions.Gameplay.Movement.ReadValue<Vector2>();
         inputVector = inputVector.normalized;
+
+        //bool isMoving = inputVector.magnitude > 0.1f;
+        //animator.SetBool("IsMoving", isMoving);
+        //if(isMoving)
+        //{
+            //float angle = Mathf.Atan2(inputVector.y, inputVector.x) * Mathf.Rad2Deg;
+            animator.SetFloat("MoveX", inputVector.x);
+            animator.SetFloat("MoveY", inputVector.y);
+        //}
+
         return inputVector;
     }
 

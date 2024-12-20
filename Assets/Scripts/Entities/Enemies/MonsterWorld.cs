@@ -10,15 +10,18 @@ public class MonsterWorld : NetworkBehaviour{
     float currentHealth;
     float despawnDistance = 40;
     [SerializeField] public MonsterData monsterData;
+    // [SerializeField] public Sprite sprite;
     Transform playerChased;
     private float nextAtackTime;
+    
 
 //---------------------------------------------------------------
     public override void OnNetworkSpawn(){
         if (IsServer){
             monsterData = monsterData.CreateInstance();
+            // GetComponent<SpriteRenderer>().sprite = sprite;
             StartCoroutine(CheckForPlayerNearby());
-            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<BoxCollider2D>().enabled = true; // huh?
             currentHealth = monsterData.maxHealth;
             StartCoroutine(DespawnCheck());
         }
@@ -26,14 +29,14 @@ public class MonsterWorld : NetworkBehaviour{
 
     private IEnumerator DespawnCheck(){
         while (true){
-        if (GetDistanceToPlayer(FindNearestPlayer().gameObject) > despawnDistance){
-            Die(false);
-        }
-        yield return new WaitForSeconds(5);
+            if (GetDistanceToPlayer(FindNearestPlayer().gameObject) > despawnDistance){
+                Die(false);
+            }
+            yield return new WaitForSeconds(5);
         }
     }
     private Player FindNearestPlayer(){
-        float minDistance = 500;
+        float minDistance = 5000;
         Player nearestPlayer = null;
         foreach (var player in NetworkManager.Singleton.ConnectedClientsList){
             float distance = GetDistanceToPlayer(player.PlayerObject.gameObject);
@@ -70,9 +73,9 @@ public class MonsterWorld : NetworkBehaviour{
         } 
     }
 //---------------------------------------------------------------    
-    public void SetMonsterData(MonsterData _data){
-        monsterData = _data;
-    }
+    // public void SetMonsterData(MonsterData _data){
+    //     monsterData = _data;
+    // }
 
    // [Rpc(SendTo.Server)]
     public void TakeDamageRpc(float damage){

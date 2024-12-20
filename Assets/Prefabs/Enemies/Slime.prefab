@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5137202074851421086}
   - component: {fileID: 2284792995755328542}
   m_Layer: 0
-  m_Name: EnemyPrefab
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2130175784
+  GlobalObjectIdHash: 2637947001
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04827271c27d934c8fdcdd6ac0676ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterData: {fileID: 11400000, guid: 1c8861bebf937d245b36b63b694d7606, type: 2}
+  monsterData: {fileID: 11400000, guid: a7490c733643a1841b0c8554dc6a05a2, type: 2}
 --- !u!1 &6900353872152739137
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1808823965, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  m_Sprite: {fileID: -698204471, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

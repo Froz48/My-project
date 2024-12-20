@@ -18,6 +18,7 @@ MonoBehaviour:
   giveUpRadius: 10
   movementSpeed: 1
   maxHealth: 10
+  sprite: {fileID: 1842253825, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   lootDrop:
   - item: {fileID: 11400000, guid: f97a08f28e1de3747925dd1ec20c74ba, type: 2}
     dropChance: 0.6

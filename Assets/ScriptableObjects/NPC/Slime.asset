@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 8640623650889022529, guid: 13a5f2208f11e9a42b53a298da0e232b, type: 3}
   detectionRadius: 5
   attackDamage: 5
   atackSpeed: 5
   giveUpRadius: 10
   movementSpeed: 1
   maxHealth: 10
-  sprite: {fileID: -180245020, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   lootDrop: []
+  Id: 2

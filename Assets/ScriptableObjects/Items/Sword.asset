@@ -21,7 +21,7 @@ MonoBehaviour:
     valueToAdd: 0
     addMin: 1
     addMax: 10
-  uiDisplay: {fileID: 1984729717, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  uiDisplay: {fileID: -563646502, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   stackable: 0
   type: 7
   description: 

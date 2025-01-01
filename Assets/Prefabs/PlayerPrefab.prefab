@@ -814,6 +814,7 @@ GameObject:
   - component: {fileID: 7389589370372629828}
   - component: {fileID: 2278221899907619263}
   - component: {fileID: 7387696766932474566}
+  - component: {fileID: 8476313829567043056}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -924,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1877887150
+  GlobalObjectIdHash: 266310322
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -1081,6 +1082,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8476313829567043056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786306326399798581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768e494dc98b4984d9eed7f5266dcc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
+  spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
+  spawnedEntityCounter: 0
 --- !u!1 &5912365055232650370
 GameObject:
   m_ObjectHideFlags: 0

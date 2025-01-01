@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: BaseMonsterData
   m_EditorClassIdentifier: 
+  Prefab: {fileID: 8640623650889022529, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
   detectionRadius: 1
   attackDamage: 1
   atackSpeed: 1
@@ -19,3 +20,4 @@ MonoBehaviour:
   movementSpeed: 1
   maxHealth: 1
   lootDrop: []
+  Id: 0

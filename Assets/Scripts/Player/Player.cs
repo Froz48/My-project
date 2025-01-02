@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -63,7 +64,6 @@ public class Player : NetworkBehaviour
         InitializeAbilities();
         input.onHotbarButton += () => UseHotbarSlot();
         MakeUIs();
-           
     }
 
     private void FixedUpdate()

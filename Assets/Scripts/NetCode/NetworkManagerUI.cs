@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class NetworkManagerUI : MonoBehaviour {
-    [SerializeField] private GameObject chestPrefab;
     [SerializeField] private GameObject groundItemPrefab;
     [SerializeField] private int spawnItemId;
     [SerializeField] private Button hostButton;

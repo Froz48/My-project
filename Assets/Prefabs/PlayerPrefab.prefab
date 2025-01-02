@@ -815,6 +815,7 @@ GameObject:
   - component: {fileID: 2278221899907619263}
   - component: {fileID: 7387696766932474566}
   - component: {fileID: 8476313829567043056}
+  - component: {fileID: 7789373438762283640}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -925,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 266310322
+  GlobalObjectIdHash: 1877887150
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -1097,6 +1098,21 @@ MonoBehaviour:
   monsterDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
   spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
   spawnedEntityCounter: 0
+--- !u!114 &7789373438762283640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786306326399798581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb2cd87b24fc56469e41808e3f0e1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  groundTile: {fileID: 11400000, guid: 1e647cffabb70084b9a7caded13a536e, type: 2}
+  playerTransform: {fileID: 7613614482847855789}
 --- !u!1 &5912365055232650370
 GameObject:
   m_ObjectHideFlags: 0

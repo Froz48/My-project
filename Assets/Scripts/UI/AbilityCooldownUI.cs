@@ -84,7 +84,7 @@ public class AbilityCooldownUI : MonoBehaviour
     {
         if (initialized) {
             UpdateCooldown();
-            Debug.Log("Updating cooldown");
+            //Debug.Log("Updating cooldown");
         }
         else {
             Debug.Log("Trying to update cooldown before initializing");

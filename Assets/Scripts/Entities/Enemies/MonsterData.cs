@@ -14,7 +14,7 @@ public class MonsterData : ScriptableObject{
     [SerializeField] public float giveUpRadius;
     [SerializeField] public float movementSpeed;
     [SerializeField] public float maxHealth;
-    [SerializeField] public List<LootDropEntry> lootDrop;
+    [SerializeField] public List<LootDropEntry> lootTable;
     public int Id = -1;
 
     public MonsterData CreateInstance(){
@@ -23,9 +23,4 @@ public class MonsterData : ScriptableObject{
 
 }
 
-[System.Serializable]
-public class LootDropEntry
-{
-    public ItemObject item;
-    public float dropChance;
-}
+

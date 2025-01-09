@@ -88,15 +88,16 @@ public class MonsterWorld : NetworkBehaviour{
     }
 //---------------------------------------------------------------
     private void Die(bool doDropLoot = true){
+        if (doDropLoot)
             DropLoot();
-            this.gameObject.GetComponent<NetworkObject>().Despawn();
-            Destroy(this.gameObject);
-            EnemySpawner enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
-            enemySpawner.spawnedEntityCounter--;
+        this.gameObject.GetComponent<NetworkObject>().Despawn();
+        Destroy(this.gameObject);
+        EnemySpawner enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
+        enemySpawner.spawnedEntityCounter--;
     }
     
     private void DropLoot(){
-        foreach(var i in monsterData.lootDrop){
+        foreach(var i in monsterData.lootTable){
             if (i.dropChance - Random.Range(0f, 1f) > 0){
                 i.item.SpawnWorldItemCopy(transform.position);
             }  

@@ -1112,6 +1112,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   groundTile: {fileID: 11400000, guid: 1e647cffabb70084b9a7caded13a536e, type: 2}
+  biomes:
+  - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
+  - {fileID: 11400000, guid: e909977d05be0be4fb7f085218af0336, type: 2}
+  - {fileID: 11400000, guid: 95f85f6b0d5683f47bd511bf525b8149, type: 2}
+  - {fileID: 11400000, guid: b6c4885717d9dcd4d91ab35170b5e89b, type: 2}
+  - {fileID: 11400000, guid: c785b85415ce41647a85ccdd57d9aa1e, type: 2}
+  - {fileID: 11400000, guid: 85c8fb99204e9b9409622f8f97755289, type: 2}
+  - {fileID: 11400000, guid: d8ea97d35bbab064292c35a10cf8cb95, type: 2}
+  - {fileID: 11400000, guid: d939e4f1158964d49b4effd3ce6eda63, type: 2}
+  - {fileID: 11400000, guid: 93ce23598b629f14e965655a6143cccf, type: 2}
+  - {fileID: 11400000, guid: 3008de9c1c65a514cb695d78c4d060eb, type: 2}
   playerTransform: {fileID: 7613614482847855789}
 --- !u!1 &5912365055232650370
 GameObject:

@@ -19,7 +19,7 @@ MonoBehaviour:
   giveUpRadius: 10
   movementSpeed: 1
   maxHealth: 10
-  lootDrop:
+  lootTable:
   - item: {fileID: 11400000, guid: f97a08f28e1de3747925dd1ec20c74ba, type: 2}
-    dropChance: 0.6
+    dropChance: 1
   Id: 1

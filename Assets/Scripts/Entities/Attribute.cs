@@ -6,7 +6,15 @@ public enum EAttributes{
     AttackSpeed,
     MovementSpeed,
     Armor,
-    MaxHealth
+    MaxHealth,
+    Population,
+    Housing,
+    Gold,
+    Defenses,
+    StorageSpace,
+    Fame,
+    Infrastructure,
+    Complexity
 }//(int)EAttributes.MaxHealth].GetValue()
 
 [Serializable]
@@ -14,8 +22,15 @@ public class Attribute
 {
     public event EventHandler onValueModified;
     [SerializeField]private int baseValue;
+    private EAttributes type;
     [SerializeField]private int value;
     private List<IModifier> modifiers = new List<IModifier>();
+
+    public Attribute(EAttributes _type, int _baseValue = 0){
+        type = _type;
+        baseValue = _baseValue;
+        value = _baseValue;
+    }
     public Attribute(int _baseValue = 0)
     {   baseValue = _baseValue;
         value = _baseValue;

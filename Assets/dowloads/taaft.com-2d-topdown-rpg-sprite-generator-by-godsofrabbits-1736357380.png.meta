@@ -1,0 +1,5759 @@
+fileFormatVersion: 2
+guid: 5ebb3cf9f3273e843ae48b690b4030bc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8369bac9e5ca0df4d87bec5af5477533
+      internalID: -1409162312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854b344b20c53344d96d58512532eb2b
+      internalID: -1410683599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a32cfb1527523404ab7bee15ac4650b9
+      internalID: 970552376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808752878d13ab746af2922a10479bbf
+      internalID: -1800482977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2c6a77a4fa722488b7c3250ebcfa6c
+      internalID: 2147063035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ab8786a6137ac40a574999815189a9
+      internalID: 504437557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90af5c164735a6f43a5feb386b631667
+      internalID: 182336608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c9575b795089640b606379891ff292
+      internalID: -868623542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a54f7e8675646c4996534c4d87c868d
+      internalID: -1482434563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1dba7c9614646342ac2ca44e5dec6bb
+      internalID: 1357772277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f342c7e12b3ed5d4e8e61d50371ba33d
+      internalID: 1889874132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313d69655a2c7104998ee6f4a1a17932
+      internalID: -539147251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cd829776207f224fb9450f52ffcf198
+      internalID: -894589982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312207acb59ec6447abf67ddd992df51
+      internalID: 570090690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f022130073309b4c8808e3e02bf7889
+      internalID: -1395366229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd5cbd59775f2644a54a438fa3fce5e
+      internalID: 297071166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ccc8df425ead54384f917055ab485a
+      internalID: -1400166506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6af34f41ed281541a5f98bd843b60a6
+      internalID: 1053160042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb47e1da99c826b4c9ae6566842a3b58
+      internalID: 264817518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f1afa60ceb29a47b6dd27beff82da0
+      internalID: -834222137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53bf8bd478cb57e42ace0fd7c04fdbb7
+      internalID: 797163744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cd131104ea3464183de662d2528c86
+      internalID: -1915984307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b1bd6c7a2ec304ab0e0895e852f599
+      internalID: 1950484349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c77dbd32fad112e45b0aa0716ac79a53
+      internalID: -1064319316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_24
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b26af8081e78144d877b3d54460181a
+      internalID: 2076970691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_25
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c02a9d4e0381a4e925db29b9f5a137
+      internalID: 874164185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_26
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5133fcc2297114ab0f021b2e759cdc
+      internalID: 327222364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_27
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e457f594440f15c4198faa162f878937
+      internalID: 26895789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb4224353790ee4d97731fb30ca29c7
+      internalID: -504668146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_29
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdc28821f3bcb4d40bbe80781979fcc6
+      internalID: 724057866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_30
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0424e37d03545b44f8c88cfebdbd7836
+      internalID: 2081017192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_31
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab060242f66bb04f82e9ee6843300f3
+      internalID: -992381531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ec030a533cfbb4f87a86ad87a8e99f
+      internalID: -1216646893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cde0eb2a276faf4587357bbeb48c0cb
+      internalID: 887933336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea7a3d4df0c7d5643aa902efd9d044de
+      internalID: -667869837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c2f763f98dad648b4ccac92b53bad0
+      internalID: -1353917291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b877bcb5beb180a489e46d1777a2d01c
+      internalID: -638212757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbdfb5a6248a8674d9695b75a48f9e86
+      internalID: -1412945410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53db40a6f6e9dc34b991422518467bdb
+      internalID: -361526344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_39
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c18099c54941b45a92c48c3ebfbaf5
+      internalID: -948337614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_40
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1578ddef9d02fe7489ff72124ce99e33
+      internalID: -173683400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_41
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6e627ae54d9e646a942d502fe31af6
+      internalID: -389735445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_42
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 044d20a554de83044b8b07a6f1070f80
+      internalID: -2054290834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_43
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eedd073460410045b7caf4fd6e01fbf
+      internalID: -1439298875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_44
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b829590d0e2c734a855f0f2f8b5452b
+      internalID: -1532963203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_45
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b03269660b03f428a3a1f9908a2cc2
+      internalID: -1688929264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_46
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e468d64cb101554fafe06e3ee441de9
+      internalID: -763980496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_47
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1595bad55deb9ad4bab2e23eed7b8ed4
+      internalID: 1976279929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62f4b659a15d1c4c8dfa1cf42ff40de
+      internalID: -1868530019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524f421d54aa78d42ad435c3c44c4193
+      internalID: 55737778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d942db15b9fb89448126dfced8feccb
+      internalID: -919294121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6689f0394555e914e9e75d38b2580917
+      internalID: 1736759703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab82322a6186564b94c627f9194795f
+      internalID: -1877491687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9340271beb99d14da7a6dcbdf552dfc
+      internalID: 1367591270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5a76825d9c2ce4b8ca74d26b338371
+      internalID: -490288252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d91b38a295464604daf9861afe9fcae2
+      internalID: -954445882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecca0ac4bb658e44e87d454548d1d563
+      internalID: -1673322177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b62c6f079f4288c4f8587df79baf74c3
+      internalID: -1265619356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b272aa77956ae40807943e29d1cbc9
+      internalID: 1542496354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_59
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190b49644454bdb4295697189ae8676f
+      internalID: -1103945022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16f8c0bd6fe05a46bb75ef7274de43d
+      internalID: -1398314242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_61
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1215b8a5deff8be4ebb15e2efd0190dd
+      internalID: 297434809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_62
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782889c7cc830dc45a486a55ce1ca38f
+      internalID: 710540506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_63
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 768
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92423dc372a9874eab928d48b24449c
+      internalID: 2084655058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431d0ed1aa1a6324da86da8c7af0cb71
+      internalID: -2004229768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50092d185c5d5c144a8074b0b463e567
+      internalID: 941707547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_66
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33fb4a400ce8da54fb9613aa627272b5
+      internalID: -1854672926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_67
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d70a5c0b4df9a48aadf39d784fd2e5
+      internalID: 1133641632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_68
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fd47173757f1e4c8e13ee5d889675c
+      internalID: 974224547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_69
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ccc6945dc6417479e22f270b3dbfa7
+      internalID: 2052401288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_70
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d6c71899e0ff74a861b726281267ce
+      internalID: -1937797413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_71
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb82bcca83a9f4348b20ba20315910c2
+      internalID: 606113973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_72
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bf6ca292b759546a6af5198e27eaa9
+      internalID: -752762780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_73
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fb4b9a36ea216f4d85323275df43bc5
+      internalID: -981416262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_74
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f16961e485adc4fa2054efbb0b75c4
+      internalID: -2101755006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_75
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3df89ce5069add499a856e39010b7b7
+      internalID: 167273254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_76
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9485b63f791b6e5468cc4e531054ab16
+      internalID: -2022108275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_77
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0400f91c150055942894f6114f4a994e
+      internalID: 1862829351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_78
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023c63fdeb9e30740a0af87d0706479a
+      internalID: -1568642658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_79
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 704
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb8ef06ca28e224e9cca60b8cd95222
+      internalID: 403584853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e41c22f945122f4c94a2360b2011e39
+      internalID: 1675701668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa3f7b736e51364ab8cbaaa144e4032
+      internalID: 1461360892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_82
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971521dac9187a543bf14b4673187e6c
+      internalID: -208755479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_83
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c786da90b06414ab656cbe6d38709d
+      internalID: -492553882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_84
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48048dbb4e71f644687f9415752fe6b6
+      internalID: -434284855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_85
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae5ab33be883af45a5f1670b2a0969b
+      internalID: 1715556135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_86
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3981b31e3f897064cb53ec2ed1f6407f
+      internalID: -1108253195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_87
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf60addfd4a4744d9ced945cbb6e01d
+      internalID: 720826080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_88
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439cad756a9d8de42a63f7b05119c6c0
+      internalID: -309628083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_89
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7881fa05a88f44a8f18614fcd7d8ca
+      internalID: -977121406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_90
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f648b14e849d4da4ca71ccef099a4e6c
+      internalID: -1244247689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_91
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8302f6bf92201e849a0aed354a1bee03
+      internalID: -1293191776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_92
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434972288a7ea404b945099299c6bc83
+      internalID: 1717931842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_93
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa758cef09105724387170770c4adc75
+      internalID: 950435893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_94
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3646c6d5ad207d9479a1ea894b99d28e
+      internalID: 1375402850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_95
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 640
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595c9fca114fff945a0023b079f99010
+      internalID: -592157578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773de2c3752104240bf8488b5d248571
+      internalID: -1105568711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e93bf98eab2dd44ab5ead29d0f7723d
+      internalID: 1985056393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9526c18cb5e6b604d89ebc08bdda3182
+      internalID: 1088678804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_99
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e8742b8d0b6f740af2d19b666b4f3d
+      internalID: 686212538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_100
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454e71ebcf6be754fa7a84df168bfa36
+      internalID: 1233643882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_101
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05012094ae735c845a3330d5265b267f
+      internalID: 1093326281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c6d9a27b2e21e47bff7b593fa134da
+      internalID: -1276144799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_103
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8ad837cf973ba641b97f2dcb5a19d07
+      internalID: 1294338870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_104
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473aec8425e23c8419d18d5db85d5713
+      internalID: -1394465816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_105
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8fb178a23793241b52cec50b1a4f9a
+      internalID: -1408051544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_106
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f5d0d310a140043bb228ab541c8983
+      internalID: 741856625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_107
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4eb690aeae72d4e8a16215847f45d4
+      internalID: 286488054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_108
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef6aad3a7f168c4e927864238acc15f
+      internalID: 1781594676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_109
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b590bff185cf154f9a5682def270c6e
+      internalID: 673624772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_110
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2ba81fa31b1ee45a3db2a6368b5cf4
+      internalID: 83632584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_111
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c446d0fc3059fd4fa050def5de4f81e
+      internalID: 131487994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfda5cc4ba493f946997abaf72afdc36
+      internalID: 1706563595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_113
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 206e5125e98474043aa2162044ded471
+      internalID: 1234251759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_114
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac8980e593119764b8646c32a44c608f
+      internalID: -410448658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_115
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99144a46c5d7f7f47b8946fe254d59ff
+      internalID: 720200088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_116
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c3e9bea76928940b388b995618c3a5
+      internalID: -1440876175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_117
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcac64782ec89e42a404a6feae0958f
+      internalID: 1222428996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_118
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5723f3e3f83c12468dac85ef170bba5
+      internalID: 1406822957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_119
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d936630a87d8744f93516c4ec63abdc
+      internalID: -1636544387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_120
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67e7989a01d8f243a5cec87cb9a5877
+      internalID: 1098449702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_121
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d25e48f46aca98419c6ca40213e1ee8
+      internalID: -2013945559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_122
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4e03294e53b804c9e28e2d09d9f1f9
+      internalID: -1883841403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_123
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f372d19dea704c4fa20952fa846132f
+      internalID: -1411783694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_124
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d2539cb0e67cf9489de972929fc2d11
+      internalID: 993748727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_125
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04196ede00e3a454498164d0b31bc57f
+      internalID: 1996739839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_126
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2c3bbccd4fb694ba0f8c4544277a5b
+      internalID: -717747966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_127
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8be99b08c78ca14090b67d4b246ee3a
+      internalID: 96839023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_128
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fed4ab7d5ebdd4ebfafeea3fe94260
+      internalID: 1483879394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_129
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9115ee24eb8e67e48b6d4fd4718f96e9
+      internalID: -1424231988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_130
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0bfb9294f9b4cd4b9680bb367252a42
+      internalID: -1368042949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_131
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463b41bdc2e9a674d8e4140f52723155
+      internalID: -1756231436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_132
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f454856b7317945aa5599432abf9fa
+      internalID: 952075788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_133
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8f2651165232b40aac2792bdbf712e
+      internalID: -1065558762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_134
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dea644e695cb994ba9bea1b61731d58
+      internalID: 1400324529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_135
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94cb13e68b06af4c80657f07520c4cd
+      internalID: -261028190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_136
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cbef995cfb27a41a7b54dfcdb354ab
+      internalID: -1759299904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_137
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c459dcb3d08a7b84e98132833ad0862d
+      internalID: -1795004284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_138
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b2332202d1e514294bd7418b8680c4
+      internalID: -693875307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_139
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3504ecf37ba4a6f4f9321f389da9be14
+      internalID: -271861430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_140
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9583b06407bca9c46aa5e7ad5ce94565
+      internalID: 1237844910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_141
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f6b3c5b83250e745af672141e43784d
+      internalID: 1802458306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_142
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42cdee57da78f9c408f5ad4b08cc7956
+      internalID: -401422879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_143
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5887b4d40a2760b4391246bfc6019f7c
+      internalID: -445906934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_144
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4de0273305bafe04996f0bfd6a42d5fd
+      internalID: -558675873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_145
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444b2394371e8ee4ab91dcffcb243fb9
+      internalID: 1739025361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_146
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4dd2965a656f44098d1773aa65982f
+      internalID: -87409078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_147
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62a108ed9474a14d93303cb2b70fb63
+      internalID: -1114633256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_148
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a521e07bf7d061f44831d39e905c0653
+      internalID: 539974944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_149
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1d91e4dd6cdf14e8533f3f3794392d
+      internalID: -703553034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_150
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9a77b77d0faa842acd43823aa1373a
+      internalID: -1289625661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_151
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799f72d72c8e5df4285953dcbe4817a7
+      internalID: -1863987584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_152
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c292f33adcc6e4baf9320ee8590ebe
+      internalID: -1244993056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_153
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd006ff1137878a4dbcc5e8f5461ea93
+      internalID: 2142154033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_154
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f6b61150ade07499247fea28e8da24
+      internalID: 943536933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_155
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32eeb7e358c25e6418bab8c6455c105b
+      internalID: 1132350795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_156
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1685bc3cc69ecd44987047207764008b
+      internalID: -1460550845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_157
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3cdaea408190f4d91200d4076033de
+      internalID: -2071021401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_158
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e03f869952a2e24d87faa898d6a26eb
+      internalID: 602882505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_159
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bddb3db2659ae94e896f05bb4f64ce6
+      internalID: 1967426629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_160
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc821bd3f13f264d90f19f524a54eec
+      internalID: -1934197944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_161
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2346808c68c212f4097373ccbfb3ed1a
+      internalID: -1726098073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_162
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee236fd841b9b340a18526dc588587f
+      internalID: 883668419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_163
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 834739700dca9144782c3446f9253615
+      internalID: 259844156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_164
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f043b203285bd3148b0689e68807d5d7
+      internalID: -699598727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_165
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a1087ce35ef014691ebbcf2b284520
+      internalID: 1048957634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_166
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a43fb62bd2807b947a769e2cd5670c29
+      internalID: 567806057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_167
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464ed4acdf4316241a73f690e651249a
+      internalID: 859994122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_168
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa12c7ac6d424af499d683be68151cec
+      internalID: -1292269938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_169
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e5b5beb3719e841a2b34d32305f0c3
+      internalID: -501819799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_170
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14f1b4f1887ce64eb29efa22954a28a
+      internalID: -1633335501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_171
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06886d487dd1e3419c85dcf7368ce90
+      internalID: -776464213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_172
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7bab3d59c41f9a4ebcd3ecd0c5cbd2e
+      internalID: -1453205476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_173
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f32766887534f34c86fc2b02b32325d
+      internalID: 770559334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_174
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a81dcb48bedbb649ac23ef685833713
+      internalID: -1332174024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_175
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c1b84f4da247f4e83224fc2e02a9b3
+      internalID: 1347365025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_176
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8301fb8008f7f5541849b1b2cd480ac2
+      internalID: -1327840263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_177
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103233d03df7f3d4ea9d9c42ebd22193
+      internalID: 1626623990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_178
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7eea0c81f3614b4a903165536566543
+      internalID: -1662444476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_179
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0897ee32290134648a64805ae2e51be8
+      internalID: 1347947636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_180
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3a2fcea96f0a7a4e84be0b5ac048b9b
+      internalID: -1875306598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_181
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80dd5e9d716f2448994c0ca044d21d4
+      internalID: 1610038118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_182
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f1abefa75ca3064f8bac6f060904f1c
+      internalID: -1921491294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_183
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd5ad5da5b32b143a9277f76b03a2a5
+      internalID: -1340186874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_184
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0385cf136f47e9740a115622ecd14ba8
+      internalID: -189789352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_185
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92cf2a7ac29cb674fb71ac9b9cd4ce3b
+      internalID: 1708680027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_186
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a283a7e47fa0446b07482e5d5a92a5
+      internalID: 270147263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_187
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a57d1171667ae409bf3f9504025f38
+      internalID: -2089833217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_188
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16370c057a6be3d4ebde1f6bdc66e7c3
+      internalID: -2147004159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_189
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3cc1da0330d0349990db24e5de7099
+      internalID: 508406503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_190
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617bffe8bf6a6b945a8a59f747e821cc
+      internalID: 1479774400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_191
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6e0e4e4b3ffa1945b1b7183a4fb0615
+      internalID: -181887558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_192
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61ae958836d21d439342961ef64bc2d
+      internalID: 1799527526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_193
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58252da523729fc4ab8ae36cffaf3424
+      internalID: -1807170954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_194
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e33f9b2e33c2a745ae50f3c1911bbbe
+      internalID: -2026663094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_195
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba32d5cafecf87744951f949dbf85014
+      internalID: 376782329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_196
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5693716a9b1df4da07f02cd288293c
+      internalID: 382535353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_197
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13f16bbb024757f4398d92fac71fb46a
+      internalID: 774606942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_198
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 988df65a8292a6c458ea7b561c514811
+      internalID: -186047667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_199
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c507b1e5ab30dd45a0c865c42e8cf03
+      internalID: 1785273645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_200
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a8389a6a633db40802c5f090d5cb93
+      internalID: 44021006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_201
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361b20e1e1869204399dd7cfc4488c10
+      internalID: -221197934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_202
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a3cfe48a092cb4c9c093d836e67f6b
+      internalID: -1617448185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_203
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9246e23913d153c4e9edbab0e37e4ed6
+      internalID: -1649099652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_204
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a35b452b10e3adc45b3c35e482186268
+      internalID: 493284306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_205
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1c510f130b0984b802c029966f0c37
+      internalID: -1651329040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_206
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd50b23b5ffb06d45992dcc4d4c325c6
+      internalID: -1993509646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_207
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29dea6792227e14e881afe72dfd216d
+      internalID: -1539771246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_208
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041b18af6875de2499c4268e7c636432
+      internalID: 453952236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_209
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40015c4a57461149a476dea955d215a
+      internalID: 457686498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_210
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32f07b35068a77b47ad3c569e4bb1dd6
+      internalID: 1614860898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_211
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c060533812dfc6046907ee94f4cf13c7
+      internalID: 583798668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_212
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665957a24fa70294ca0c51de3aa5e154
+      internalID: 1837561605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_213
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59cf69037f0c41241af37890b3fdde55
+      internalID: -1426451336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_214
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd165cbe4124ca94cb969d4de5153971
+      internalID: 1944311369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_215
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350b09836fd30be47a3e0f30a7dded0c
+      internalID: 679814936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_216
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ca40eaaa97daf4682f615bf37335de
+      internalID: 1173429423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_217
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e01e8c9119cd74459ef2f8c86339844
+      internalID: 287526473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_218
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c243614a560a4d14db44c687d9194f4a
+      internalID: -149255483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_219
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d228bdcb94d251045bca171ee0142db2
+      internalID: 1729208127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_220
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb50e1d6ebceaa14ab1258d69dfa055a
+      internalID: -1471023805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_221
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd74e3566088b44bb7db63eef4a7163
+      internalID: -1045080048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_222
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c217f3bca88e645bf5084bf2995f81
+      internalID: 1717593243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_223
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da0a1d949288984ca34995a3a709487
+      internalID: 452797296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_224
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a937792fe823a6e4281d0525d4ac1ff7
+      internalID: -986798821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_225
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e23f2b3d23b014a9a5594d6d671cd5
+      internalID: -2085718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_226
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4c2268f7077bc4cb96880787b62c96
+      internalID: 2091172772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_227
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13c73455628be54bab969c2d2f36378
+      internalID: -481877781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_228
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a018d206b20e31a4c928e70cf04342f6
+      internalID: -2115252102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_229
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912a00acce93adf44a3040174009dc0f
+      internalID: 801699577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_230
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5373c67bc8b52074681471833990603f
+      internalID: 2130430208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_231
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d991bb122b898e247a8a274ebabf777f
+      internalID: -1716219677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_232
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba0cf8498e8cd74f87b975a70f15822
+      internalID: 1656695817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_233
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54440d78af77242489562f249dba5bc4
+      internalID: -283582174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_234
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbbbd87866275742aff6bb2827f9714
+      internalID: 1609415657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_235
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448a2f1cc4b99214e8b73c28238773a8
+      internalID: 1529713772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_236
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d23c7b7ddf9504cb7a345abdc9ffd9
+      internalID: 1126980743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_237
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8fed62975bc844ca216421308c8e04
+      internalID: -1369714272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_238
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fabad28f282fd141ab629d1de5baacc
+      internalID: 386850952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_239
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8497f735610103c4c8bfafe21477cf2e
+      internalID: -551184029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_240
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df8ee02f04f03a45890538713c549ff
+      internalID: 2112658696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_241
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69711efe68ee114f904e7737b2cf13c
+      internalID: -1775061744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_242
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc7dfd8958439d84f99bd9ab9fadc253
+      internalID: -2143365952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_243
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d558197ba6e60f49b55c5db321b9d46
+      internalID: -653618056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_244
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48caf52bf526bca4eb1f805bda054d18
+      internalID: -95541328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_245
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7218b2ae0ccec0428e252f9acbef685
+      internalID: 1379740466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_246
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddef561e907ca24a87075f61ade30e3
+      internalID: -1217592981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_247
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85cfbeb19b14c514ebabc4f839ed3db9
+      internalID: -1960961980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_248
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614e0e79caf74de44b5339ceb1517015
+      internalID: 773777341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_249
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541b5e4de3d0cb14b86d277855bdfa0c
+      internalID: 1500070285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_250
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e0b6a0c7974d34ea0bf7cc5c2be52d
+      internalID: 259315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_251
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d62af9ea87ce1940b369f414a489dec
+      internalID: 991956416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_252
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b95e612825e479d419210ba68e941e31
+      internalID: 1994114992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_253
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd82ae9e8f0048649a164975d0b5177c
+      internalID: 226145767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_254
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 976d383c67085b44ba64ddeea09bafe8
+      internalID: -233305370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_255
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c5853c2ee0b6a40b9cf45c116d7034
+      internalID: 223191475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_0: -1409162312
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_1: -1410683599
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_10: 1889874132
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_100: 1233643882
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_101: 1093326281
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_102: -1276144799
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_103: 1294338870
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_104: -1394465816
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_105: -1408051544
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_106: 741856625
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_107: 286488054
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_108: 1781594676
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_109: 673624772
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_11: -539147251
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_110: 83632584
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_111: 131487994
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_112: 1706563595
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_113: 1234251759
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_114: -410448658
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_115: 720200088
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_116: -1440876175
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_117: 1222428996
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_118: 1406822957
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_119: -1636544387
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_12: -894589982
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_120: 1098449702
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_121: -2013945559
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_122: -1883841403
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_123: -1411783694
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_124: 993748727
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_125: 1996739839
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_126: -717747966
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_127: 96839023
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_128: 1483879394
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_129: -1424231988
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_13: 570090690
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_130: -1368042949
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_131: -1756231436
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_132: 952075788
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_133: -1065558762
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_134: 1400324529
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_135: -261028190
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_136: -1759299904
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_137: -1795004284
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_138: -693875307
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_139: -271861430
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_14: -1395366229
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_140: 1237844910
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_141: 1802458306
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_142: -401422879
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_143: -445906934
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_144: -558675873
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_145: 1739025361
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_146: -87409078
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_147: -1114633256
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_148: 539974944
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_149: -703553034
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_15: 297071166
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_150: -1289625661
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_151: -1863987584
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_152: -1244993056
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_153: 2142154033
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_154: 943536933
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_155: 1132350795
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_156: -1460550845
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_157: -2071021401
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_158: 602882505
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_159: 1967426629
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_16: -1400166506
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_160: -1934197944
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_161: -1726098073
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_162: 883668419
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_163: 259844156
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_164: -699598727
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_165: 1048957634
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_166: 567806057
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_167: 859994122
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_168: -1292269938
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_169: -501819799
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_17: 1053160042
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_170: -1633335501
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_171: -776464213
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_172: -1453205476
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_173: 770559334
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_174: -1332174024
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_175: 1347365025
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_176: -1327840263
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_177: 1626623990
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_178: -1662444476
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_179: 1347947636
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_18: 264817518
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_180: -1875306598
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_181: 1610038118
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_182: -1921491294
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_183: -1340186874
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_184: -189789352
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_185: 1708680027
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_186: 270147263
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_187: -2089833217
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_188: -2147004159
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_189: 508406503
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_19: -834222137
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_190: 1479774400
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_191: -181887558
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_192: 1799527526
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_193: -1807170954
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_194: -2026663094
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_195: 376782329
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_196: 382535353
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_197: 774606942
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_198: -186047667
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_199: 1785273645
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_2: 970552376
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_20: 797163744
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_200: 44021006
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_201: -221197934
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_202: -1617448185
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_203: -1649099652
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_204: 493284306
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_205: -1651329040
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_206: -1993509646
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_207: -1539771246
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_208: 453952236
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_209: 457686498
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_21: -1915984307
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_210: 1614860898
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_211: 583798668
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_212: 1837561605
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_213: -1426451336
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_214: 1944311369
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_215: 679814936
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_216: 1173429423
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_217: 287526473
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_218: -149255483
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_219: 1729208127
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_22: 1950484349
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_220: -1471023805
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_221: -1045080048
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_222: 1717593243
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_223: 452797296
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_224: -986798821
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_225: -2085718
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_226: 2091172772
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_227: -481877781
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_228: -2115252102
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_229: 801699577
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_23: -1064319316
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_230: 2130430208
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_231: -1716219677
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_232: 1656695817
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_233: -283582174
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_234: 1609415657
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_235: 1529713772
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_236: 1126980743
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_237: -1369714272
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_238: 386850952
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_239: -551184029
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_24: 2076970691
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_240: 2112658696
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_241: -1775061744
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_242: -2143365952
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_243: -653618056
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_244: -95541328
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_245: 1379740466
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_246: -1217592981
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_247: -1960961980
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_248: 773777341
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_249: 1500070285
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_25: 874164185
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_250: 259315
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_251: 991956416
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_252: 1994114992
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_253: 226145767
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_254: -233305370
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_255: 223191475
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_26: 327222364
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_27: 26895789
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_28: -504668146
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_29: 724057866
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_3: -1800482977
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_30: 2081017192
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_31: -992381531
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_32: -1216646893
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_33: 887933336
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_34: -667869837
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_35: -1353917291
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_36: -638212757
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_37: -1412945410
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_38: -361526344
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_39: -948337614
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_4: 2147063035
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_40: -173683400
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_41: -389735445
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_42: -2054290834
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_43: -1439298875
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_44: -1532963203
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_45: -1688929264
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_46: -763980496
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_47: 1976279929
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_48: -1868530019
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_49: 55737778
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_5: 504437557
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_50: -919294121
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_51: 1736759703
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_52: -1877491687
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_53: 1367591270
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_54: -490288252
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_55: -954445882
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_56: -1673322177
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_57: -1265619356
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_58: 1542496354
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_59: -1103945022
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_6: 182336608
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_60: -1398314242
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_61: 297434809
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_62: 710540506
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_63: 2084655058
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_64: -2004229768
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_65: 941707547
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_66: -1854672926
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_67: 1133641632
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_68: 974224547
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_69: 2052401288
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_7: -868623542
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_70: -1937797413
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_71: 606113973
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_72: -752762780
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_73: -981416262
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_74: -2101755006
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_75: 167273254
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_76: -2022108275
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_77: 1862829351
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_78: -1568642658
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_79: 403584853
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_8: -1482434563
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_80: 1675701668
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_81: 1461360892
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_82: -208755479
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_83: -492553882
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_84: -434284855
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_85: 1715556135
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_86: -1108253195
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_87: 720826080
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_88: -309628083
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_89: -977121406
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_9: 1357772277
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_90: -1244247689
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_91: -1293191776
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_92: 1717931842
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_93: 950435893
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_94: 1375402850
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_95: -592157578
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_96: -1105568711
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_97: 1985056393
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_98: 1088678804
+      taaft.com-2d-topdown-rpg-sprite-generator-by-godsofrabbits-1736357380_99: 686212538
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

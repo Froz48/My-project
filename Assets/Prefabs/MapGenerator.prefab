@@ -46,3 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
   groundTile: {fileID: 11400000, guid: 1e647cffabb70084b9a7caded13a536e, type: 2}
+  biomes:
+  - {fileID: 11400000, guid: e909977d05be0be4fb7f085218af0336, type: 2}
+  - {fileID: 11400000, guid: 95f85f6b0d5683f47bd511bf525b8149, type: 2}
+  playerTransform: {fileID: 0}

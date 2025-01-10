@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -18,15 +20,19 @@ public class MapGen : MonoBehaviour
     const float CHUNK_GEN_TRY_FREQUENCY = 10f;
     [SerializeField] List<Biome> biomes;
     [SerializeField] private Transform playerTransform;
+    
     [SerializeField]
     public List<TileBase> tileCache = new List<TileBase>();
-    private int RenderDistance = 5;
+    private int RenderDistance = 10;
     public static void SetNoiceParams(FastNoiseLite noise, int seed, float frequency, 
-            FastNoiseLite.NoiseType noiseType = FastNoiseLite.NoiseType.OpenSimplex2,
+            FastNoiseLite.NoiseType noiseType = FastNoiseLite.NoiseType.Cellular,
             FastNoiseLite.FractalType fractalType = FastNoiseLite.FractalType.FBm,
-            int octaves = 2,
+            int octaves = 1,
             float lacunarity = 1f,
-            float gain = 0.5f,
+            float gain = 0.0f,
+            FastNoiseLite.CellularDistanceFunction cellularDistanceFunction = FastNoiseLite.CellularDistanceFunction.Hybrid,
+            FastNoiseLite.CellularReturnType cellularReturnType = FastNoiseLite.CellularReturnType.CellValue,
+            float cellulalJitter = 1f,
             FastNoiseLite.DomainWarpType domainWarpType = FastNoiseLite.DomainWarpType.OpenSimplex2,
             float amplitude = 5f
             )
@@ -41,7 +47,18 @@ public class MapGen : MonoBehaviour
         noise.SetFractalGain(gain);
         noise.SetDomainWarpType(domainWarpType);
         noise.SetDomainWarpAmp(amplitude);
+        noise.SetCellularDistanceFunction(cellularDistanceFunction);
+        noise.SetCellularReturnType(cellularReturnType);
+        noise.SetCellularJitter(cellulalJitter);
         
+    }
+    float biomeCapacity;
+    private void UpdateBiomeCapacity(){
+        biomeCapacity = 0;
+        foreach (Biome biome in biomes){
+            biomeCapacity += biome.biomeFrequency;
+        }
+        biomeCapacity /= 2; // because { -1 : 1 } noice vals = length 2
     }
 
     private void CreateNoises(){
@@ -54,11 +71,12 @@ public class MapGen : MonoBehaviour
     public void Start(){
         tilemap = GameObject.FindObjectOfType<Tilemap>();
         InitializeStatistics();
-        TestBiomes(0.05f);
-        CreateNoises();
+        // TestBiomes(0.05f);
+        // CreateNoises();
+        UpdateBiomeCapacity();
         GenerateTestSprites();
         StartCoroutine(MapGenerating());
-        
+
     }
 
     void InitializeStatistics(){
@@ -70,8 +88,8 @@ public class MapGen : MonoBehaviour
         while (true)
         {
             GenerateNearbyChunks(GetPlayerChunkCoordinates(), RenderDistance);
-            foreach (var biome in biomeStats){
-                Debug.Log(biome.Key.name + " " + biome.Value);
+                foreach (var biome in biomeStats){
+                    Debug.Log(biome.Key.name + " " + biome.Value);
             }
             yield return new WaitForSeconds(CHUNK_GEN_TRY_FREQUENCY);
         }   
@@ -137,50 +155,56 @@ public class MapGen : MonoBehaviour
         return tileCache[(int)Mathf.Round(value)];
     }
 
-    private TileBase ChooseTile(float temperature, float rainfall){
+
+    private TileBase ChooseTile(float temperature){
+        float index = -1; // -1 : 1 noicevals
         foreach (Biome biome in biomes){
+            index += biome.biomeFrequency/biomeCapacity;
+            if (temperature <= index)
             {
-                if (temperature >= biome.temperatureLeftBorder && temperature <= biome.temperatureRightBorder 
-                    &&
-                    rainfall >= biome.rainfallLeftBorder && rainfall <= biome.rainfallRightBorder)
-                {
-                    biomeStats[biome]++;
-                    return biome.tile;
-                }
+                return biome.tile;
             }
         }
-        Debug.Log("No biome found for: " + temperature + " " + rainfall);
+        Debug.Log("havent found tile");
         return biomes[0].tile;
     }
-
-    // private TileBase ChooseTileNoiceTemperature(float temperature, float rainfall)
-    // {
-    //     //округлить до 1 знака после запятой
-    //     temperature = Mathf.Round(temperature * 10f) / 10f;
-    //     if (tileCache.ContainsKey(temperature))
-    //         return tileCache[temperature];
-            
-    //     Color noiseColor = new Color(temperature, temperature, temperature, 1f);
-    //     Tile newTile = ScriptableObject.CreateInstance<Tile>();
-    //     newTile.sprite = Sprite.Create(Texture2D.whiteTexture, new Rect(0, 0, 1, 1), new Vector2(0.5f, 0.5f));
-    //     newTile.color = noiseColor;
-        
-    //     tileCache[temperature] = newTile;
-    //     return newTile;
-    // }
     private  void GenerateChunkAsync(Vector2Int chunkCoord)
     {
         if (generatedChunks.Contains(chunkCoord))
             return;
         Thread thread = new Thread(() => GenerateChunkNoiseValuesChildThread(chunkCoord, TempNoise, RainNoise));
+        thread.Name = "generator of + " + chunkCoord;
+        
         thread.Start();
+        Debug.Log(thread.ExecutionContext);
         generatedChunks.Add(chunkCoord);
+    }
+    private void GenerateChunk(Vector2Int chunkCoords){
+        if (generatedChunks.Contains(chunkCoords))
+            return;
+        NativeArray<float> noiseValues = new NativeArray<float>(CHUNK_SIZE * CHUNK_SIZE, Allocator.TempJob);
+        JGenerateChunkNoise jGenerateChunkNoise = new JGenerateChunkNoise{
+            chunkCoord = chunkCoords,
+            // tempNoise = noise,
+            results = noiseValues
+        };
+        generatedChunks.Add(chunkCoords);
+        JobHandle handle = jGenerateChunkNoise.Schedule();
+        handle.Complete();
+        ThreadQueuer.QueueMainThreadFunction( () => ApplyChunkToTilemap(chunkCoords, noiseValues));
+        
+    }
+
+
+    private void dosmth(){
+        Debug.Log("dosmth");
     }
     private void GenerateChunkNoiseValuesChildThread(Vector2Int chunkCoord, FastNoiseLite tempNoise, FastNoiseLite rainNoise)
     {
+        Debug.Log("GenerateChunkNoiseValuesChildThreadStarted");
         Vector2Int startWorldPosition = new Vector2Int(chunkCoord.x * CHUNK_SIZE, chunkCoord.y * CHUNK_SIZE);
-        NativeArray<float> tempNoiseValues = new NativeArray<float>(CHUNK_SIZE * CHUNK_SIZE, Allocator.TempJob);
-        NativeArray<float> rainNoiseValues = new NativeArray<float>(CHUNK_SIZE * CHUNK_SIZE, Allocator.TempJob);
+        float[] tempNoiseValues = new float[CHUNK_SIZE * CHUNK_SIZE];
+        float[] rainNoiseValues = new float[CHUNK_SIZE * CHUNK_SIZE];
 
         for (int x = 0; x < CHUNK_SIZE; x++)
         {
@@ -195,13 +219,14 @@ public class MapGen : MonoBehaviour
                 rainNoiseValues[index] = rainNoiseValue;
             }
         }
-
-        ThreadQueuer.QueueMainThreadFunction(() => ApplyChunkToTilemap(chunkCoord, tempNoiseValues, rainNoiseValues));
+        Thread.Sleep(5000);
+        // ThreadQueuer.QueueMainThreadFunction(() => ApplyChunkToTilemap(chunkCoord, tempNoiseValues, rainNoiseValues));
+        Debug.Log("GenerateChunkNoiseValuesChildThreadEnded");
     }
 
 
         
-    private void ApplyChunkToTilemap(Vector2Int chunkCoord, NativeArray<float> noiseTemperatureValues, NativeArray<float> noiseRainfallValues)
+    private void ApplyChunkToTilemap(Vector2Int chunkCoord, NativeArray<float> noiseTemperatureValues)
     {
         Vector2Int startWorldPosition = new Vector2Int(chunkCoord.x * CHUNK_SIZE, chunkCoord.y * CHUNK_SIZE);
 
@@ -215,10 +240,10 @@ public class MapGen : MonoBehaviour
                 Vector3Int tilePosition = new Vector3Int(currentWorldPosition.x, currentWorldPosition.y, 0);
 
                 // tilemap.SetTile(tilePosition, ChooseTile(noiseTemperatureValues[index], noiseRainfallValues[index]));
-                tilemap.SetTile(tilePosition, ChooseTileTest(noiseTemperatureValues[index]));
+                tilemap.SetTile(tilePosition, ChooseTile(noiseTemperatureValues[index]));
             }
         }
-
+        noiseTemperatureValues.Dispose();
         generatedChunks.Add(chunkCoord);
     }
     bool isBusy = false;
@@ -237,7 +262,8 @@ public class MapGen : MonoBehaviour
                 int gx = vector2Int.x + x;
                 int gy = vector2Int.y + y;
                 //Debug.Log("GenNearbChunk " + gx + " " + gy);
-                GenerateChunkAsync(new Vector2Int(gx, gy));
+                //GenerateChunkAsync(new Vector2Int(gx, gy));
+                GenerateChunk(new Vector2Int(gx, gy));
             }
         }
     }
@@ -256,3 +282,24 @@ public class MapGen : MonoBehaviour
     }
 }
 
+public struct JGenerateChunkNoise : IJob
+{   
+    public NativeArray<float> results;
+    public Vector2Int chunkCoord;
+    public void Execute(){
+        Vector2Int startWorldPosition = new Vector2Int(chunkCoord.x * Config.CHUNK_SIZE, chunkCoord.y * Config.CHUNK_SIZE);
+        FastNoiseLite tempNoise = new FastNoiseLite();
+        MapGen.SetNoiceParams(tempNoise, seed:1, frequency: 0.02f);
+        for (int x = 0; x < Config.CHUNK_SIZE; x++)
+        {
+            for (int y = 0; y < Config.CHUNK_SIZE; y++)
+            {
+                Vector2Int currentWorldPosition = new Vector2Int(startWorldPosition.x + x, startWorldPosition.y + y);
+                float tempNoiseValue = tempNoise.GetNoise(currentWorldPosition.x, currentWorldPosition.y);
+
+                int index = x + y * Config.CHUNK_SIZE;
+                results[index] = tempNoiseValue;
+            }
+        }
+    }
+}

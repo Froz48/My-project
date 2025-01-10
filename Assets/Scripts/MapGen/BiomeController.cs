@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "new Biome", menuName = "Biome")]
 public class Biome : ScriptableObject
 {
+    [SerializeField] public float biomeFrequency;
     [SerializeField] public string biomeName ;
     [SerializeField] public float temperatureLeftBorder;
     [SerializeField] public float temperatureRightBorder;

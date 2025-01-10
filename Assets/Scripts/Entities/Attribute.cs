@@ -2,32 +2,23 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 public enum EAttributes{
-    Power,
-    AttackSpeed,
-    MovementSpeed,
-    Armor,
-    MaxHealth,
-    Population,
-    Housing,
-    Gold,
-    Defenses,
-    StorageSpace,
-    Fame,
-    Infrastructure,
-    Complexity
+    Power, AttackSpeed, MovementSpeed, Armor, MaxHealth,
+    Population, Housing, Gold, Defenses, StorageSpace, Fame, Infrastructure, Complexity
 }//(int)EAttributes.MaxHealth].GetValue()
 
 [Serializable]
 public class Attribute
 {
-    public event EventHandler onValueModified;
-    [SerializeField]private int baseValue;
-    private EAttributes type;
-    [SerializeField]private int value;
+    #region main variables
+    [SerializeField] private EAttributes name;
+    [SerializeField] private int baseValue;
+    [SerializeField] private int value;
     private List<IModifier> modifiers = new List<IModifier>();
-
+    
+    #endregion
+    public event EventHandler onValueModified;
     public Attribute(EAttributes _type, int _baseValue = 0){
-        type = _type;
+        name = _type;
         baseValue = _baseValue;
         value = _baseValue;
     }
@@ -38,13 +29,18 @@ public class Attribute
     public static string GetStatNameById(int _value){
         return Enum.GetName(typeof(EAttributes), _value);
     }
-
     public void SetBaseValue(int _baseValue){
         baseValue = _baseValue;
         UpdateModifiedValue();
     }
+    public int GetBaseValue(){
+        return baseValue;
+    }
     public int GetValue(){
         return value;
+    }
+    public EAttributes GetName(){
+        return name;
     }
 
     public void UpdateModifiedValue()

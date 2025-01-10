@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1877887150
+  GlobalObjectIdHash: 266310322
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -998,6 +998,7 @@ MonoBehaviour:
     type: 0
     Container: []
   nullAbility: {fileID: 11400000, guid: 8cd878433f045f94e91d6bf7f8368f10, type: 2}
+  baseAttributes: {fileID: 11400000, guid: c8681301f01a70a4c9d9ac561d24004d, type: 2}
 --- !u!114 &7389589370372629828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,7 +1112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
-  groundTile: {fileID: 11400000, guid: 1e647cffabb70084b9a7caded13a536e, type: 2}
   biomes:
   - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
   - {fileID: 11400000, guid: e909977d05be0be4fb7f085218af0336, type: 2}
@@ -1124,6 +1124,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93ce23598b629f14e965655a6143cccf, type: 2}
   - {fileID: 11400000, guid: 3008de9c1c65a514cb695d78c4d060eb, type: 2}
   playerTransform: {fileID: 7613614482847855789}
+  tileCache: []
 --- !u!1 &5912365055232650370
 GameObject:
   m_ObjectHideFlags: 0

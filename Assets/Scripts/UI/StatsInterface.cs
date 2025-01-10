@@ -22,12 +22,19 @@ public class StatsInterface : NetworkBehaviour
     {   
         if (!IsOwner) {gameObject.SetActive(false); return;}
     }
+
     public void UpdateUI(object sender, System.EventArgs e){
         text.text = "";
-        for (int i = 0; i < System.Enum.GetValues(typeof(EAttributes)).Length; i++){
-            text.text += Attribute.GetStatNameById(i) + ": " + attributes[i].GetValue() + "\n";
+        foreach(Attribute a in attributes){
+            text.text += a.GetName() + ": " + a.GetValue() + "\n";
         }
     }
+    // public void UpdateUI(object sender, System.EventArgs e){
+    //     text.text = "";
+    //     for (int i = 0; i < System.Enum.GetValues(typeof(EAttributes)).Length; i++){
+    //         text.text += Attribute.GetStatNameById(i) + ": " + attributes[i].GetValue() + "\n";
+    //     }
+    // }
 
 
 }

@@ -112,7 +112,7 @@ public class MapGen : MonoBehaviour
     private void GenerateTestSprites(){
         tileCache.Clear();
         for (int i = 0; i < 256; i++) {
-        RuleTile tile = new RuleTile();
+        RuleTile tile = RuleTile.CreateInstance<RuleTile>();
         
         
         Texture2D texture = new Texture2D(32, 32);

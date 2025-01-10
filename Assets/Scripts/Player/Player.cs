@@ -34,6 +34,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private InventoryObject inventory;
     [SerializeField] private InventoryObject equipment;
     [SerializeField] private NullAbility nullAbility;
+    [SerializeField] private AttributeListSO baseAttributes;
     #endregion
 
     #region Unity Methods
@@ -82,7 +83,8 @@ public class Player : NetworkBehaviour
     }
 
     private void InitializeBaseValues(){
-        attributes = Attribute.GetPlayerBaseValues();
+        //attributes = Attribute.GetPlayerBaseValues();
+        baseAttributes.SetAttributes(ref attributes);
         inventory = InventoryObject.CreateInstance(EInventoryType.Inventory, 40);
         equipment = InventoryObject.CreateInstance(EInventoryType.Equipment);
         currentHealth = GetMaxHealth();

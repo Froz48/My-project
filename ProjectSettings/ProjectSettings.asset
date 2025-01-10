@@ -564,7 +564,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Standalone: TLA_DEBUG_STACK_LEAK
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

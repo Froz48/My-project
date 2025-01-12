@@ -10,14 +10,14 @@ public enum EAttributes{
 public class Attribute
 {
     #region main variables
-    [SerializeField] private EAttributes name;
-    [SerializeField] private int baseValue;
-    [SerializeField] private int value;
-    private List<IModifier> modifiers = new List<IModifier>();
-    
+    [SerializeField] public EAttributes name;
+    [SerializeField] private float baseValue;
+    [SerializeField] private float value;
+    private List<AttributeModifier> modifiers = new List<AttributeModifier>();
+
     #endregion
     public event EventHandler onValueModified;
-    public Attribute(EAttributes _type, int _baseValue = 0){
+    public Attribute(EAttributes _type, float _baseValue = 0){
         name = _type;
         baseValue = _baseValue;
         value = _baseValue;
@@ -33,10 +33,10 @@ public class Attribute
         baseValue = _baseValue;
         UpdateModifiedValue();
     }
-    public int GetBaseValue(){
+    public float GetBaseValue(){
         return baseValue;
     }
-    public int GetValue(){
+    public float GetValue(){
         return value;
     }
     public EAttributes GetName(){
@@ -48,27 +48,25 @@ public class Attribute
         value = baseValue;
         for (int i = 0; i < modifiers.Count; i++)
         {
-            modifiers[i].AddValue(ref value);
+            value += modifiers[i].addValue;
+            // modifiers[i].AddValue(ref value);
         }
         onValueModified?.Invoke(this, EventArgs.Empty);
     }
-    public void AddModifier(IModifier _modifier)
+    public void AddModifier(AttributeModifier _modifier)
     {
         modifiers.Add(_modifier);
         UpdateModifiedValue();
     }
-    public void RemoveModifier(IModifier _modifier)
+    public void RemoveModifier(AttributeModifier _modifier)
     {
         modifiers.Remove(_modifier);
         UpdateModifiedValue();
     }
-    public static Attribute[] GetPlayerBaseValues(){
-        return CreateAttributes(new int[]{10, 10, 5, 0, 100});
-    }
 
-    public static Attribute[] GetMonsterBaseValues()
-    {
-        return CreateAttributes(new int[]{1, 1, 1, 0, 1});
+    public void ClearModifiers(){
+        modifiers.Clear();
+        UpdateModifiedValue();
     }
 
     public static Attribute[] CreateAttributes(int[] vals)

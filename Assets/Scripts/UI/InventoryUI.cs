@@ -14,12 +14,12 @@ public class InventoryUI : UserInterface {
     int NUMBER_OF_COLUMN;
     int spacing = 2;
 
-    public override void makeUI(InventoryObject _inventory, int columns = 10, int _spacing = 2){
+    public override void makeUI(InventoryBase _inventory, int columns = 10, int _spacing = 2){
         NUMBER_OF_COLUMN = columns;
         spacing = _spacing;
         base.makeUI(_inventory);
-        for (int i = 0; i < inventory.Container.Length; i++){
-            slotsOnInterface.Add(makeSlot(i), inventory.Container[i]);
+        for (int i = 0; i < inventory.Slots.Length; i++){
+            slotsOnInterface.Add(makeSlot(i), inventory.Slots[i]);
            
         }
         UpdateUI(this, EventArgs.Empty);

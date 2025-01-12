@@ -25,7 +25,7 @@ public class HealthInterface : NetworkBehaviour
     }
     public void UpdateUi(object sender, System.EventArgs e){
         float currentHealth = Mathf.Floor(player.getCurrentHealth());
-        int maxHealth = player.GetMaxHealth();
+        float maxHealth = player.GetMaxHealth();
         // f0 = no decimal
         text.text = currentHealth.ToString("F0") + " / " +  maxHealth.ToString();
         healthBar.fillAmount = currentHealth / maxHealth;

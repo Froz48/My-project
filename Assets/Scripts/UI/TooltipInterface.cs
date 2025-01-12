@@ -11,7 +11,7 @@ public static class TooltipInterface
 {
     static public GameObject tooltipPrefab = Resources.Load<GameObject>("TooltipPrefab");
     static private GameObject currentTooltip;
-    public static void ShowTooltip(GameObject slot, ItemObject itemObject)
+    public static void ShowTooltip(GameObject slot, ItemBase itemObject)
     {
             if (currentTooltip == null)  createTooltip();
             setPostition(slot);
@@ -23,16 +23,16 @@ public static class TooltipInterface
         currentTooltip = Object.Instantiate(tooltipPrefab, new Vector3(), Quaternion.identity);
     }
 
-    private static void setText(ItemObject itemObject){
+    private static void setText(ItemBase itemObject){
         currentTooltip.GetComponentInChildren<TextMeshProUGUI>().text = "";
 
         currentTooltip.GetComponentInChildren<TextMeshProUGUI>().text += 
-            $"<align=center><size=30><color=yellow> {itemObject.Name} </color></size></align>\n";   
+            $"<align=center><size=30><color=yellow> {itemObject.name} </color></size></align>\n";   
 
         string modifiersText = "";
-        for (int i = 0; i < itemObject.buffs.Length; i++){
-            modifiersText += itemObject.buffs[i].attribute + " " + itemObject.buffs[i].getValue() + "\n";
-        }
+        // for (int i = 0; i < itemObject.buffs.Length; i++){
+            // modifiersText += itemObject.buffs[i].attribute + " " + itemObject.buffs[i].getValue() + "\n";
+        // }
         currentTooltip.GetComponentInChildren<TextMeshProUGUI>().text += 
         $"<size=25><color=red> {modifiersText} </color></size>";
 

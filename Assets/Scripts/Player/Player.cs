@@ -31,8 +31,8 @@ public class Player : NetworkBehaviour
     [SerializeField] private Vector3 spawnPosition = new Vector3(0,0,-1);
     [SerializeField] private GameObject debugprefab;
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private InventoryObject inventory;
-    [SerializeField] private InventoryObject equipment;
+    [SerializeField] private Inventory inventory;
+    [SerializeField] private EquipmentInventory equipment;
     [SerializeField] private NullAbility nullAbility;
     [SerializeField] private AttributeListSO baseAttributes;
     #endregion
@@ -75,18 +75,18 @@ public class Player : NetworkBehaviour
 
     #region Initialization Methods
     private void InitializeEvents(){
-        for (int i = 0; i < equipment.Container.Length; i++){
+        for (int i = 0; i < equipment.Slots.Length; i++){
             int whyIsItAThing = i;
-            equipment.Container[i].OnAfterUpdate += (ctx1, ctx2) => ItemEquiped(equipment.Container[whyIsItAThing]);
-            equipment.Container[i].OnBeforeUpdate += (ctx1, ctx2) => ItemUnequiped(equipment.Container[whyIsItAThing]);
+            equipment.Slots[i].OnAfterUpdate += (ctx1, ctx2) => ItemEquiped(equipment.Slots[whyIsItAThing]);
+            equipment.Slots[i].OnBeforeUpdate += (ctx1, ctx2) => ItemUnequiped(equipment.Slots[whyIsItAThing]);
         }
     }
 
     private void InitializeBaseValues(){
         //attributes = Attribute.GetPlayerBaseValues();
         baseAttributes.SetAttributes(ref attributes);
-        inventory = InventoryObject.CreateInstance(EInventoryType.Inventory, 40);
-        equipment = InventoryObject.CreateInstance(EInventoryType.Equipment);
+        inventory = new Inventory(40);
+        equipment = new EquipmentInventory();
         currentHealth = GetMaxHealth();
     }
 
@@ -114,15 +114,19 @@ public class Player : NetworkBehaviour
     {
         if (_slot.item == null)
             return;
-        for (int i = 0; i < _slot.item.buffs.Length; i++)
-        {
-            attributes[(int)_slot.item.buffs[i].attribute].AddModifier(_slot.item.buffs[i]);
-        }
-        if (_slot.item.ability != null){
-                ChangeAbilityInstance(GetAbilitySlotByEquipmentType(_slot.item.type), _slot.item.ability);
-        }
+        if (_slot.item is EquipmentItem equipmentItem){
+            foreach (var i in equipmentItem.attributeModifiers){
+                attributes[(int)i.attribute].AddModifier(i);
+            }
+        } else Debug.Log("How the f did you equip a non-equipment item?");
     }
 
+    private int FindFreeSlot(){
+        for (int i = 0; i < abilities.Length; i++)
+            if (abilities[i] == nullAbility)
+                return i;
+        return -1;
+    }
     private int GetAbilitySlotByEquipmentType(EItemType eItemType){
         switch (eItemType){
             case EItemType.Helmet:
@@ -142,12 +146,11 @@ public class Player : NetworkBehaviour
     {
         if (_slot.item == null)
             return; 
-        for (int i = 0; i < _slot.item.buffs.Length; i++)
-        {
-            attributes[(int)_slot.item.buffs[i].attribute].RemoveModifier(_slot.item.buffs[i]);
-        }
-        if (GetAbilitySlotByEquipmentType(_slot.item.type) != -1)
-            ChangeAbilityInstance(GetAbilitySlotByEquipmentType(_slot.item.type), nullAbility);
+        if (_slot.item is EquipmentItem equipmentItem){
+            foreach (var i in equipmentItem.attributeModifiers){
+                attributes[(int)i.attribute].RemoveModifier(i);
+            }
+        } else Debug.Log("Unequipped non-equipment item, good boy!");
     }
 
     
@@ -179,10 +182,10 @@ public class Player : NetworkBehaviour
     #endregion
 
     #region Ability and Action Management
-    private void UseHotbarSlot(){
-        Debug.Log("UseHotbar" + inventory.Container[0].item.Name);
-        inventory.Container[0].item.UseItem(playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
-        inventory.Container[0].RemoveAmount(1);
+    private void UseHotbarSlot(){ // FIX THIS
+        // Debug.Log("UseHotbar" + inventory.Slots[0].item.name);
+        //inventory.Slots[0].item.UseItem(playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        // inventory.Slots[0].RemoveAmount(1);
     }
 
     private void UseAbility(int index){
@@ -229,12 +232,12 @@ public class Player : NetworkBehaviour
     #endregion
 
     #region Getters
-    public int GetAttributeByIndex(int index) => attributes[index].GetValue();
-    public int GetMovementSpeed() => attributes[(int)EAttributes.MovementSpeed].GetValue();
-    public int GetPower() => attributes[(int)EAttributes.Power].GetValue();
-    public int GetMaxHealth() => attributes[(int)EAttributes.MaxHealth].GetValue();
+    public float GetAttributeByIndex(int index) => attributes[index].GetValue();
+    public float GetMovementSpeed() => attributes[(int)EAttributes.MovementSpeed].GetValue();
+    public float GetPower() => attributes[(int)EAttributes.Power].GetValue();
+    public float GetMaxHealth() => attributes[(int)EAttributes.MaxHealth].GetValue();
     public float getCurrentHealth() => currentHealth;
-    public InventoryObject GetInventory() => inventory;
-    public InventoryObject GetEquipment() => equipment;
+    public Inventory GetInventory() => inventory;
+    public EquipmentInventory GetEquipment() => equipment;
     #endregion
 }

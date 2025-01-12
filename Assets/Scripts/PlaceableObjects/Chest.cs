@@ -8,7 +8,7 @@ public class Chest : PlaceableObject, IPointerClickHandler
 {
     private bool isOpened = false;
     public void Start(){
-        inventory = InventoryObject.CreateInstance(EInventoryType.Chest, 20);
+        // inventory = InventoryObject.CreateInstance(EInventoryType.Chest, 20);
     }
 
 

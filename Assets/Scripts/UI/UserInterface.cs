@@ -9,12 +9,12 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UserInterface : NetworkBehaviour{
+public class UserInterface : MonoBehaviour{
     public Dictionary<GameObject, InventorySlot> slotsOnInterface;
     public GameObject slotPrefab;
-    public InventoryObject inventory;
+    public InventoryBase inventory;
 
-    public virtual void makeUI(InventoryObject _inventory, int columns = 10, int _spacing = 2){
+    public virtual void makeUI(InventoryBase _inventory, int columns = 10, int _spacing = 2){
         inventory = _inventory;
         slotsOnInterface = new Dictionary<GameObject, InventorySlot>();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
@@ -22,34 +22,25 @@ public class UserInterface : NetworkBehaviour{
         inventory.onItemUpdate += UpdateUI;
     }
 
-    public override void OnNetworkSpawn()
-    {
-        if (!IsOwner){
-            gameObject.SetActive(false);
-        }
-    }
+    // public override void OnNetworkSpawn()
+    // {
+    //     if (!IsOwner){
+    //         gameObject.SetActive(false);
+    //     }
+    // }
     private void EquipItem(InventorySlot slot)
     {
-        if (slot.item.IsEquipable())
+        if (slot.item is EquipmentItem)
         {
             Player player = GetComponentInParent<Player>();
-            switch (inventory.type){
-                case EInventoryType.Inventory:
-                    inventory.SwapItems(slot, player.GetEquipment().Container[(int)slot.item.type]);
-                    break;
-                case EInventoryType.Equipment:
-                    if (player.GetInventory().EmptySlotCount >0)
-                        inventory.SwapItems(slot, player.GetInventory().GetEmptySlot());
-                    break;
-                default:
-                break;
-            }
+            inventory.SwapItems(slot, player.GetInventory().GetEmptySlot());
         }
     }
+    
 
     protected void UpdateUI(object sender, EventArgs e){
         foreach (var slot in slotsOnInterface){
-            if (slot.Value.item.Id == -1){
+            if (slot.Value.item == null){
                 slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = null;
                 slot.Key.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
                 slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
@@ -80,7 +71,7 @@ public class UserInterface : NetworkBehaviour{
     public GameObject CreateTempItem(GameObject obj)
     {
         GameObject tempItem = null;
-        if(slotsOnInterface[obj].item.Id >= 0)
+        if(!slotsOnInterface[obj].IsEmpty())
         {
             tempItem = new GameObject("DraggedItem");
             var rt = tempItem.AddComponent<RectTransform>();
@@ -104,13 +95,13 @@ public class UserInterface : NetworkBehaviour{
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHoveredOver = obj;
-        if (slotsOnInterface[obj].item.Id >= 0){
+        if (!slotsOnInterface[obj].IsEmpty()){
             TooltipInterface.ShowTooltip(obj, slotsOnInterface[obj].item);
         }
     }
     public void OnRightClick(GameObject obj)
     {
-        if (slotsOnInterface[obj].item.Id >= 0)
+        if (!slotsOnInterface[obj].IsEmpty())
         {
         EquipItem(slotsOnInterface[obj]);
         TooltipInterface.HideTooltip();

@@ -5,19 +5,18 @@ using UnityEngine.UI;
 
 public class GroundItem : NetworkBehaviour
 {
-    private ItemObject item;
+    private ItemBase item;
     [SerializeField] private static GameObject groundItemPrefab;
 
-    public void OnAfterDeserialize()
-    {
-    }
-    public void setItem(ItemObject itemObject){
+
+    public void setItem(ItemBase itemObject){
         item = itemObject;
     }
 
-    public ItemObject getItem(){
+    public ItemBase getItem(){
         return item;
     }
+    public void OnAfterDeserialize(){}
     public void OnBeforeSerialize()
     {
 #if UNITY_EDITOR

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae7b6da760957a645b0a233c087cf2f1, type: 3}
   m_Name: BurntBiome
   m_EditorClassIdentifier: 
+  biomeFrequency: 1
   biomeName: Desert
   temperatureLeftBorder: 0.8
   temperatureRightBorder: 1

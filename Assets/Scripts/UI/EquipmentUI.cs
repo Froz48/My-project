@@ -6,10 +6,10 @@ public class EquipmentUI : UserInterface{
     int NUMBER_OF_COLUMN = 3;
     int spacing = 2;
 
-    public override void makeUI(InventoryObject _equipment, int columns = 10, int _spacing = 2){
+    public override void makeUI(InventoryBase _equipment, int columns = 10, int _spacing = 2){
         base.makeUI(_equipment);
-        for (int i = 0; i < inventory.Container.Length; i++){
-        slotsOnInterface.Add(makeSlot(i), inventory.Container[i]);
+        for (int i = 0; i < inventory.Slots.Length; i++){
+        slotsOnInterface.Add(makeSlot(i), inventory.Slots[i]);
            
         }
         UpdateUI(this, EventArgs.Empty);

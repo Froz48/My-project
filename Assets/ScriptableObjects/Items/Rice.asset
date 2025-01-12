@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 620558490b3d2cb48bf0a52ede33a5c7, type: 3}
-  m_Name: ItemDatabase
+  m_Script: {fileID: 11500000, guid: 99d691bb1cf6f7844bc6acc1c47e324b, type: 3}
+  m_Name: Rice
   m_EditorClassIdentifier: 
-  ItemObjects:
-  - {fileID: 11400000, guid: 6767dcb0abbbcb84a848e5e4dbe8836f, type: 2}
-  - {fileID: 11400000, guid: 84d0e0847e628c945a50f2f37b85f7eb, type: 2}
+  Id: 0
+  uiDisplay: {fileID: -636891969, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  stackSize: 100
+  description: RISE!
+  volume: 1
+  price: 10

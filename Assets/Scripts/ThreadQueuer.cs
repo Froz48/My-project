@@ -6,7 +6,6 @@ using System;
 public static class ThreadQueuer
 {
     public static List<Action> mainThreadActions = new List<Action>();
-
     public static void QueueMainThreadFunction(Action func){
         mainThreadActions.Add(func);
     }

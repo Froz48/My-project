@@ -6,7 +6,7 @@ public class City : MonoBehaviour
 {
     private Attribute[] attributes;
     private List<District> districts;
-    private Dictionary<ItemObject, int> items;
+    private Dictionary<TradeItem, int> items;
 
     private void Start() {
         InitializeAttributes();

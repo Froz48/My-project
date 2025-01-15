@@ -18,6 +18,6 @@ MonoBehaviour:
   temperatureRightBorder: 1
   rainfallLeftBorder: 0.3
   rainfallRightBorder: 0.8
-  tile: {fileID: 11400000, guid: 914178b046c964d4ca94643905ff3766, type: 2}
+  tile: {fileID: 11400000, guid: f08b92bd9fd848c40bb69bc9fb30badd, type: 2}
   spawnPool: []
   lootTable: []

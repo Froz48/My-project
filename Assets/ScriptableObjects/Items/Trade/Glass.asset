@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: New Rule Tile
+  m_Script: {fileID: 11500000, guid: 99d691bb1cf6f7844bc6acc1c47e324b, type: 3}
+  m_Name: Glass
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 7482667652216324306, guid: ee06c1aeef5d75d4f90011ed07baefe2, type: 3}
-  m_DefaultGameObject: {fileID: 0}
-  m_DefaultColliderType: 2
-  m_TilingRules: []
+  Id: 0
+  uiDisplay: {fileID: -957442400, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  stackSize: 10
+  description: 
+  volume: 1
+  price: 1

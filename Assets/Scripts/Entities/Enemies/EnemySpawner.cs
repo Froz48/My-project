@@ -21,7 +21,6 @@ public class EnemySpawner : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        // if (IsServer){   gameObject.SetActive(false); return; }
         StartCoroutine(SpawnEnemiesCoroutine());
     }
 

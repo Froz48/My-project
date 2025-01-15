@@ -50,11 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 6461122089879731207, guid: 31b942fe1b2435d44bf24e5ea286a557, type: 3}
-  inventory:
-    savePath: 
-    database: {fileID: 0}
-    type: 0
-    Container: []
 --- !u!114 &3950901760277424918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +158,7 @@ Camera:
   m_GameObject: {fileID: 3477758952347208971}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.2918914, g: 0.5, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -704,11 +699,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 6461122089879731207, guid: 31b942fe1b2435d44bf24e5ea286a557, type: 3}
-  inventory:
-    savePath: 
-    database: {fileID: 11400000, guid: 1fd6410bb8d433c4f81cc9a0d82ba9b8, type: 2}
-    type: 0
-    Container: []
 --- !u!114 &1661609792020586653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,9 +799,7 @@ GameObject:
   - component: {fileID: 3073735901227168897}
   - component: {fileID: 5978686421145323852}
   - component: {fileID: 730244912758749361}
-  - component: {fileID: -3971600176997221055}
   - component: {fileID: 672290427648832350}
-  - component: {fileID: 7389589370372629828}
   - component: {fileID: 2278221899907619263}
   - component: {fileID: 7387696766932474566}
   - component: {fileID: 8476313829567043056}
@@ -926,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 266310322
+  GlobalObjectIdHash: 1877887150
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -935,37 +923,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &-3971600176997221055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5786306326399798581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseUnreliableDeltas: 0
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 0
-  SyncRotAngleX: 0
-  SyncRotAngleY: 0
-  SyncRotAngleZ: 0
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!114 &672290427648832350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,30 +944,8 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: -1}
   debugprefab: {fileID: 1123238305291302969, guid: 8f14006635ccf0d4aa0b96e326821638, type: 3}
   playerCamera: {fileID: 2970431676991613094}
-  inventory:
-    savePath: 
-    database: {fileID: 0}
-    type: 0
-    Container: []
-  equipment:
-    savePath: 
-    database: {fileID: 0}
-    type: 0
-    Container: []
   nullAbility: {fileID: 11400000, guid: 8cd878433f045f94e91d6bf7f8368f10, type: 2}
   baseAttributes: {fileID: 11400000, guid: c8681301f01a70a4c9d9ac561d24004d, type: 2}
---- !u!114 &7389589370372629828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5786306326399798581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2278221899907619263
 Animator:
   serializedVersion: 5
@@ -1114,16 +1049,10 @@ MonoBehaviour:
   tilemap: {fileID: 0}
   biomes:
   - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
-  - {fileID: 11400000, guid: e909977d05be0be4fb7f085218af0336, type: 2}
-  - {fileID: 11400000, guid: 95f85f6b0d5683f47bd511bf525b8149, type: 2}
-  - {fileID: 11400000, guid: b6c4885717d9dcd4d91ab35170b5e89b, type: 2}
-  - {fileID: 11400000, guid: c785b85415ce41647a85ccdd57d9aa1e, type: 2}
-  - {fileID: 11400000, guid: 85c8fb99204e9b9409622f8f97755289, type: 2}
-  - {fileID: 11400000, guid: d8ea97d35bbab064292c35a10cf8cb95, type: 2}
   - {fileID: 11400000, guid: d939e4f1158964d49b4effd3ce6eda63, type: 2}
-  - {fileID: 11400000, guid: 93ce23598b629f14e965655a6143cccf, type: 2}
-  - {fileID: 11400000, guid: 3008de9c1c65a514cb695d78c4d060eb, type: 2}
+  - {fileID: 11400000, guid: 95f85f6b0d5683f47bd511bf525b8149, type: 2}
   playerTransform: {fileID: 7613614482847855789}
+  cityPrefab: {fileID: 3903414776312585973, guid: c85c7f2212e8d8942b28469a4a56ba4b, type: 3}
   tileCache: []
 --- !u!1 &5912365055232650370
 GameObject:

@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "ItemDatabase", menuName = "Databases/ItemDatabase")]
+[CreateAssetMenu]
 public class ItemDatabase : ScriptableObject
-// ,ISerializationCallbackReceiver
 {
     [SerializeField] public ItemBase[] ItemObjects;
 
@@ -24,18 +23,4 @@ public class ItemDatabase : ScriptableObject
     public ItemBase GetItem(int id){
         return ItemObjects[id];
     }
-
-    // public void OnAfterDeserialize()
-    // {
-    //     UpdateID();
-    // }
-
-    // public static ItemBase CreateInstanceInitialized(int id){
-    //     return ItemObjects[id].CreateInstanceInitialized();
-    // }
-
-    // public void OnBeforeSerialize()
-    // {
-    //     UpdateID();
-    // }
 }

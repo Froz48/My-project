@@ -9,7 +9,7 @@ public class MonsterWorld : NetworkBehaviour{
 
     float currentHealth;
     float despawnDistance = 40;
-    [SerializeField] public MonsterData monsterData;
+    [SerializeField] public NPCData monsterData;
     // [SerializeField] public Sprite sprite;
     Transform playerChased;
     private float nextAtackTime;

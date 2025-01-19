@@ -12,7 +12,7 @@ public abstract class InventoryBase
     public int slotCount { get; protected set; }
     public InventorySlot[] Slots {  get; protected set; }
     public event EventHandler onItemUpdate;
-    protected ItemDatabase database;
+    //protected ItemDatabase database;
     protected virtual void Initialize(int numberOfSlots = 1)
     {
         Slots = new InventorySlot[numberOfSlots];
@@ -21,7 +21,7 @@ public abstract class InventoryBase
             Slots[i] = new InventorySlot();
             Slots[i].OnAfterUpdate += (sender, e) => onItemUpdate?.Invoke(this, EventArgs.Empty);
         }
-        database = Resources.Load<ItemDatabase>("ItemDatabase");
+        //database = Resources.Load<ItemDatabase>("ItemDatabase");
     }
 
     public InventorySlot FindItemOnInventory(ItemBase _item)

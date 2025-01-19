@@ -13,6 +13,6 @@ public class Biome : ScriptableObject
     [SerializeField] public float rainfallLeftBorder;
     [SerializeField] public float rainfallRightBorder;
     [SerializeField] public TileBase tile;
-    [SerializeField] List<MonsterData> spawnPool;
+    [SerializeField] List<NPCData> spawnPool;
     [SerializeField] List<LootDropEntry> lootTable;
 }

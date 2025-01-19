@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 [Serializable]
 [CreateAssetMenu(fileName = "MonsterData", menuName = "NPC/MonsterData")]
-public class MonsterData : ScriptableObject{
+public class NPCData : ScriptableObject{
     [SerializeField] public Transform Prefab;
     [SerializeField] public float detectionRadius;
     [SerializeField] public float attackDamage;
@@ -17,8 +17,8 @@ public class MonsterData : ScriptableObject{
     [SerializeField] public List<LootDropEntry> lootTable;
     public int Id = -1;
 
-    public MonsterData CreateInstance(){
-        return (MonsterData)this.MemberwiseClone();
+    public NPCData CreateInstance(){
+        return (NPCData)this.MemberwiseClone();
     }
 
 }

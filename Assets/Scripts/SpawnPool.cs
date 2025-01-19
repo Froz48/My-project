@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newSpawnPool", menuName = "SpawnPool")]
 public class SpawnPool : ScriptableObject
 {
-    [SerializeField] public List<MonsterData> Pool = new List<MonsterData>();
+    [SerializeField] public List<NPCData> Pool = new List<NPCData>();
 
-    public void Add(MonsterData monsterData){
+    public void Add(NPCData monsterData){
         Pool.Add(monsterData);
     }
 
@@ -15,7 +15,7 @@ public class SpawnPool : ScriptableObject
         Pool.AddRange(spawnPool.Pool);
     }
 
-    public void Remove(MonsterData monsterData){
+    public void Remove(NPCData monsterData){
         Pool.Remove(monsterData);
     }
 

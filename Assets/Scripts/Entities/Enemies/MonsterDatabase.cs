@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new MonsterDatabase", menuName = "Databases/MonsterDatabase")]
 public class MonsterDatabase : ScriptableObject, ISerializationCallbackReceiver
 {
-    public MonsterData[] monsters;
+    public NPCData[] monsters;
 
     [ContextMenu("Update ID's")]
     private void UpdateID()

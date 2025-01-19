@@ -29,7 +29,6 @@ public class Player : NetworkBehaviour
     [SerializeField] private PlayerInput input;
     [SerializeField] private float reviveTime = 10;
     [SerializeField] private Vector3 spawnPosition = new Vector3(0,0,-1);
-    [SerializeField] private GameObject debugprefab;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Inventory inventory;
     [SerializeField] private EquipmentInventory equipment;

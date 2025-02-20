@@ -15,8 +15,6 @@ public class NPCData : ScriptableObject{
     [SerializeField] public float movementSpeed;
     [SerializeField] public float maxHealth;
     [SerializeField] public List<LootDropEntry> lootTable;
-    public int Id = -1;
-
     public NPCData CreateInstance(){
         return (NPCData)this.MemberwiseClone();
     }

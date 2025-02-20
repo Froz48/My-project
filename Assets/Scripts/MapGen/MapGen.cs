@@ -11,26 +11,27 @@ using UnityEngine.Tilemaps;
 public class MapGen : MonoBehaviour
 { // https://auburn.github.io/FastNoiseLite/
 #region Variables
+    [SerializeField] private Tilemap tilemap;
+    [SerializeField] private List<Biome> biomes;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private GameObject cityPrefab;
+    [SerializeField] private List<TileBase> tileCache = new List<TileBase>();
+
     private HashSet<Vector2Int> generatedChunks = new HashSet<Vector2Int>();
-    [SerializeField] Tilemap tilemap;
-    [SerializeField] Dictionary<Biome, int> biomeStats = new Dictionary<Biome, int>();
-    const float CHUNK_GEN_TRY_FREQUENCY = 10f;
-    [SerializeField] List<Biome> biomes;
-    [SerializeField] Transform playerTransform;
     private Queue<Vector2Int> chunksToGenerate = new Queue<Vector2Int>();
-    [SerializeField] GameObject cityPrefab;
-    float biomeCapacity;
-    [SerializeField] public List<TileBase> tileCache = new List<TileBase>();
+    private Dictionary<Biome, int> biomeStats = new Dictionary<Biome, int>();
+    private float biomeCapacity;
+    private const float CHUNK_GEN_TRY_FREQUENCY = 10f;
     private int RenderDistance = 1;
 #endregion
+
 #region Unity
     public void Start(){
-        tilemap = GameObject.FindObjectOfType<Tilemap>();
+        tilemap = FindObjectOfType<Tilemap>();
         InitializeStatistics();
         UpdateBiomeCapacity();
         GenerateTestSprites();
         StartCoroutine(MapGenerating());
-
     }
     public void Update(){
         if (ThreadQueuer.mainThreadActions.Count > 0){
@@ -43,8 +44,9 @@ public class MapGen : MonoBehaviour
             GenerateChunk(chunksToGenerate.Dequeue());
     }
 #endregion
+
 #region Basic Methods
-    public static void SetNoiceParams(FastNoiseLite noise, int seed, float frequency, // looks horrible
+    public static void SetNoiceParams(FastNoiseLite noise, int seed, float frequency, // abomination
             FastNoiseLite.NoiseType noiseType = FastNoiseLite.NoiseType.Cellular,
             FastNoiseLite.FractalType fractalType = FastNoiseLite.FractalType.FBm,
             int octaves = 1,
@@ -100,30 +102,30 @@ public class MapGen : MonoBehaviour
             biomeStats.Add(biome, 0);
         }
     }
-    private void TestBiomes(float stepSize = 0.1f){
-        Debug.Log("TestBiomes");
-        for (float iT = 0; iT <= 1; iT += stepSize)
-        {
-            for (float iR = 0; iR <= 1; iR += stepSize)
-            {
-                bool isValidBiomeFound = false;
-                foreach (Biome biome in biomes)
-                {
-                    if (iT > biome.temperatureLeftBorder && iT <= biome.temperatureRightBorder 
-                    &&
-                    iR > biome.rainfallLeftBorder && iR <= biome.rainfallRightBorder){
-                        if (isValidBiomeFound){
-                            Debug.Log("Multiple biomes found for: " + iT + " " + iR);
-                        }
-                        isValidBiomeFound = true;
-                    }
-                }
-                if (!isValidBiomeFound){
-                    Debug.Log("No biome found for: " + iT + " " + iR);
-                }
-            }
-        }
-    }
+    // private void TestBiomes(float stepSize = 0.1f){
+    //     Debug.Log("TestBiomes");
+    //     for (float iT = 0; iT <= 1; iT += stepSize)
+    //     {
+    //         for (float iR = 0; iR <= 1; iR += stepSize)
+    //         {
+    //             bool isValidBiomeFound = false;
+    //             foreach (Biome biome in biomes)
+    //             {
+    //                 if (iT > biome.temperatureLeftBorder && iT <= biome.temperatureRightBorder 
+    //                 &&
+    //                 iR > biome.rainfallLeftBorder && iR <= biome.rainfallRightBorder){
+    //                     if (isValidBiomeFound){
+    //                         Debug.Log("Multiple biomes found for: " + iT + " " + iR);
+    //                     }
+    //                     isValidBiomeFound = true;
+    //                 }
+    //             }
+    //             if (!isValidBiomeFound){
+    //                 Debug.Log("No biome found for: " + iT + " " + iR);
+    //             }
+    //         }
+    //     }
+    // }
     private Vector2Int GetPlayerChunkCoordinates(){
         Vector3 playerPosition = playerTransform.position;
         int playerChunkX = Mathf.FloorToInt(playerPosition.x / Config.CHUNK_SIZE);
@@ -216,7 +218,7 @@ public class MapGen : MonoBehaviour
             for (int y = 0; y < Config.CHUNK_SIZE; y++){
                 int index = x + y * Config.CHUNK_SIZE;
                 if (noiseTemperatureValues[index] <= -0.99){    
-                    Debug.Log("City generated at: " + startWorldPosition.x+x + " " + startWorldPosition.y+y);
+                    //Debug.Log("City generated at: " + startWorldPosition.x+x + " " + startWorldPosition.y+y);
                     Vector3Int tilePosition = new Vector3Int(startWorldPosition.x+x, startWorldPosition.y+y, 0);
                     Instantiate(cityPrefab, tilePosition, Quaternion.identity);
                 }

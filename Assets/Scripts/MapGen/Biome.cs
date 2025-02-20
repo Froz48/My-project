@@ -7,11 +7,6 @@ using UnityEngine.Tilemaps;
 public class Biome : ScriptableObject
 {
     [SerializeField] public float biomeFrequency;
-    [SerializeField] public string biomeName ;
-    [SerializeField] public float temperatureLeftBorder;
-    [SerializeField] public float temperatureRightBorder;
-    [SerializeField] public float rainfallLeftBorder;
-    [SerializeField] public float rainfallRightBorder;
     [SerializeField] public TileBase tile;
     [SerializeField] List<NPCData> spawnPool;
     [SerializeField] List<LootDropEntry> lootTable;

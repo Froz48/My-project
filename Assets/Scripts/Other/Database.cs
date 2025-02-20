@@ -12,4 +12,3 @@ public class Database : ScriptableObject
         return objects[Random.Range(0, objects.Length)];
     }
 }
-

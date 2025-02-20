@@ -15,8 +15,8 @@ public class ItemDatabase : ScriptableObject
         Debug.Log("UpdatingDatabaseItemIds");
         for (int i = 0; i < ItemObjects.Length; i++)
         {
-            if (ItemObjects[i].Id != i)
-                ItemObjects[i].Id = i;
+            if (ItemObjects[i].id != i)
+                ItemObjects[i].id = i;
         }
     }
 

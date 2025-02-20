@@ -49,6 +49,8 @@
 
 using System;
 using System.Runtime.CompilerServices;
+using UnityEngine;
+
 
 // Switch between using floats or doubles for input position
 using FNLfloat = System.Single;

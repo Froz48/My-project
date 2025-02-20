@@ -28,7 +28,7 @@ public abstract class InventoryBase
     {
         for (int i = 0; i < Slots.Length; i++)
         {
-            if(Slots[i].item?.Id == _item.Id)
+            if(Slots[i].item?.id == _item.id)
             {
                 return Slots[i];
             }
@@ -39,7 +39,7 @@ public abstract class InventoryBase
     public bool IsItemInInventory(ItemBase _item){
         for (int i = 0; i < Slots.Length; i++)
         {
-            if(Slots[i].item?.Id == _item.Id)
+            if(Slots[i].item?.id == _item.id)
             {
                 return true;
             }

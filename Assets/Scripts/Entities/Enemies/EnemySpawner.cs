@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawner : NetworkBehaviour
 {
     private const int MAX_SPAWN_TRY = 30;
-    private const int MAX_ENEMY_COUNT = 30;
+    [SerializeField] private int enemyMaxCount = 30;
     [SerializeField] private MonsterDatabase monsterDatabase;
     //private int maxEnemyCountForPlayer = 20; //20
     /// <summary>
@@ -54,8 +54,8 @@ public class EnemySpawner : NetworkBehaviour
         if (spawnPool.Pool.Count == 0){
             return -1;
         }
-        int NPC = Random.Range(0, spawnPool.Pool.Count);
-        return spawnPool.Pool[NPC].Id;
+        int NPCid = Random.Range(0, spawnPool.Pool.Count);
+        return NPCid;
     }
 
     
@@ -66,22 +66,23 @@ public class EnemySpawner : NetworkBehaviour
             return;
         }
         SpawnEnemyServerRpc(spawnPos, NPCId);
-        // Transform enemyTransform = Instantiate(GetRandomMonsterId(), spawnPos, Quaternion.identity, transform);
-        // var networkObject = enemyTransform.GetComponent<NetworkObject>();
-        // if (networkObject && !networkObject.IsSpawned)
-        // {
-        //     networkObject.Spawn();
-        // }
-            // enemyTransform.GetComponent<NetworkObject>().Spawn();
     }
 
     [ServerRpc(RequireOwnership = false)]
     private void SpawnEnemyServerRpc(Vector2 spawnPosition, int NPCId){
-        if (spawnedEntityCounter >= MAX_ENEMY_COUNT){
+        if (spawnedEntityCounter >= enemyMaxCount){
             return;
         }
         spawnedEntityCounter++;
-        Transform enemyTransform = Instantiate(monsterDatabase.monsters[NPCId].Prefab, spawnPosition, Quaternion.identity, transform);
+        
+        NPCData nPCData = monsterDatabase.GetObjectById(NPCId) as NPCData;
+        
+        if (nPCData == null || nPCData.Prefab == null){
+            Debug.Log($"ERROR! tried to spawn monster with id {NPCId}");
+            return;
+        }
+
+        Transform enemyTransform = Instantiate(nPCData.Prefab, spawnPosition, Quaternion.identity, transform);
         enemyTransform.GetComponent<NetworkObject>().Spawn();
     }
 

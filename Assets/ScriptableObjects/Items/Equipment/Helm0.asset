@@ -9,21 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925c115f5ebecac4ca35c317e09a99fe, type: 3}
+  m_Script: {fileID: 11500000, guid: e119e746bb457d24d8453a698a8acc6c, type: 3}
   m_Name: Helm0
   m_EditorClassIdentifier: 
-  Name: helm0
-  Id: 0
-  isInitialized: 0
-  groundItemPrefab: {fileID: 7373938329685547577, guid: aae73ee18c435cd4eb8ca04a8ca4f493, type: 3}
-  ability: {fileID: 0}
-  buffs:
-  - attribute: 4
-    valueToAdd: 0
-    addMin: 1
-    addMax: 10
-  uiDisplay: {fileID: 8443743, guid: a265b234540e43846b382b1b199a4a87, type: 3}
-  stackable: 0
-  type: 0
+  id: 0
+  uiDisplay: {fileID: -1814619014, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  stackSize: 0
   description: 
-  placeableObjectPrefab: {fileID: 0}
+  eEquipmentSlot: 0
+  attributeModifiers: []
+  ability: {fileID: 11400000, guid: e99b2bad73c4bed46b8a28b78fcf22d5, type: 2}

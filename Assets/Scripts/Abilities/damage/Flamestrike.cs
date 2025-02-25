@@ -8,17 +8,13 @@ public class Flamestrike : Ability{
     [SerializeField] private GameObject prefab;
 
     [ServerRpc]
-    public override void AbilityUseServerRpc(Vector2 _position){
+    public override void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition){
         Debug.Log("Flamestrike ServerRpc");
-        GameObject flamestrikeObject = Instantiate(prefab, _position, Quaternion.identity);
-        flamestrikeObject.AddComponent<FlamestrikeEffect>().Initialize(damage, lifetime);
+        GameObject flamestrikeObject = Instantiate(prefab, targetPosition, Quaternion.identity);
+        flamestrikeObject.AddComponent<Effect_DamageOnCollision>().Initialize(damage);
+        flamestrikeObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         var networkObj = flamestrikeObject.GetComponent<NetworkObject>();
         networkObj.Spawn();
     }
-
-    // public Flamestrike CreateInstance(){
-    //     return (Flamestrike)this.MemberwiseClone();
-    // }
-
 }

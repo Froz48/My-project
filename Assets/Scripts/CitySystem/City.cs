@@ -28,7 +28,7 @@ public class City : MonoBehaviour
         
     }
 
-    public void ProduceList(){
+    public void ProduceCycle(){
         Debug.Log("Producing...");
         foreach (District district in districts){
             if (IsEnoughResources(district)){

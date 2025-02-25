@@ -6,10 +6,10 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+[Serializable]
 public abstract class InventoryBase
 {
     public string savePath;
-    public int slotCount { get; protected set; }
     public InventorySlot[] Slots {  get; protected set; }
     public event EventHandler onItemUpdate;
     //protected ItemDatabase database;
@@ -46,12 +46,14 @@ public abstract class InventoryBase
         }
         return false;
     }
+
     internal void SwapItems(InventorySlot slot1, InventorySlot slot2)
     {
         InventorySlot temp = new InventorySlot(slot2.item, slot2.amount);
         slot2.UpdateSlot(slot1.item, slot1.amount);
         slot1.UpdateSlot(temp.item, temp.amount);
     }
+    
 #region Serialization
     [ContextMenu("Save")]
     public void Save()

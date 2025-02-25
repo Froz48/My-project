@@ -9,5 +9,5 @@ public class Biome : ScriptableObject
     [SerializeField] public float biomeFrequency;
     [SerializeField] public TileBase tile;
     [SerializeField] List<NPCData> spawnPool;
-    [SerializeField] List<LootDropEntry> lootTable;
+    [SerializeField] List<LootDropEntry> lootPool;
 }

@@ -13,7 +13,7 @@ public class MeleeStrikeEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out MonsterWorld monsterWorld)){
+        if (collision.TryGetComponent(out NPCEntity monsterWorld)){
             monsterWorld.TakeDamageRpc(damage);
         }
     }

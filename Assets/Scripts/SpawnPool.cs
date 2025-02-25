@@ -23,4 +23,11 @@ public class SpawnPool : ScriptableObject
         Pool.RemoveAll(spawnPool.Pool.Contains);
     }
 
+    public int GetRandomMonsterIndex(){
+        if (Pool.Count == 0){
+            Debug.LogError("SpawnPool is empty");
+            return -1;
+        }
+        else return Random.Range(0, Pool.Count);
+    }
 }

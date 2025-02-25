@@ -26,13 +26,6 @@ public class Attribute
     {   baseValue = _baseValue;
         value = _baseValue;
     }
-    public static string GetStatNameById(int _value){
-        return Enum.GetName(typeof(EAttributes), _value);
-    }
-    public void SetBaseValue(int _baseValue){
-        baseValue = _baseValue;
-        UpdateModifiedValue();
-    }
     public float GetBaseValue(){
         return baseValue;
     }
@@ -63,28 +56,4 @@ public class Attribute
         modifiers.Remove(_modifier);
         UpdateModifiedValue();
     }
-
-    public void ClearModifiers(){
-        modifiers.Clear();
-        UpdateModifiedValue();
-    }
-
-    public static Attribute[] CreateAttributes(int[] vals)
-    {//Agility, Intellect, Strength, MovementSpeed, MaxHealth
-        int attributeCount = Enum.GetValues(typeof(EAttributes)).Length;
-        
-        if (vals.Length != attributeCount){
-            Debug.Log("Wrong attribute count! expected: " + attributeCount + " got: " + vals.Length);
-            return null;
-        }
-
-        Attribute[] stats = new Attribute[attributeCount];
-        for (int i = 0; i < attributeCount; i++)
-        {
-            stats[i] = new Attribute();
-            stats[i].SetBaseValue(vals[i]);
-        }
-        return stats;
-    }
-
 }

@@ -8,8 +8,8 @@ public class MeleeStrike : Ability{
     [SerializeField] private GameObject prefab;
 
     [ServerRpc]
-    public override void AbilityUseServerRpc(Vector2 _position){
-        GameObject effectObject = Instantiate(prefab, _position, Quaternion.identity);
+    public override void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition){
+        GameObject effectObject = Instantiate(prefab, targetPosition, Quaternion.identity);
         effectObject.AddComponent<MeleeStrikeEffect>().Initialize(damage, lifetime);
         
         var networkObj = effectObject.GetComponent<NetworkObject>();

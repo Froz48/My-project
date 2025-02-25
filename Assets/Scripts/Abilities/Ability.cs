@@ -11,7 +11,7 @@ public abstract class Ability : ScriptableObject {
     [SerializeField]public float lifetime = 1f;
 
     [ServerRpc]
-    public abstract void AbilityUseServerRpc(Vector2 _position);
+    public abstract void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition);
     
     public float GetRemainingCooldown()
     {

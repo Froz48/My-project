@@ -13,7 +13,6 @@ public class Player : NetworkBehaviour
     #endregion
     
     #region Delegates
-    // public static event EventHandler OnAnyPlayerSpawned;
     public event EventHandler OnHealthChanged;
     public event EventHandler OnAnyAbilityChanged;
     #endregion
@@ -43,10 +42,8 @@ public class Player : NetworkBehaviour
             return;
             
         } 
-        //NetworkObject.Spawn();
         transform.position = new Vector3(0, 0, -1);
         DoStartThings();
-        // OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -82,7 +79,6 @@ public class Player : NetworkBehaviour
     }
 
     private void InitializeBaseValues(){
-        //attributes = Attribute.GetPlayerBaseValues();
         baseAttributes.SetAttributes(ref attributes);
         inventory = new Inventory(40);
         equipment = new EquipmentInventory();
@@ -90,7 +86,7 @@ public class Player : NetworkBehaviour
     }
 
     private void MakeUIs(){
-        GetComponentInChildren<AbilityCooldownUI>()?.MakeInterface(this);    // this exact line took me a day   
+        GetComponentInChildren<AbilityCooldownUI>()?.MakeInterface(this);
         GetComponentInChildren<HealthInterface>()?.MakeHealthUI(this);
         GetComponentInChildren<StatsInterface>()?.makeUI(attributes);
         GetComponentInChildren<InventoryUI>()?.makeUI(inventory);
@@ -117,30 +113,11 @@ public class Player : NetworkBehaviour
             foreach (var i in equipmentItem.attributeModifiers){
                 attributes[(int)i.attribute].AddModifier(i);
             }
-        } else Debug.Log("How the f did you equip a non-equipment item?");
+            if (equipmentItem.ability != null){
+                ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), equipmentItem.ability);
+            }
+        } else Debug.Log("Equiped a non-equipment item");
     }
-
-    private int FindFreeSlot(){
-        for (int i = 0; i < abilities.Length; i++)
-            if (abilities[i] == nullAbility)
-                return i;
-        return -1;
-    }
-    private int GetAbilitySlotByEquipmentType(EItemType eItemType){
-        switch (eItemType){
-            case EItemType.Helmet:
-                return 0;
-            case EItemType.Legs:
-                return 1;
-            case EItemType.MainHand:
-                return 2;
-            case EItemType.OffHand:
-                return 3;
-            default: 
-                return -1;
-        }
-    }
-
     public void ItemUnequiped(InventorySlot _slot)
     {
         if (_slot.item == null)
@@ -148,6 +125,9 @@ public class Player : NetworkBehaviour
         if (_slot.item is EquipmentItem equipmentItem){
             foreach (var i in equipmentItem.attributeModifiers){
                 attributes[(int)i.attribute].RemoveModifier(i);
+            }
+            if (equipmentItem.ability != null){
+                ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), nullAbility);
             }
         } else Debug.Log("Unequipped non-equipment item, good boy!");
     }
@@ -197,15 +177,13 @@ public class Player : NetworkBehaviour
     }
 
     private void UseAbility(Vector2 mousePosition, int index){
-        abilities[index]?.AbilityUseServerRpc(mousePosition);
+        abilities[index]?.AbilityUseServerRpc(transform.position, mousePosition);
     }
 
     private void ChangeAbilityInstance(int index, Ability ability){
+        if (index == -1) return;
         abilities[index] = ability.CreateInstance();
         OnAnyAbilityChanged?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Atack(object sender, EventArgs e){
     }
     
     [ServerRpc] // every solutuion i found uses ServerRpc and not [Rpc(sendto.server)] :(

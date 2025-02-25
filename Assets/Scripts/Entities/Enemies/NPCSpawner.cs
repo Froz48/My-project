@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class EnemySpawner : NetworkBehaviour
+public class NPCSpawner : NetworkBehaviour
 {
     private const int MAX_SPAWN_TRY = 30;
     [SerializeField] private int enemyMaxCount = 30;
-    [SerializeField] private MonsterDatabase monsterDatabase;
+    [SerializeField] private EnemyDatabase enemyDatabase;
     //private int maxEnemyCountForPlayer = 20; //20
     /// <summary>
     /// Every x seconds, spawn a new enemy. The more the rate, the more time between spawns.
     /// </summary>
-    private float enemySpawnRate = 5f; 
+    private float spawnRate = 5f; 
     [SerializeField] private SpawnPool spawnPool;
     private float spawnMaxRadius = 30;
     private float spawnMinRadius = 15;
-    public int spawnedEntityCounter = 0;
+    public int spawnedEnemyCount = 0;
 
 
     public override void OnNetworkSpawn()
@@ -29,7 +29,7 @@ public class EnemySpawner : NetworkBehaviour
         while (true)
         {
             SpawnRandomEnemy();
-            yield return new WaitForSeconds(enemySpawnRate);
+            yield return new WaitForSeconds(spawnRate);
         }
     }
     private Vector2 GetRandomSpawnPosition(){
@@ -50,18 +50,10 @@ public class EnemySpawner : NetworkBehaviour
         }
         return true;
     }
-    private int GetRandomMonsterId(){
-        if (spawnPool.Pool.Count == 0){
-            return -1;
-        }
-        int NPCid = Random.Range(0, spawnPool.Pool.Count);
-        return NPCid;
-    }
 
-    
     private void SpawnRandomEnemy(){
         Vector2 spawnPos = GetRandomSpawnPosition();
-        int NPCId = GetRandomMonsterId();
+        int NPCId = spawnPool.GetRandomMonsterIndex();
         if ( (spawnPos == new Vector2(0,0)) || (NPCId == -1) ){
             return;
         }
@@ -70,12 +62,12 @@ public class EnemySpawner : NetworkBehaviour
 
     [ServerRpc(RequireOwnership = false)]
     private void SpawnEnemyServerRpc(Vector2 spawnPosition, int NPCId){
-        if (spawnedEntityCounter >= enemyMaxCount){
+        if (spawnedEnemyCount >= enemyMaxCount){
             return;
         }
-        spawnedEntityCounter++;
+        spawnedEnemyCount++;
         
-        NPCData nPCData = monsterDatabase.GetObjectById(NPCId) as NPCData;
+        NPCData nPCData = enemyDatabase.GetObjectById(NPCId) as NPCData;
         
         if (nPCData == null || nPCData.Prefab == null){
             Debug.Log($"ERROR! tried to spawn monster with id {NPCId}");

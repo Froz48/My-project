@@ -6,5 +6,7 @@ using UnityEngine;
 public class LootDropEntry
 {
     public ItemBase item;
+    public int minAmount;
+    public int maxAmount;
     public float dropChance;
 }

@@ -2,27 +2,18 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class FlamestrikeEffect : MonoBehaviour
+public class Effect_DamageOnCollision : MonoBehaviour
 {
-     float damage;
-    
-
-    public void Initialize(float damage, float lifetime)
+    float damage;
+    public void Initialize(float damage)
     {
         this.damage = damage;
-        StartCoroutine(DestroyAfterDelay(lifetime));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out MonsterWorld monsterWorld)){
+        if (collision.TryGetComponent(out NPCEntity monsterWorld)){
             monsterWorld.TakeDamageRpc(damage);
         }
-    }
-
-    private IEnumerator DestroyAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Destroy(this.gameObject);
     }
 }

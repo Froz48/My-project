@@ -942,8 +942,11 @@ MonoBehaviour:
   input: {fileID: 7513018050488326396}
   reviveTime: 10
   spawnPosition: {x: 0, y: 0, z: -1}
-  debugprefab: {fileID: 1123238305291302969, guid: 8f14006635ccf0d4aa0b96e326821638, type: 3}
   playerCamera: {fileID: 2970431676991613094}
+  inventory:
+    savePath: 
+  equipment:
+    savePath: 
   nullAbility: {fileID: 11400000, guid: 8cd878433f045f94e91d6bf7f8368f10, type: 2}
   baseAttributes: {fileID: 11400000, guid: c8681301f01a70a4c9d9ac561d24004d, type: 2}
 --- !u!95 &2278221899907619263
@@ -1031,9 +1034,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768e494dc98b4984d9eed7f5266dcc84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
+  enemyMaxCount: 30
+  enemyDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
   spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
-  spawnedEntityCounter: 0
+  spawnedEnemyCount: 0
 --- !u!114 &7789373438762283640
 MonoBehaviour:
   m_ObjectHideFlags: 0

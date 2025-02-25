@@ -7,15 +7,16 @@ public enum EItemType
     Helmet, Chest, Neck, Gloves, Shoulders, Belt, Legs, MainHand, OffHand,
     Food, Default
 }
+[Serializable]
 public class Inventory : InventoryBase
 {
-    public int GetEmptySlotCount(){
-        int counter = 0;
+    public bool hasEmptySlot(){
         for (int i = 0; i < base.Slots.Length; i++){
             if (base.Slots[i].amount == 0){
-                counter++;}
+                return true;
             }
-        return counter; 
+        }
+        return false;
     }
 
     public Inventory(int slotCount) : base(){
@@ -33,7 +34,7 @@ public class Inventory : InventoryBase
 
     internal bool CanPickupItem(ItemBase itemInstance)
     {
-        if (GetEmptySlotCount() > 0 || IsItemInInventory(itemInstance)){
+        if (hasEmptySlot() || IsItemInInventory(itemInstance)){
             return true;
         }
         else return false;

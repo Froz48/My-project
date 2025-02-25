@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new MonsterDatabase", menuName = "Databases/MonsterDatabase")]
-public class MonsterDatabase : Database
+public class EnemyDatabase : Database
 {
 }

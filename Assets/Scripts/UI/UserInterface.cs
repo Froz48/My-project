@@ -28,12 +28,12 @@ public class UserInterface : MonoBehaviour{
     //         gameObject.SetActive(false);
     //     }
     // }
-    private void EquipItem(InventorySlot slot)
+    private void UseItem(InventorySlot slot)
     {
         if (slot.item is EquipmentItem)
         {
             Player player = GetComponentInParent<Player>();
-            inventory.SwapItems(slot, player.GetInventory().GetEmptySlot());
+            player.GetEquipment().EquipItem(slot);
         }
     }
     
@@ -103,8 +103,8 @@ public class UserInterface : MonoBehaviour{
     {
         if (!slotsOnInterface[obj].IsEmpty())
         {
-        EquipItem(slotsOnInterface[obj]);
-        TooltipInterface.HideTooltip();
+            UseItem(slotsOnInterface[obj]);
+            TooltipInterface.HideTooltip();
         }
     }
     public void OnDragEnd(GameObject obj)
@@ -120,7 +120,6 @@ public class UserInterface : MonoBehaviour{
         {
             InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.slotsOnInterface[MouseData.slotHoveredOver];
             inventory.SwapItems(slotsOnInterface[obj], mouseHoverSlotData);
-
         }
     }
 

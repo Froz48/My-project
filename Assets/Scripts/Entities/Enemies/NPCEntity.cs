@@ -5,7 +5,7 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MonsterWorld : NetworkBehaviour{
+public class NPCEntity : NetworkBehaviour{
 
     float currentHealth;
     float despawnDistance = 40;
@@ -29,7 +29,7 @@ public class MonsterWorld : NetworkBehaviour{
 
     private IEnumerator DespawnCheck(){
         while (true){
-            if (GetDistanceToPlayer(FindNearestPlayer().gameObject) > despawnDistance){
+            if (GetDistanceToPlayer(FindNearestPlayer().transform) > despawnDistance){
                 Die(false);
             }
             yield return new WaitForSeconds(5);
@@ -39,7 +39,7 @@ public class MonsterWorld : NetworkBehaviour{
         float minDistance = 5000;
         Player nearestPlayer = null;
         foreach (var player in NetworkManager.Singleton.ConnectedClientsList){
-            float distance = GetDistanceToPlayer(player.PlayerObject.gameObject);
+            float distance = GetDistanceToPlayer(player.PlayerObject.transform);
             if (distance < minDistance){
                 minDistance = distance;
                 nearestPlayer = player.PlayerObject.GetComponent<Player>(); 
@@ -48,7 +48,7 @@ public class MonsterWorld : NetworkBehaviour{
         return nearestPlayer;
     }
     
-    private float GetDistanceToPlayer(GameObject playerObject){
+    private float GetDistanceToPlayer(Transform playerObject){
         return (playerObject.transform.position - transform.position).magnitude;
     }
     
@@ -61,7 +61,7 @@ public class MonsterWorld : NetworkBehaviour{
         }
     }
 
-    private void Atack(Player player){
+    private void Atack(Player player){  // Change this later
         nextAtackTime = Time.time + monsterData.atackSpeed;
         player.GetDamage(monsterData.attackDamage);
     }
@@ -92,8 +92,8 @@ public class MonsterWorld : NetworkBehaviour{
             DropLoot();
         this.gameObject.GetComponent<NetworkObject>().Despawn();
         Destroy(this.gameObject);
-        EnemySpawner enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
-        enemySpawner.spawnedEntityCounter--;
+        NPCSpawner enemySpawner = GameObject.FindObjectOfType<NPCSpawner>();
+        enemySpawner.spawnedEnemyCount--;
     }
     
     private void DropLoot(){

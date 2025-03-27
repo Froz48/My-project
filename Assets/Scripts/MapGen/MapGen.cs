@@ -244,6 +244,7 @@ public class MapGen : MonoBehaviour
 #endregion
 }
 
+[Unity.Burst.BurstCompile]
 public struct JGenerateChunkNoise : IJob
 {   
     public NativeArray<float> results;
@@ -266,6 +267,7 @@ public struct JGenerateChunkNoise : IJob
     }
 }
 
+[Unity.Burst.BurstCompile]
 public struct JGenerateChunkStructure : IJob{
 
     public NativeArray<float> results;

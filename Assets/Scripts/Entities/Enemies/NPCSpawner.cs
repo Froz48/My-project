@@ -73,7 +73,6 @@ public class NPCSpawner : NetworkBehaviour
             Debug.Log($"ERROR! tried to spawn monster with id {NPCId}");
             return;
         }
-
         Transform enemyTransform = Instantiate(nPCData.Prefab, spawnPosition, Quaternion.identity, transform);
         enemyTransform.GetComponent<NetworkObject>().Spawn();
     }

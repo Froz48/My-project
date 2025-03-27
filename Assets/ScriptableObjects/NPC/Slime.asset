@@ -19,5 +19,4 @@ MonoBehaviour:
   giveUpRadius: 10
   movementSpeed: 1
   maxHealth: 10
-  lootDrop: []
-  Id: 2
+  lootTable: []

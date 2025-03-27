@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 0
   uiDisplay: {fileID: -1544110013, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   stackSize: 0
-  description: 
+  description: +11 Power
   eEquipmentSlot: 7
   attributeModifiers:
   - attribute: 0

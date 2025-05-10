@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: IceBiome
   m_EditorClassIdentifier: 
   biomeFrequency: 1
-  biomeName: Forest
-  temperatureLeftBorder: -1
-  temperatureRightBorder: 0.3
-  rainfallLeftBorder: 0.6
-  rainfallRightBorder: 1
-  tile: {fileID: 11400000, guid: d463e499260da324b9583a2f8ea66191, type: 2}
+  tile: {fileID: 11400000, guid: f0e252a72cde6e346aed2bbc637cae11, type: 2}
   spawnPool: []
-  lootTable: []
+  lootPool: []

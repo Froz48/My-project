@@ -21,8 +21,8 @@ public class MapGen : MonoBehaviour
     private Queue<Vector2Int> chunksToGenerate = new Queue<Vector2Int>();
     private Dictionary<Biome, int> biomeStats = new Dictionary<Biome, int>();
     private float biomeCapacity;
-    private const float CHUNK_GEN_TRY_FREQUENCY = 10f;
-    private int RenderDistance = 1;
+    private const float CHUNK_GEN_TRY_FREQUENCY = 5f;
+    private int RenderDistance = 3;
 #endregion
 
 #region Unity
@@ -102,30 +102,6 @@ public class MapGen : MonoBehaviour
             biomeStats.Add(biome, 0);
         }
     }
-    // private void TestBiomes(float stepSize = 0.1f){
-    //     Debug.Log("TestBiomes");
-    //     for (float iT = 0; iT <= 1; iT += stepSize)
-    //     {
-    //         for (float iR = 0; iR <= 1; iR += stepSize)
-    //         {
-    //             bool isValidBiomeFound = false;
-    //             foreach (Biome biome in biomes)
-    //             {
-    //                 if (iT > biome.temperatureLeftBorder && iT <= biome.temperatureRightBorder 
-    //                 &&
-    //                 iR > biome.rainfallLeftBorder && iR <= biome.rainfallRightBorder){
-    //                     if (isValidBiomeFound){
-    //                         Debug.Log("Multiple biomes found for: " + iT + " " + iR);
-    //                     }
-    //                     isValidBiomeFound = true;
-    //                 }
-    //             }
-    //             if (!isValidBiomeFound){
-    //                 Debug.Log("No biome found for: " + iT + " " + iR);
-    //             }
-    //         }
-    //     }
-    // }
     private Vector2Int GetPlayerChunkCoordinates(){
         Vector3 playerPosition = playerTransform.position;
         int playerChunkX = Mathf.FloorToInt(playerPosition.x / Config.CHUNK_SIZE);
@@ -147,12 +123,6 @@ public class MapGen : MonoBehaviour
             GenerateNearbyChunks(GetPlayerChunkCoordinates(), RenderDistance);
             yield return new WaitForSeconds(CHUNK_GEN_TRY_FREQUENCY);
         }   
-    }
-    private TileBase ChooseTileTest(float value){
-        value += 1;
-        value /= 2;
-        value = value * 255;
-        return tileCache[(int)Mathf.Round(value)];
     }
     private TileBase ChooseTile(float temperature){
         float index = -1; // -1 : 1 noicevals
@@ -207,6 +177,8 @@ public class MapGen : MonoBehaviour
                 int index = x + y * Config.CHUNK_SIZE;
                 Vector3Int tilePosition = new Vector3Int(startWorldPosition.x+x, startWorldPosition.y+y, 0);
                 tilemap.SetTile(tilePosition, ChooseTile(noiseValues[index]));
+                // tilemap.SetTile(new Vector3Int (tilePosition.x + 1, tilePosition.y) , ChooseTile(noiseValues[index]));
+                // tilemap.SetTile(new Vector3Int (tilePosition.x, tilePosition.y + 1), ChooseTile(noiseValues[index]));
             }
         }
         noiseValues.Dispose();
@@ -244,7 +216,6 @@ public class MapGen : MonoBehaviour
 #endregion
 }
 
-[Unity.Burst.BurstCompile]
 public struct JGenerateChunkNoise : IJob
 {   
     public NativeArray<float> results;
@@ -267,7 +238,6 @@ public struct JGenerateChunkNoise : IJob
     }
 }
 
-[Unity.Burst.BurstCompile]
 public struct JGenerateChunkStructure : IJob{
 
     public NativeArray<float> results;

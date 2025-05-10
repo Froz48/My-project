@@ -32,6 +32,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private EquipmentInventory equipment;
     [SerializeField] private NullAbility nullAbility;
+    [SerializeField] private MeleeStrike meleeAbility;
     [SerializeField] private AttributeListSO baseAttributes;
     #endregion
 
@@ -86,11 +87,12 @@ public class Player : NetworkBehaviour
     }
 
     private void MakeUIs(){
-        GetComponentInChildren<AbilityCooldownUI>()?.MakeInterface(this);
-        GetComponentInChildren<HealthInterface>()?.MakeHealthUI(this);
-        GetComponentInChildren<StatsInterface>()?.makeUI(attributes);
-        GetComponentInChildren<InventoryUI>()?.makeUI(inventory);
-        GetComponentInChildren<EquipmentUI>()?.makeUI(equipment);
+        FindObjectOfType<AbilityCooldownUI>()?.MakeInterface(this);
+        FindObjectOfType<HealthInterface>()?.MakeHealthUI(this);
+        FindObjectOfType<StatsInterface>()?.makeUI(attributes);
+        FindObjectOfType<InventoryUI>()?.makeUI(inventory);
+        FindObjectOfType<EquipmentUI>()?.makeUI(equipment);
+        OnAnyAbilityChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void InitializeAbilities(){
@@ -101,6 +103,7 @@ public class Player : NetworkBehaviour
             abilities[i] = nullAbility.CreateInstance();
             input.onAbilityUse[i] += () => UseAbility(bullshit);
         }
+        ChangeAbilityInstance(0, meleeAbility);
     }
     #endregion
 
@@ -127,7 +130,12 @@ public class Player : NetworkBehaviour
                 attributes[(int)i.attribute].RemoveModifier(i);
             }
             if (equipmentItem.ability != null){
-                ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), nullAbility);
+                if (equipmentItem.GetAbilityPosition() == 0){
+                    ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), meleeAbility);
+                }
+                else {
+                    ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), nullAbility);
+                }
             }
         } else Debug.Log("Unequipped non-equipment item, good boy!");
     }
@@ -169,7 +177,7 @@ public class Player : NetworkBehaviour
 
     private void UseAbility(int index){
         if (Time.time >= abilities[index].nextUseTime){
-            abilities[index].nextUseTime = Time.time + abilities[index].cooldown;
+            // abilities[index].nextUseTime = Time.time + abilities[index].cooldown;
             Vector2 worldPosition = playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Debug.Log("UseAbility" + index + " " + abilities[index].GetType());
             UseAbility(worldPosition, index);

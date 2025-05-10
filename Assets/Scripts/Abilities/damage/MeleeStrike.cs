@@ -3,17 +3,18 @@
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Flamestrike", menuName = "Abilities/Flamestrike")]
-public class MeleeStrike : Ability{
-    [SerializeField] private GameObject prefab;
 
+public class MeleeStrike : Ability{
     [ServerRpc]
     public override void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition){
-        GameObject effectObject = Instantiate(prefab, targetPosition, Quaternion.identity);
-        effectObject.AddComponent<MeleeStrikeEffect>().Initialize(damage, lifetime);
+
+        Vector2 pos = playerPosition - (playerPosition - targetPosition).normalized;
+        GameObject effectObject = GameManager.Instantiate(abilityData.projectilePrefab, pos, Quaternion.identity);
+        effectObject.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(abilityData.power);
+        effectObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(abilityData.lifetime);
         
-        var networkObj = effectObject.GetComponent<NetworkObject>();
-        networkObj.Spawn();
+        effectObject.GetComponent<NetworkObject>().Spawn();
+        // networkObj.Spawn();`
     }
 
 

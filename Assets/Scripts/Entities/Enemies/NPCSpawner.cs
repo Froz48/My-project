@@ -12,7 +12,7 @@ public class NPCSpawner : NetworkBehaviour
     /// <summary>
     /// Every x seconds, spawn a new enemy. The more the rate, the more time between spawns.
     /// </summary>
-    private float spawnRate = 5f; 
+    private float spawnRate = 2f; 
     [SerializeField] private SpawnPool spawnPool;
     private float spawnMaxRadius = 30;
     private float spawnMinRadius = 15;
@@ -21,6 +21,7 @@ public class NPCSpawner : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        if (IsServer)
         StartCoroutine(SpawnEnemiesCoroutine());
     }
 
@@ -35,7 +36,7 @@ public class NPCSpawner : NetworkBehaviour
     private Vector2 GetRandomSpawnPosition(){
         Vector2 spawnPosition;
         for (int i = 0; i < MAX_SPAWN_TRY; i++){
-            spawnPosition = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f,1f)).normalized * Random.Range(spawnMinRadius, spawnMaxRadius);
+            spawnPosition = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f,1f)).normalized * Random.Range(spawnMinRadius, spawnMaxRadius) + (Vector2)this.transform.position;
             if (CheckIsValidSpawnPosition(spawnPosition)){
                 return spawnPosition;
             }

@@ -1,6 +1,7 @@
 
 
 using System.Collections;
+using Unity.Mathematics;
 using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -98,8 +99,13 @@ public class NPCEntity : NetworkBehaviour{
     
     private void DropLoot(){
         foreach(var i in monsterData.lootTable){
-            if (i.dropChance - Random.Range(0f, 1f) > 0){
+            if (i.dropChance - UnityEngine.Random.Range(0f, 1f) > 0){
                 // i.item.SpawnWorldItemCopy(transform.position);
+                GameObject groundItemPrefab = Resources.Load<GameObject>("GroundItemPrefab");
+                var _gameObject = Instantiate(groundItemPrefab, transform.position, quaternion.identity);
+                _gameObject.GetComponent<GroundItem>().setItem(i.item);
+                _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
+                _gameObject.GetComponent<NetworkObject>().Spawn();
             }  
         }
     }

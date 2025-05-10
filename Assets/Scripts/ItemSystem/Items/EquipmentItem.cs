@@ -13,7 +13,7 @@ public class EquipmentItem : ItemBase
 {
     public EEquipmentSlot eEquipmentSlot;
     public AttributeModifier[] attributeModifiers;
-    public Ability ability;
+    [SerializeReference] public Ability ability;
 
     internal int GetAbilityPosition()
     {

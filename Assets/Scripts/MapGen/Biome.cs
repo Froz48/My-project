@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName = "new Biome", menuName = "Biome")]
 public class Biome : ScriptableObject
-{
+{ //[Range(0f, 1f)]
     [SerializeField] public float biomeFrequency;
     [SerializeField] public TileBase tile;
     [SerializeField] List<NPCData> spawnPool;

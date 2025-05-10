@@ -1,5 +1,7 @@
 
 
+using System;
+using TMPro;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
@@ -7,11 +9,8 @@ using UnityEngine.UI;
 
 public class NetworkManagerUI : MonoBehaviour {
     [SerializeField] private GameObject groundItemPrefab;
-    [SerializeField] private int spawnItemId;
-    [SerializeField] private Button hostButton;
-    [SerializeField] private Button serverButton;
-    [SerializeField] private Button clientButton;
     [SerializeField] private Button spawnItemButton;
+    [SerializeField] private TMP_InputField textiid;
     private ItemDatabase databaseItems;
 
     // public override void OnNetworkSpawn(){
@@ -19,20 +18,16 @@ public class NetworkManagerUI : MonoBehaviour {
     // }
     private void Awake() {
         databaseItems = Resources.Load<ItemDatabase>("ItemDatabase");
-        serverButton.onClick.AddListener(()=>{
-            NetworkManager.Singleton.StartServer();
-        });
-        hostButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.StartHost();
-        });
-        clientButton.onClick.AddListener(() => {
-            NetworkManager.Singleton.StartClient();
-        });
+
         spawnItemButton.onClick.AddListener(() => {
             var _gameObject = Instantiate(groundItemPrefab, new Vector3(2,2,-1), quaternion.identity);
-            _gameObject.GetComponent<GroundItem>().setItem(databaseItems.GetItem(spawnItemId));
+
+           Debug.Log(textiid.text.ToIntArray());
+           int iid = Convert.ToInt32(textiid.text);
+            _gameObject.GetComponent<GroundItem>().setItem(databaseItems.GetItem(iid));
             _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
             _gameObject.GetComponent<NetworkObject>().Spawn();
+            Debug.Log("Spawned item with id = " + iid);
         });
 
     }

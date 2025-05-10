@@ -30,11 +30,7 @@ public class UserInterface : MonoBehaviour{
     // }
     private void UseItem(InventorySlot slot)
     {
-        if (slot.item is EquipmentItem)
-        {
-            Player player = GetComponentInParent<Player>();
-            player.GetEquipment().EquipItem(slot);
-        }
+
     }
     
 

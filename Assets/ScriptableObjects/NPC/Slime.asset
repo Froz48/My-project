@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8640623650889022529, guid: 13a5f2208f11e9a42b53a298da0e232b, type: 3}
-  detectionRadius: 5
+  detectionRadius: 10
   attackDamage: 5
   atackSpeed: 5
-  giveUpRadius: 10
+  giveUpRadius: 20
   movementSpeed: 1
   maxHealth: 10
-  lootTable: []
+  lootTable:
+  - item: {fileID: 11400000, guid: 644dcaacdff76014abd9fc4aeac85ea2, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    dropChance: 0.5

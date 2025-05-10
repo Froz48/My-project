@@ -21,6 +21,7 @@ public class ItemDatabase : ScriptableObject
     }
 
     public ItemBase GetItem(int id){
+        if (id > ItemObjects.Length) return ItemObjects[0];
         return ItemObjects[id];
     }
 }

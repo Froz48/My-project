@@ -13,11 +13,6 @@ MonoBehaviour:
   m_Name: SavannaBiome
   m_EditorClassIdentifier: 
   biomeFrequency: 1
-  biomeName: Forest
-  temperatureLeftBorder: 0.8
-  temperatureRightBorder: 1
-  rainfallLeftBorder: 0.3
-  rainfallRightBorder: 0.8
-  tile: {fileID: 11400000, guid: f08b92bd9fd848c40bb69bc9fb30badd, type: 2}
+  tile: {fileID: 11400000, guid: 5afe491e927b4e54596e747599b2539a, type: 2}
   spawnPool: []
-  lootTable: []
+  lootPool: []

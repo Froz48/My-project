@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +27,8 @@ public class PlayerInput : NetworkBehaviour
         playerInputActions.Gameplay.OffHandUse.performed += ctx => AbilityUse(2, ctx);
         playerInputActions.Gameplay.LegsUse.performed += ctx => AbilityUse(3, ctx);
         playerInputActions.Gameplay.Hotbar.performed += ctx => Hotbar();
+        playerInputActions.Gameplay.Menu.performed += ctx => Menu();
+        playerInputActions.Gameplay.Inventory.performed += ctx => Inventory();
 
         playerInputActions.Gameplay.Enable();
     }
@@ -48,6 +51,16 @@ public class PlayerInput : NetworkBehaviour
 
     public void AbilityUse(int i, InputAction.CallbackContext obj){
         onAbilityUse[i]?.Invoke();
+    }
+
+    public void Menu(){
+        FindObjectOfType<WindowManager>().ChangeWindowState(6);
+    }
+
+    public void Inventory(){
+        FindObjectOfType<WindowManager>().ChangeWindowState(0);
+        FindObjectOfType<WindowManager>().ChangeWindowState(1);
+        FindObjectOfType<WindowManager>().ChangeWindowState(4);
     }
 
     public void Hotbar(){

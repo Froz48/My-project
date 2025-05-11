@@ -3,13 +3,16 @@
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+[CreateAssetMenu(fileName = "Flamestrike", menuName = "Abilities/Flamestrike")]
 public class Flamestrike : Ability{
+    public GameObject prefab;
+    public float lifetime = 1f;
 
     [ServerRpc]
     public override void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition){
-        GameObject flamestrikeObject = GameManager.Instantiate(abilityData.projectilePrefab, targetPosition, Quaternion.identity);
-        flamestrikeObject.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(abilityData.power);
-        flamestrikeObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(abilityData.lifetime);
+        GameObject flamestrikeObject = GameManager.Instantiate(prefab, targetPosition, Quaternion.identity);
+        flamestrikeObject.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(power);
+        flamestrikeObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         var networkObj = flamestrikeObject.GetComponent<NetworkObject>();
         networkObj.Spawn();

@@ -56,7 +56,7 @@ public class AbilityCooldownUI : MonoBehaviour
     {
         //CreateOrUpdateSlots();
         for (int i = 0; i < player.abilities.Length; i++){
-            slotsOnInterface[i].SetSprite(player.abilities[i].abilityData.sprite);
+            slotsOnInterface[i].SetSprite(player.abilities[i].sprite);
         }
     }
 
@@ -113,8 +113,8 @@ public class AbilityCooldownUI : MonoBehaviour
     {
         float remainingCooldown = ability.GetRemainingCooldown();
 
-        slot.cooldownFill.fillAmount = remainingCooldown / ability.abilityData.cooldown;
-        slot.cooldownText.text = remainingCooldown > 0 ? ability.abilityData.cooldown.ToString("F0") : "";
+        slot.cooldownFill.fillAmount = remainingCooldown / ability.cooldown;
+        slot.cooldownText.text = remainingCooldown > 0 ? ability.cooldown.ToString("F0") : "";
         slot.SetBackToAvailability(!(remainingCooldown > 0));
     }
 

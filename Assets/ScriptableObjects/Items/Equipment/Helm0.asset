@@ -18,4 +18,4 @@ MonoBehaviour:
   description: 
   eEquipmentSlot: 0
   attributeModifiers: []
-  ability: {fileID: 11400000, guid: e99b2bad73c4bed46b8a28b78fcf22d5, type: 2}
+  ability: {fileID: 11400000, guid: 921918b73f29b104f838a69e8761e2a4, type: 2}

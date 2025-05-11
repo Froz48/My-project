@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1877887150
+  GlobalObjectIdHash: 266310322
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -328,8 +328,8 @@ MonoBehaviour:
     savePath: 
   equipment:
     savePath: 
-  nullAbility: {fileID: 11400000, guid: 8cd878433f045f94e91d6bf7f8368f10, type: 2}
-  meleeAbility: {fileID: 11400000, guid: 3f544b98a6b2bd34bb751d9485cc5135, type: 2}
+  nullAbility: {fileID: 11400000, guid: 77bcea0491f26214cb51d8a1febc9eb4, type: 2}
+  meleeAbility: {fileID: 11400000, guid: 152b91436bc4aaf4d896e341d24c9be2, type: 2}
   baseAttributes: {fileID: 11400000, guid: c8681301f01a70a4c9d9ac561d24004d, type: 2}
 --- !u!95 &2278221899907619263
 Animator:

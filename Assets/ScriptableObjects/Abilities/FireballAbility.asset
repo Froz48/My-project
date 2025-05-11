@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0352c913ec02b3042995a085b776e0ff, type: 3}
-  m_Name: FireballData
+  m_Script: {fileID: 11500000, guid: 249412c4c7c3b5344827424c203f4dcb, type: 3}
+  m_Name: FireballAbility
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1842253825, guid: a265b234540e43846b382b1b199a4a87, type: 3}
-  power: 10
+  nextUseTime: 0
+  sprite: {fileID: 631534408, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  power: 5
   cooldown: 2
-  projectilePrefab: {fileID: 4560789671401021249, guid: 8d71a3c01131c714e8adce82c3d706b8, type: 3}
+  prefab: {fileID: 4560789671401021249, guid: 8d71a3c01131c714e8adce82c3d706b8, type: 3}
+  projectileSpeed: 10
   lifetime: 3
-  projectileSpeed: 3

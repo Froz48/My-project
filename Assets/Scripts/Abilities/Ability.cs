@@ -1,11 +1,13 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public abstract class Ability
-{
 
-    public AbilityData abilityData;
+public abstract class Ability : ScriptableObject
+{
     public float nextUseTime;
+    [SerializeField] public Sprite sprite;
+    [SerializeField] public float power = 1f;
+    [SerializeField] public float cooldown = 1f;
 
     [ServerRpc]
     public abstract void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition);

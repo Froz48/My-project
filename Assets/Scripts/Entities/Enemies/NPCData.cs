@@ -7,6 +7,7 @@ using UnityEngine;
 [Serializable]
 [CreateAssetMenu(fileName = "MonsterData", menuName = "NPC/MonsterData")]
 public class NPCData : ScriptableObject{
+    [SerializeField] public NPCBehaviour[] nPCBehaviour;
     [SerializeField] public Transform Prefab;
     [SerializeField] public float detectionRadius;
     [SerializeField] public float attackDamage;

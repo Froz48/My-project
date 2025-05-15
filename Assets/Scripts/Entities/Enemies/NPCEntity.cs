@@ -9,6 +9,7 @@ using UnityEngine;
 public class NPCEntity : NetworkBehaviour{
 
     float currentHealth;
+    
     float despawnDistance = 40;
     [SerializeField] public NPCData monsterData;
     // [SerializeField] public Sprite sprite;
@@ -21,7 +22,7 @@ public class NPCEntity : NetworkBehaviour{
         if (IsServer){
             monsterData = monsterData.CreateInstance();
             // GetComponent<SpriteRenderer>().sprite = sprite;
-            StartCoroutine(CheckForPlayerNearby());
+            StartCoroutine(CheckForStateConditions());
             GetComponent<BoxCollider2D>().enabled = true; // huh?
             currentHealth = monsterData.maxHealth;
             StartCoroutine(DespawnCheck());
@@ -67,10 +68,10 @@ public class NPCEntity : NetworkBehaviour{
         player.GetDamage(monsterData.attackDamage);
     }
     public void FixedUpdate(){
-        if (IsServer && playerChased!= null){
-
-            Vector2 newPosition = transform.position + (playerChased.position - transform.position).normalized * monsterData.movementSpeed*Time.deltaTime;
-            GetComponent<Rigidbody2D>().MovePosition(newPosition);
+        if (IsServer){
+            monsterData.nPCBehaviour[activeStatePosition].Act(this);
+            // Vector2 newPosition = transform.position + (playerChased.position - transform.position).normalized * monsterData.movementSpeed*Time.deltaTime;
+            // GetComponent<Rigidbody2D>().MovePosition(newPosition);
         } 
     }
 //---------------------------------------------------------------    
@@ -110,6 +111,34 @@ public class NPCEntity : NetworkBehaviour{
         }
     }
 
+
+    public int activeStatePosition = 0;
+
+    private IEnumerator CheckForStateConditions(){
+        while (true){
+            for (int i = 0; i < monsterData.nPCBehaviour.Length; i++){
+                if (i <= activeStatePosition) {
+                    Debug.Log("activeStatePosition " + activeStatePosition + " is higher than " + i);
+                    continue;
+                }
+                Debug.Log("Checking state " + i);
+                if (monsterData.nPCBehaviour[i].CheckConditions(this)){
+                    activeStatePosition = i;
+                    Debug.Log("State changed to " + activeStatePosition);
+                } else {
+                    Debug.Log("State not changed");
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    private IEnumerator Act(){
+        while (true){
+            
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 
     private IEnumerator CheckForPlayerNearby()
     {

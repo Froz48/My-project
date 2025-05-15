@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: Zombie
   m_EditorClassIdentifier: 
+  nPCBehaviour:
+  - {fileID: 11400000, guid: c28a4eb2fcfb1f84baf2aef966622e6c, type: 2}
+  - {fileID: 11400000, guid: 7f08194c5aa95ab42af4763bc2bada99, type: 2}
   Prefab: {fileID: 8640623650889022529, guid: e0b65baa218e8ae46aadbaa85da27bb8, type: 3}
   detectionRadius: 10
   attackDamage: 10

@@ -159,7 +159,7 @@ public class MapGen : MonoBehaviour
         };
         JobHandle handle = jGenerateChunkCityNoise.Schedule();
         handle.Complete();
-        Debug.Log("GenerateChunkCities");
+        // Debug.Log("GenerateChunkCities");
         ThreadQueuer.QueueMainThreadFunction( () => ApplyChunkCityToTilemap(chunkCoords, noiseValues));
     }
 

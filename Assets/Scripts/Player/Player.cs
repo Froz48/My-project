@@ -117,6 +117,7 @@ public class Player : NetworkBehaviour
                 attributes[(int)i.attribute].AddModifier(i);
             }
             if (equipmentItem.ability != null){
+                Debug.Log("Equiped an equipment item with an ability");
                 ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), equipmentItem.ability);
             }
         } else Debug.Log("Equiped a non-equipment item");
@@ -130,6 +131,7 @@ public class Player : NetworkBehaviour
                 attributes[(int)i.attribute].RemoveModifier(i);
             }
             if (equipmentItem.ability != null){
+                Debug.Log("Unequiped an equipment item with an ability");
                 if (equipmentItem.GetAbilityPosition() == 0){
                     ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), meleeAbility);
                 }
@@ -191,6 +193,7 @@ public class Player : NetworkBehaviour
     private void ChangeAbilityInstance(int index, Ability ability){
         if (index == -1) return;
         abilities[index] = ability.CreateInstance();
+        Debug.Log("Changed ability " + index + " to " + abilities[index].GetType());
         OnAnyAbilityChanged?.Invoke(this, EventArgs.Empty);
     }
     

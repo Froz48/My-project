@@ -49,9 +49,9 @@ public abstract class InventoryBase
 
     internal void SwapItems(InventorySlot slot1, InventorySlot slot2)
     {
-        InventorySlot temp = new InventorySlot(slot2.item, slot2.amount);
-        slot2.UpdateSlot(slot1.item, slot1.amount);
-        slot1.UpdateSlot(temp.item, temp.amount);
+        InventorySlot temp = new InventorySlot(slot1.item, slot1.amount);
+        slot1.UpdateSlot(slot2.item, slot2.amount);
+        slot2.UpdateSlot(temp.item, temp.amount);
     }
     
 #region Serialization

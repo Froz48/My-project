@@ -34,7 +34,7 @@ public class Inventory : InventoryBase
 
     internal bool CanPickupItem(ItemBase itemInstance)
     {
-        if (hasEmptySlot() || IsItemInInventory(itemInstance)){
+        if (hasEmptySlot()){
             return true;
         }
         else return false;
@@ -42,7 +42,7 @@ public class Inventory : InventoryBase
 
     internal void AddItem(ItemBase itemInstance, int v)
     {
-        GetEmptySlot().UpdateSlot(itemInstance, v);
+        GetEmptySlot()?.UpdateSlot(itemInstance, v);
     }
 
 

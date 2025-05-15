@@ -11,6 +11,7 @@ public class GroundItem : NetworkBehaviour
 
     public void setItem(ItemBase itemObject){
         item = itemObject;
+        GetComponent<SpriteRenderer>().sprite = item.uiDisplay;
     }
 
     public ItemBase getItem(){

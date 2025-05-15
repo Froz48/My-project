@@ -17,4 +17,4 @@ MonoBehaviour:
   power: 5
   cooldown: 1
   prefab: {fileID: 4560789671401021249, guid: 07eac73569835674ab6d34c8b95edb62, type: 3}
-  lifetime: 1
+  lifetime: 0.2

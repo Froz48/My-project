@@ -8,13 +8,23 @@ public class ReviveManager : NetworkBehaviour
     public void Kill(GameObject playerGameObject, float reviveTime){
         
         StartCoroutine(revive(playerGameObject, reviveTime));
-        playerGameObject.GetComponent<Player>().Revive(); 
     }    
 
     public IEnumerator revive(GameObject gameObject, float time){
-        gameObject.SetActive(false);
+        SetPlayerObjectState(gameObject, false);
+        // gameObject.SetActive(false);
         yield return new WaitForSeconds(time);
+        SetPlayerObjectState(gameObject, true);
         Debug.Log("Revive");
-        gameObject.SetActive(true);
+        gameObject.GetComponent<Player>().Revive(); 
     }
+
+    public void SetPlayerObjectState(GameObject go, bool state){
+        go.GetComponentInChildren<SpriteRenderer>().enabled = state;
+        go.GetComponentInChildren<Collider2D>().enabled = state;
+        go.GetComponentInChildren<Animator>().enabled = state;
+        go.GetComponentInChildren<Rigidbody2D>().simulated = state;
+        go.GetComponent<Player>().enabled = state;
+    }
+
 }

@@ -17,5 +17,6 @@ public class FireballAbility : Ability
         fireball.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         Vector2 direction = (targetPosition - playerPosition).normalized;
         rb.velocity = direction * projectileSpeed;
+        nextUseTime = Time.time + cooldown;
     }
 }

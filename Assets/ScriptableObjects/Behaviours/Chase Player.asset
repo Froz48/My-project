@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: New Behaviour Chase Player
-  m_EditorClassIdentifier: Assembly-CSharp::BehaviourChasePlayer
+  m_Script: {fileID: 11500000, guid: 8ae224e8a5e79c346a0c2e1e67cd7f31, type: 3}
+  m_Name: Chase Player
+  m_EditorClassIdentifier: 
   test: 0

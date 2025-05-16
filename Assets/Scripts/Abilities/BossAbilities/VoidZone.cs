@@ -17,6 +17,7 @@ public class VoidZone : Ability
         networkObj.Spawn();
         warningGO.AddComponent<Effect_DestroyAfterDelay>().Initialize(warningDuration); 
         GameManager.Instance.StartCoroutine(DelayedActivation(targetPosition));
+        nextUseTime = Time.time + cooldown;
     }
 
     private IEnumerator DelayedActivation(Vector2 targetPosition){

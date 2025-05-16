@@ -16,5 +16,6 @@ public class Flamestrike : Ability{
         
         var networkObj = flamestrikeObject.GetComponent<NetworkObject>();
         networkObj.Spawn();
+        nextUseTime = Time.time + cooldown;
     }
 }

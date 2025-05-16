@@ -18,6 +18,7 @@ public class MeleeStrike : Ability{
         effectObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         effectObject.GetComponent<NetworkObject>().Spawn();
+        nextUseTime = Time.time + cooldown;
         // networkObj.Spawn();`
     }
 

@@ -179,7 +179,7 @@ public class Player : NetworkBehaviour
 
     private void UseAbility(int index){
         if (Time.time >= abilities[index].nextUseTime){
-            abilities[index].nextUseTime = Time.time + abilities[index].cooldown;
+            
             Vector2 worldPosition = playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Debug.Log("UseAbility" + index + " " + abilities[index].GetType());
             UseAbility(worldPosition, index);

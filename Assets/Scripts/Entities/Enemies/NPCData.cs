@@ -8,11 +8,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MonsterData", menuName = "NPC/MonsterData")]
 public class NPCData : ScriptableObject{
     [SerializeField] public NPCBehaviour[] nPCBehaviour;
+    [SerializeField] public Ability[] abilities;
     [SerializeField] public Transform Prefab;
     [SerializeField] public float detectionRadius;
-    [SerializeField] public float attackDamage;
-    [SerializeField] public float atackSpeed;
-    [SerializeField] public float giveUpRadius;
+    [SerializeField] public float attackDistance;
     [SerializeField] public float movementSpeed;
     [SerializeField] public float maxHealth;
     [SerializeField] public List<LootDropEntry> lootTable;

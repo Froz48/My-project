@@ -6,26 +6,31 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NPCEntity : NetworkBehaviour{
+public class NPCEntity : NetworkBehaviour, IDamageable{
 
     public Ability[] abilities;
     float currentHealth;
     float despawnDistance = 40;
     public int activeStatePosition = 0;
+    Animator animator;
     [SerializeField] public NPCData monsterData;
     // [SerializeField] public Sprite sprite;
-    
 
-//---------------------------------------------------------------
-    public override void OnNetworkSpawn(){
-        if (IsServer){
-            monsterData = monsterData.CreateInstance();
+
+    //---------------------------------------------------------------
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            monsterData = monsterData.CreateInstance(); //doesnt need animore
             InitializeAbilities();
             StartCoroutine(CheckForStateConditions());
             GetComponent<BoxCollider2D>().enabled = true; // huh?
             currentHealth = monsterData.maxHealth;
             StartCoroutine(DespawnCheck());
         }
+        animator = GetComponent<Animator>();
+        Debug.Log("Spawned, animator: " + animator);
     }
 
     public void InitializeAbilities(){
@@ -61,7 +66,8 @@ public class NPCEntity : NetworkBehaviour{
 
     public void FixedUpdate(){
         if (IsServer){
-            monsterData.nPCBehaviour[activeStatePosition].Act(this);
+            
+            monsterData.nPCBehaviour[activeStatePosition].Act(this, animator);
 
         } 
     }

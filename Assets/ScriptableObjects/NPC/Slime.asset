@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Slime
   m_EditorClassIdentifier: 
   nPCBehaviour:
-  - {fileID: 11400000, guid: c28a4eb2fcfb1f84baf2aef966622e6c, type: 2}
-  - {fileID: 11400000, guid: 7f08194c5aa95ab42af4763bc2bada99, type: 2}
+  - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
+  - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}
+  - {fileID: 11400000, guid: acc7459f9e8ac3c49b5ae1e60d926ca5, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 2a2505d15e01d2b4a94d14fb6097918d, type: 2}
   Prefab: {fileID: 8640623650889022529, guid: 13a5f2208f11e9a42b53a298da0e232b, type: 3}
   detectionRadius: 10
-  attackDamage: 5
-  atackSpeed: 5
-  giveUpRadius: 20
+  attackDistance: 3
   movementSpeed: 1
   maxHealth: 10
   lootTable:

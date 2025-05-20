@@ -11,7 +11,8 @@ public class Flamestrike : Ability{
     [ServerRpc]
     public override void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition){
         GameObject flamestrikeObject = GameManager.Instantiate(prefab, targetPosition, Quaternion.identity);
-        flamestrikeObject.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(power);
+        flamestrikeObject.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(NPCEntity));
+        flamestrikeObject.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(BossEntity));
         flamestrikeObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         var networkObj = flamestrikeObject.GetComponent<NetworkObject>();

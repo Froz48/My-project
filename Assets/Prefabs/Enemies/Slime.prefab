@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2741334791539117153}
   - component: {fileID: 5137202074851421086}
   - component: {fileID: 2284792995755328542}
+  - component: {fileID: 7704202196855526977}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2637947001
+  GlobalObjectIdHash: 3275213341
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -173,7 +174,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04827271c27d934c8fdcdd6ac0676ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilities: []
+  activeStatePosition: 0
   monsterData: {fileID: 11400000, guid: a7490c733643a1841b0c8554dc6a05a2, type: 2}
+--- !u!95 &7704202196855526977
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355553488569849823}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6900353872152739137
 GameObject:
   m_ObjectHideFlags: 0

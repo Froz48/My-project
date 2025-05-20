@@ -24,7 +24,7 @@ public class BehaviourChasePlayer : NPCBehaviour {
     }
 
 
-    public override void Act(NPCEntity npc, dynamic param = null) {
+    public override void Act(NPCEntity npc, Animator animator = null, dynamic param = null) {
             Player player = FindNearestPlayer(npc);
             Vector2 newPosition = npc.transform.position + (player.transform.position - npc.transform.position).normalized * npc.monsterData.movementSpeed*Time.deltaTime;
             npc.GetComponent<Rigidbody2D>().MovePosition(newPosition);

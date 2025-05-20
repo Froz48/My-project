@@ -13,7 +13,8 @@ public class FireballAbility : Ability
     {
         GameObject fireball = GameManager.Instantiate(prefab, playerPosition, Quaternion.identity);
         Rigidbody2D rb = fireball.GetComponent<Rigidbody2D>();
-        fireball.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(power);
+        fireball.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(NPCEntity));
+        fireball.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(BossEntity));
         fireball.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         Vector2 direction = (targetPosition - playerPosition).normalized;
         rb.velocity = direction * projectileSpeed;

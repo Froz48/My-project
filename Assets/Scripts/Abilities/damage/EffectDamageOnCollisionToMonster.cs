@@ -1,35 +1,28 @@
+using System;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
-
-public class Effect_DamageOnCollisionToMonster : MonoBehaviour
+public interface IDamageable
 {
-    float damage;
-    public void Initialize(float damage)
-    {
-        this.damage = damage;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out NPCEntity monsterWorld)){
-            monsterWorld.TakeDamageRpc(damage);
-        }
-    }
+    void TakeDamageRpc(float damage);
 }
 
-public class Effect_DamageOnCollisionToPlayer : MonoBehaviour
+public class Effect_DamageOnCollision : MonoBehaviour
 {
     float damage;
-    public void Initialize(float damage)
+    Type targetType;
+    public void Initialize(float damage, Type targetType)
     {
         this.damage = damage;
+        this.targetType = targetType;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player monsterWorld)){
-            monsterWorld.GetDamage(damage);
+        var component = collision.GetComponent(targetType);
+        if ((component != null) && component is IDamageable damageable)
+        {
+            damageable.TakeDamageRpc(damage);
         }
     }
 }

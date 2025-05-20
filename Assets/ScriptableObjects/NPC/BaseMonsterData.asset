@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: BaseMonsterData
   m_EditorClassIdentifier: 
   nPCBehaviour:
-  - {fileID: 11400000, guid: c28a4eb2fcfb1f84baf2aef966622e6c, type: 2}
-  - {fileID: 11400000, guid: 7f08194c5aa95ab42af4763bc2bada99, type: 2}
+  - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
+  - {fileID: 11400000, guid: 08f969aec4f722f45a29fec5fd7e637b, type: 2}
+  abilities: []
   Prefab: {fileID: 8640623650889022529, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
   detectionRadius: 1
-  attackDamage: 1
-  atackSpeed: 1
-  giveUpRadius: 1
+  attackDistance: 0
   movementSpeed: 1
   maxHealth: 1
   lootTable: []

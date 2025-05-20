@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 768e494dc98b4984d9eed7f5266dcc84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxCount: 1
+  enemyMaxCount: 20
   enemyDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
   spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
   spawnedEnemyCount: 0
@@ -432,14 +432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb2cd87b24fc56469e41808e3f0e1fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  biomes:
-  - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
-  - {fileID: 11400000, guid: d939e4f1158964d49b4effd3ce6eda63, type: 2}
-  - {fileID: 11400000, guid: 95f85f6b0d5683f47bd511bf525b8149, type: 2}
+  biomeGenerator: {fileID: 11400000, guid: e68bdbc502dba8a4ebb277b4e7d14463, type: 2}
   playerTransform: {fileID: 7613614482847855789}
-  cityPrefab: {fileID: 3903414776312585973, guid: c85c7f2212e8d8942b28469a4a56ba4b, type: 3}
   tileCache: []
+  ig: {fileID: 11400000, guid: aed7cf33ef61c7d4f9f49dd15782d277, type: 2}
 --- !u!114 &4381744598247498949
 MonoBehaviour:
   m_ObjectHideFlags: 0

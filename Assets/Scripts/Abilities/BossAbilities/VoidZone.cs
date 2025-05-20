@@ -24,7 +24,7 @@ public class VoidZone : Ability
         yield return new WaitForSeconds(warningDuration);
 
         GameObject activationGO = Instantiate(activationPrefab, targetPosition, Quaternion.identity);
-        activationGO.AddComponent<Effect_DamageOnCollisionToPlayer>().Initialize(power);
+        activationGO.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(Player));
         activationGO.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         NetworkObject activationNetObj = activationGO.GetComponent<NetworkObject>();

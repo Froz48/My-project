@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : NetworkBehaviour
+public class Player : NetworkBehaviour, IDamageable
 {
     #region Constants
     public const int MAX_ABILITIES = 4;
@@ -153,7 +153,7 @@ public class Player : NetworkBehaviour
         }
     }
 
-    public void GetDamage(float damage){
+    public void TakeDamageRpc(float damage){
         currentHealth -= damage;
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
         if (currentHealth <= 0)

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUseTime: 0
   sprite: {fileID: -1827566453, guid: a265b234540e43846b382b1b199a4a87, type: 3}
-  power: 100
+  power: 20
   cooldown: 5
   lifetime: 2
   activationPrefab: {fileID: 4560789671401021249, guid: c81aa54886a925341af469bb2b0e4ab6, type: 3}
   warningPrefab: {fileID: 4560789671401021249, guid: 88ae82ad98d56ff41a3c54642e0e30b3, type: 3}
-  warningDuration: 2
+  warningDuration: 1

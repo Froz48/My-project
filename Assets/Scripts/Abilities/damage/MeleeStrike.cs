@@ -14,7 +14,8 @@ public class MeleeStrike : Ability{
 
         Vector2 pos = playerPosition - (playerPosition - targetPosition).normalized;
         GameObject effectObject = GameManager.Instantiate(prefab, pos, Quaternion.identity);
-        effectObject.AddComponent<Effect_DamageOnCollisionToMonster>().Initialize(power);
+        effectObject.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(NPCEntity));
+        effectObject.AddComponent<Effect_DamageOnCollision>().Initialize(power, typeof(BossEntity));
         effectObject.AddComponent<Effect_DestroyAfterDelay>().Initialize(lifetime);
         
         effectObject.GetComponent<NetworkObject>().Spawn();

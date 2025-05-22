@@ -18,8 +18,12 @@ MonoBehaviour:
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
   - timer: 3
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
+  - timer: 3
+    ability: {fileID: 11400000, guid: 5f0eb7c11e91f08439c1986637316a71, type: 2}
   - timer: 3.5
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
+  - timer: 4
+    ability: {fileID: 11400000, guid: 5f0eb7c11e91f08439c1986637316a71, type: 2}
   <loot>k__BackingField:
     lootDrops: []
   <maxHealth>k__BackingField: 50

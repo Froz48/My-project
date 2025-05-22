@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 8476313829567043056}
   - component: {fileID: 7789373438762283640}
   - component: {fileID: 4381744598247498949}
-  - component: {fileID: 5020491974467348039}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -434,8 +433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   biomeGenerator: {fileID: 11400000, guid: e68bdbc502dba8a4ebb277b4e7d14463, type: 2}
   playerTransform: {fileID: 7613614482847855789}
-  tileCache: []
-  ig: {fileID: 11400000, guid: aed7cf33ef61c7d4f9f49dd15782d277, type: 2}
+  interestGenerator: {fileID: 11400000, guid: aed7cf33ef61c7d4f9f49dd15782d277, type: 2}
+  micsGenerator: {fileID: 11400000, guid: 89811fddcd5fa3241892c75985fcaf41, type: 2}
 --- !u!114 &4381744598247498949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,18 +466,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &5020491974467348039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5786306326399798581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6578086862113598098
 GameObject:
   m_ObjectHideFlags: 0

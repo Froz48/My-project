@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb386a3580f39bc47a7f2b9b8f347738, type: 3}
+  m_Name: MicsGenerator
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 1123238305291302969, guid: 8f14006635ccf0d4aa0b96e326821638, type: 3}
+  - {fileID: 1123238305291302969, guid: 8f14006635ccf0d4aa0b96e326821638, type: 3}
+  - {fileID: 1123238305291302969, guid: 88338316deea28043ba5a464e737b80c, type: 3}
+  - {fileID: 1123238305291302969, guid: f373206c41d375f4ba60fd1a2bf11c70, type: 3}
+  - {fileID: 1123238305291302969, guid: ab2b0a85d1849ae4fa66adf9ad7e0490, type: 3}
+  - {fileID: 1123238305291302969, guid: 74e60a3aa1e24c8468842ca347f857ad, type: 3}
+  - {fileID: 1123238305291302969, guid: aa8c19ea2a532f145a0a5ddeebdaf1ea, type: 3}
+  - {fileID: 1123238305291302969, guid: 0eae4881dee21f347ae0677b4d3135c1, type: 3}
+  - {fileID: 1123238305291302969, guid: b9fdd6c6dbcf98b4aae8f4cda499caa0, type: 3}
+  - {fileID: 1123238305291302969, guid: 12932d08180676541935d7596bbc2ed4, type: 3}
+  - {fileID: 1123238305291302969, guid: 3e908ed1df972e4439d063b22d7c086f, type: 3}
+  - {fileID: 1123238305291302969, guid: a29f86b99ca03ac409df938c4a8c9659, type: 3}
+  parentObject: {fileID: 0}

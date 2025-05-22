@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387348723b11e674082a1b743af92f86, type: 3}
   m_Name: BiomeGenerator
   m_EditorClassIdentifier: 
-  biomes: []
-  tilemap: {fileID: 0}
+  biomes:
+  - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
+  - {fileID: 11400000, guid: d939e4f1158964d49b4effd3ce6eda63, type: 2}

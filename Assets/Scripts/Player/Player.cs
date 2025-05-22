@@ -163,7 +163,8 @@ public class Player : NetworkBehaviour, IDamageable
         }
     }
 
-    public void Revive(){
+    public void Revive()
+    {
         currentHealth = GetMaxHealth();
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
         transform.position = spawnPosition;

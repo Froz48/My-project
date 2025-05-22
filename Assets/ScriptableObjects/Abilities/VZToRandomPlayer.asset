@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextUseTime: 0
   sprite: {fileID: 0}
-  power: 1
-  cooldown: 1
-  ability: {fileID: 0}
+  power: 20
+  cooldown: 0
+  ability: {fileID: 11400000, guid: 2a2505d15e01d2b4a94d14fb6097918d, type: 2}
   NumberOfTimes: 0
   delayBetweenSpam: 0
   toEveryone: 0

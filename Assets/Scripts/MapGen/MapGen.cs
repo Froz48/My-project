@@ -14,7 +14,8 @@ public class MapGen : MonoBehaviour
     private Tilemap tilemap;
     [SerializeField] private BiomeGenerator biomeGenerator;
     [SerializeField] private Transform playerTransform;
-    [SerializeField] InterestGenerator ig;
+    [SerializeField] InterestGenerator interestGenerator;
+    [SerializeField] MicsGenerator micsGenerator;
     private HashSet<Vector2Int> generatedChunks = new HashSet<Vector2Int>();
     private Queue<Vector2Int> chunksToGenerate = new Queue<Vector2Int>();
     private const float CHUNK_GEN_TRY_FREQUENCY = 5f;
@@ -89,7 +90,8 @@ public class MapGen : MonoBehaviour
         biomeGenerator.GenerateChunkBiomes(chunkCoords);
 
         Debug.Log("Generating chunk: " + chunkCoords);
-        ig.GenerateChunk(chunkCoords);
+        interestGenerator.GenerateChunk(chunkCoords);
+        micsGenerator.GenerateChunk(chunkCoords);
     }
 
 

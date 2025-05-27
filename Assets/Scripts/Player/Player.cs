@@ -112,34 +112,31 @@ public class Player : NetworkBehaviour, IDamageable
     {
         if (_slot.item == null)
             return;
-        if (_slot.item is EquipmentItem equipmentItem){
-            foreach (var i in equipmentItem.attributeModifiers){
-                attributes[(int)i.attribute].AddModifier(i);
-            }
-            if (equipmentItem.ability != null){
-                Debug.Log("Equiped an equipment item with an ability");
-                ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), equipmentItem.ability);
-            }
-        } else Debug.Log("Equiped a non-equipment item");
+        foreach (var i in _slot.item.attributeModifiers){
+            attributes[(int)i.attribute].AddModifier(i);
+        }
+        if (_slot.item.ability != null){
+            Debug.Log("Equiped an equipment item with an ability");
+            ChangeAbilityInstance(_slot.item.GetAbilityPosition(), _slot.item.ability);
+        }
+        
     }
     public void ItemUnequiped(InventorySlot _slot)
     {
         if (_slot.item == null)
             return; 
-        if (_slot.item is EquipmentItem equipmentItem){
-            foreach (var i in equipmentItem.attributeModifiers){
-                attributes[(int)i.attribute].RemoveModifier(i);
+        foreach (var i in _slot.item.attributeModifiers){
+            attributes[(int)i.attribute].RemoveModifier(i);
+        }
+        if (_slot.item.ability != null){
+            Debug.Log("Unequiped an equipment item with an ability");
+            if (_slot.item.GetAbilityPosition() == 0){
+                ChangeAbilityInstance(_slot.item.GetAbilityPosition(), meleeAbility);
             }
-            if (equipmentItem.ability != null){
-                Debug.Log("Unequiped an equipment item with an ability");
-                if (equipmentItem.GetAbilityPosition() == 0){
-                    ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), meleeAbility);
-                }
-                else {
-                    ChangeAbilityInstance(equipmentItem.GetAbilityPosition(), nullAbility);
-                }
+            else {
+                ChangeAbilityInstance(_slot.item.GetAbilityPosition(), nullAbility);
             }
-        } else Debug.Log("Unequipped non-equipment item, good boy!");
+        }
     }
 
     

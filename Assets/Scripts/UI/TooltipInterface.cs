@@ -11,7 +11,7 @@ public static class TooltipInterface
 {
     static public GameObject tooltipPrefab = Resources.Load<GameObject>("TooltipPrefab");
     static private GameObject currentTooltip;
-    public static void ShowTooltip(GameObject slot, ItemBase itemObject)
+    public static void ShowTooltip(GameObject slot, Item itemObject)
     {
             if (currentTooltip == null)  createTooltip();
             setPostition(slot);
@@ -23,7 +23,7 @@ public static class TooltipInterface
         currentTooltip = Object.Instantiate(tooltipPrefab, new Vector3(), Quaternion.identity);
     }
 
-    private static void setText(ItemBase itemObject){
+    private static void setText(Item itemObject){
         currentTooltip.GetComponentInChildren<TextMeshProUGUI>().text = "";
 
         currentTooltip.GetComponentInChildren<TextMeshProUGUI>().text += 

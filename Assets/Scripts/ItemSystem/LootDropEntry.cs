@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class LootDropEntry
 {
-    public ItemBase item;
+    public Item item;
     public int minAmount;
     public int maxAmount;
     public float dropChance;

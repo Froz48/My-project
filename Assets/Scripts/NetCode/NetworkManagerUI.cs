@@ -11,24 +11,24 @@ public class NetworkManagerUI : MonoBehaviour {
     [SerializeField] private GameObject groundItemPrefab;
     [SerializeField] private Button spawnItemButton;
     [SerializeField] private TMP_InputField textiid;
-    private ItemDatabase databaseItems;
+    private Database databaseItems;
 
     // public override void OnNetworkSpawn(){
     //     NetworkManager.Singleton.SceneManager.OnLoadComplete += (clientId ,sceneName, loadSceneMode)=>{Instantiate(playerPrefab)};
     // }
     private void Awake() {
-        databaseItems = Resources.Load<ItemDatabase>("ItemDatabase");
+        databaseItems = Resources.Load<Database>("ItemDatabase");
 
-        spawnItemButton.onClick.AddListener(() => {
+        spawnItemButton.onClick.AddListener((UnityEngine.Events.UnityAction)(() => {
             var _gameObject = Instantiate(groundItemPrefab, new Vector3(2,2,-1), quaternion.identity);
 
-           Debug.Log(textiid.text.ToIntArray());
+            Debug.Log(textiid.text.ToIntArray());
            int iid = Convert.ToInt32(textiid.text);
-            _gameObject.GetComponent<GroundItem>().setItem(databaseItems.GetItem(iid));
+            _gameObject.GetComponent<GroundItem>().setItem((Item)databaseItems.GetObjectById(iid));
             _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
             _gameObject.GetComponent<NetworkObject>().Spawn();
             Debug.Log("Spawned item with id = " + iid);
-        });
+        }));
 
     }
 

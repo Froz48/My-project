@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class GroundItem : NetworkBehaviour
 {
-    private ItemBase item;
+    private Item item;
     [SerializeField] private static GameObject groundItemPrefab;
 
 
-    public void setItem(ItemBase itemObject){
+    public void setItem(Item itemObject){
         item = itemObject;
         GetComponent<SpriteRenderer>().sprite = item.uiDisplay;
     }
 
-    public ItemBase getItem(){
+    public Item getItem(){
         return item;
     }
     public void OnAfterDeserialize(){}

@@ -8,8 +8,8 @@ public class LootDropTable
 {
     public List<LootDropEntry> lootDrops;
 
-    public List<ItemBase> generateLoot(){
-        List<ItemBase> loot = new List<ItemBase>();
+    public List<Item> generateLoot(){
+        List<Item> loot = new List<Item>();
         foreach (LootDropEntry entry in lootDrops){
             float roll = UnityEngine.Random.value;
             if (roll < entry.dropChance){

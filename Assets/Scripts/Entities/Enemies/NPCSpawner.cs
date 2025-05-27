@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 public class NPCSpawner : NetworkBehaviour
 {
     private const int MAX_SPAWN_TRY = 30;
     [SerializeField] private int enemyMaxCount = 30;
-    [SerializeField] private EnemyDatabase enemyDatabase;
+    [SerializeField] private Database enemyDatabase;
     //private int maxEnemyCountForPlayer = 20; //20
     /// <summary>
     /// Every x seconds, spawn a new enemy. The more the rate, the more time between spawns.
@@ -17,12 +18,13 @@ public class NPCSpawner : NetworkBehaviour
     private float spawnMaxRadius = 30;
     private float spawnMinRadius = 15;
     public int spawnedEnemyCount = 0;
+    [SerializeField] public Transform npcPrefab;
 
 
     public override void OnNetworkSpawn()
     {
         if (IsServer)
-        StartCoroutine(SpawnEnemiesCoroutine());
+            StartCoroutine(SpawnEnemiesCoroutine());
     }
 
     private IEnumerator SpawnEnemiesCoroutine()
@@ -69,12 +71,10 @@ public class NPCSpawner : NetworkBehaviour
         spawnedEnemyCount++;
         
         NPCData nPCData = enemyDatabase.GetObjectById(NPCId) as NPCData;
-        
-        if (nPCData == null || nPCData.Prefab == null){
-            Debug.Log($"ERROR! tried to spawn monster with id {NPCId}");
-            return;
-        }
-        Transform enemyTransform = Instantiate(nPCData.Prefab, spawnPosition, Quaternion.identity, transform);
+        Debug.Log(nPCData);
+        Transform enemyTransform = Instantiate(npcPrefab, spawnPosition, Quaternion.identity, transform);
+        if (nPCData.spriteLibraryAsset) enemyTransform.GetComponent<SpriteLibrary>().spriteLibraryAsset = nPCData.spriteLibraryAsset;
+        enemyTransform.GetComponent<NPCEntity>().setData(nPCData);
         enemyTransform.GetComponent<NetworkObject>().Spawn();
     }
 

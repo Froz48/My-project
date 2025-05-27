@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
+  m_Name: Ork1
+  m_EditorClassIdentifier: 
+  nPCBehaviour:
+  - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
+  - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}
+  - {fileID: 11400000, guid: acc7459f9e8ac3c49b5ae1e60d926ca5, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 250aaa4740858cf4d93513054782d4c0, type: 2}
+  Prefab: {fileID: 8640623650889022529, guid: e0b65baa218e8ae46aadbaa85da27bb8, type: 3}
+  detectionRadius: 10
+  attackDistance: 6
+  movementSpeed: 1
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: dafa1c7500343aa4da2bb958b88009b8, type: 3}
+  maxHealth: 10
+  lootTable:
+  - item: {fileID: 11400000, guid: f97a08f28e1de3747925dd1ec20c74ba, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    dropChance: 1

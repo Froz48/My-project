@@ -14,10 +14,10 @@ public class EquipmentInventory : InventoryBase
         base.Initialize(numberOfEquipmentSlots);
     }
 
-    public void EquipItem(InventorySlot slot){
-        EquipmentItem item = slot.item as EquipmentItem;
-        SwapItems(slot, Slots[(int)item.eEquipmentSlot]);
-    }
+    // public void EquipItem(InventorySlot slot){
+    //     EquipmentItem item = slot.item as EquipmentItem;
+    //     SwapItems(slot, Slots[(int)item.eEquipmentSlot]);
+    // }
 
 
 

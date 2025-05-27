@@ -32,20 +32,39 @@ public class Inventory : InventoryBase
         return null;
     }
 
-    internal bool CanPickupItem(ItemBase itemInstance)
+    internal bool CanPickupItem(Item itemInstance)
     {
-        if (hasEmptySlot()){
+        if (hasEmptySlot() || (itemInstance.isStackable && IsItemInInventory(itemInstance))){
             return true;
         }
         else return false;
     }
 
-    internal void AddItem(ItemBase itemInstance, int v)
+    internal void AddItem(Item itemInstance, int v)
     {
-        GetEmptySlot()?.UpdateSlot(itemInstance, v);
+
+        if (itemInstance.isStackable && IsItemInInventory(itemInstance))
+        {
+            getSlotWithItem(itemInstance).AddAmount(v);
+        }
+        else
+        {
+            GetEmptySlot()?.UpdateSlot(itemInstance, v);
+        }
+        OnItemUpdate();
     }
 
-
+    InventorySlot getSlotWithItem(Item inputItem)
+    {
+        foreach (var i in Slots)
+        {
+            if (i.item == inputItem)
+            {
+                return i;
+            }
+        }
+        return null;
+    }
 
     /*
 public bool AddItem(ItemInstance _item, int _amount)

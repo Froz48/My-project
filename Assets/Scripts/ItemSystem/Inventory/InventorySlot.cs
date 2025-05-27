@@ -10,14 +10,14 @@ public class InventorySlot
     // public ItemType[] AllowedItems = new ItemType[0];
     public event EventHandler OnAfterUpdate;
     public event EventHandler OnBeforeUpdate;
-    public ItemBase item;
+    public Item item;
     public int amount;
     public InventorySlot(){}
-    public InventorySlot(ItemBase _item, int _amount){
+    public InventorySlot(Item _item, int _amount){
         UpdateSlot(_item, _amount);
     }
 
-    public void UpdateSlot(ItemBase _item, int _amount)
+    public void UpdateSlot(Item _item, int _amount)
     {
         OnBeforeUpdate?.Invoke(this, EventArgs.Empty);
         item = _item;

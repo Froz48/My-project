@@ -10,7 +10,7 @@ using UnityEngine;
 public abstract class InventoryBase
 {
     public string savePath;
-    public InventorySlot[] Slots {  get; protected set; }
+    public InventorySlot[] Slots { get; protected set; }
     public event EventHandler onItemUpdate;
     //protected ItemDatabase database;
     protected virtual void Initialize(int numberOfSlots = 1)
@@ -24,22 +24,11 @@ public abstract class InventoryBase
         //database = Resources.Load<ItemDatabase>("ItemDatabase");
     }
 
-    public InventorySlot FindItemOnInventory(ItemBase _item)
+    public bool IsItemInInventory(Item _item)
     {
         for (int i = 0; i < Slots.Length; i++)
         {
-            if(Slots[i].item?.id == _item.id)
-            {
-                return Slots[i];
-            }
-        }
-        return null;
-    }
-
-    public bool IsItemInInventory(ItemBase _item){
-        for (int i = 0; i < Slots.Length; i++)
-        {
-            if(Slots[i].item?.id == _item.id)
+            if (Slots[i].item == _item)
             {
                 return true;
             }
@@ -53,8 +42,8 @@ public abstract class InventoryBase
         slot1.UpdateSlot(slot2.item, slot2.amount);
         slot2.UpdateSlot(temp.item, temp.amount);
     }
-    
-#region Serialization
+
+    #region Serialization
     [ContextMenu("Save")]
     public void Save()
     {
@@ -87,6 +76,10 @@ public abstract class InventoryBase
         }
     }
 
+    public void OnItemUpdate()
+    {
+        onItemUpdate?.Invoke(this, EventArgs.Empty);
+    }
 
     #endregion
 }

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fd74e1a3abc1944afeecaff3d5d94b, type: 3}
+  m_Name: RunicAltar
+  m_EditorClassIdentifier: 
+  reciepes:
+  - itemsCreated:
+    - item: {fileID: 11400000, guid: b3bde7e99295f824282626d107d80174, type: 2}
+      amount: 1
+    itemsConsumed:
+    - item: {fileID: 11400000, guid: 8a1826b9118030e44a9563f9d4273723, type: 2}
+      amount: 2
+    - item: {fileID: 11400000, guid: 82f2e730c22421f4f8f735e951dea512, type: 2}
+      amount: 2
+    - item: {fileID: 11400000, guid: 2f9075995f75b2744a0bdba43f0b2f2a, type: 2}
+      amount: 2
+  - itemsCreated:
+    - item: {fileID: 11400000, guid: 8f4d92d229c196042b72f6b956eaf7d2, type: 2}
+      amount: 1
+    itemsConsumed:
+    - item: {fileID: 11400000, guid: 8a1826b9118030e44a9563f9d4273723, type: 2}
+      amount: 2
+    - item: {fileID: 11400000, guid: 82f2e730c22421f4f8f735e951dea512, type: 2}
+      amount: 2
+    - item: {fileID: 11400000, guid: 2f9075995f75b2744a0bdba43f0b2f2a, type: 2}
+      amount: 2
+  complexity: 1
+  upgradesInto: []

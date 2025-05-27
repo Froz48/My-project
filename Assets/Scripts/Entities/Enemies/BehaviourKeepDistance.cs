@@ -10,11 +10,14 @@ public class BehaviourKeepDistance : NPCBehaviour {
     public override void Act(NPCEntity npc, Animator animator = null, dynamic param = null)
     {
         Player player = MyMath.GetNearestPlayer(npc.transform.position);
-        Vector2 moveDirection = player.transform.position - npc.transform.position;
-        if (moveDirection.magnitude < npc.monsterData.attackDistance) moveDirection = moveDirection * -1;
-        Vector2 newPosition = (Vector2)npc.transform.position + (moveDirection.normalized * npc.monsterData.movementSpeed * Time.deltaTime);
-        npc.GetComponent<Rigidbody2D>().MovePosition(newPosition);
-        animator.SetFloat("MoveX", moveDirection.normalized.x);
-        animator.SetFloat("MoveY", moveDirection.normalized.y);
+        Vector2 targetPosition = (npc.transform.position - player.transform.position).normalized * npc.monsterData.attackDistance + player.transform.position;
+        Vector2 moveDirection = targetPosition - (Vector2)npc.transform.position;
+        if (moveDirection.magnitude > 0.2)
+        {
+            Vector2 newPosition2 = (Vector2)npc.transform.position + (targetPosition - (Vector2)npc.transform.position).normalized * npc.monsterData.movementSpeed * Time.deltaTime;
+            npc.GetComponent<Rigidbody2D>().MovePosition(newPosition2);
+            animator.SetFloat("MoveX", moveDirection.normalized.x);
+            animator.SetFloat("MoveY", moveDirection.normalized.y);
+        }
     }
 }

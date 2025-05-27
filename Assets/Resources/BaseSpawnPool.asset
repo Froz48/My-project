@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BaseSpawnPool
   m_EditorClassIdentifier: 
   Pool:
-  - {fileID: 11400000, guid: a7490c733643a1841b0c8554dc6a05a2, type: 2}
   - {fileID: 11400000, guid: 78f370c24e4ae40439979ea7f2c939cd, type: 2}
+  - {fileID: 11400000, guid: a7490c733643a1841b0c8554dc6a05a2, type: 2}
+  - {fileID: 11400000, guid: 59408d835b4037745bdf2a606a29a33a, type: 2}

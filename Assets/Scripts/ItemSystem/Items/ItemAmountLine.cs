@@ -4,6 +4,6 @@ using UnityEngine;
 [Serializable]
 public class ItemAmountLine
 {
-    [SerializeField] public ItemBase item;
+    [SerializeField] public Item item;
     [SerializeField] public int amount;
 }

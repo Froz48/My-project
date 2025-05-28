@@ -8,6 +8,7 @@ using UnityEngine;
 public class InterestGenerator : ScriptableObject
 {
     [SerializeField] List<GameObject> gameObjects;
+    GameObject parentObject;
 
     public void GenerateChunk(Vector2Int chunk)
     {
@@ -25,6 +26,7 @@ public class InterestGenerator : ScriptableObject
 
     void ApplyChunk(Vector2Int chunkCoord, NativeArray<float> noiseTemperatureValues)
     {
+        if (parentObject == null) parentObject = GameObject.Find("InterestObjects");
         Vector2Int startWorldPosition = MapGen.GetWorldPosition(chunkCoord);
         for (int x = 0; x < Config.CHUNK_SIZE; x++)
         {
@@ -34,7 +36,7 @@ public class InterestGenerator : ScriptableObject
                 if (noiseTemperatureValues[index] <= -0.99)
                 {
                     Vector3Int tilePosition = new Vector3Int(startWorldPosition.x + x, startWorldPosition.y + y, 0);
-                    Instantiate(GetRandomGameObject(), tilePosition, Quaternion.identity);
+                    Instantiate(GetRandomGameObject(), tilePosition, Quaternion.identity, parentObject.transform);
                 }
             }
         }

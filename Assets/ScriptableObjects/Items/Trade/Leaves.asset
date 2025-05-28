@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: Leaves
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: 0}
-  isStackable: 0
+  uiDisplay: {fileID: 706870326, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  isStackable: 1
   description: 
   eEquipmentSlot: 0
-  price: 0
+  price: 5
   attributeModifiers: []
   ability: {fileID: 0}

@@ -16,13 +16,15 @@ public class NPCSpawner : NetworkBehaviour
     private float spawnRate = 2f; 
     [SerializeField] private SpawnPool spawnPool;
     private float spawnMaxRadius = 30;
+    GameObject parentObject;
     private float spawnMinRadius = 15;
     public int spawnedEnemyCount = 0;
-    [SerializeField] public Transform npcPrefab;
+    [SerializeField] public GameObject npcPrefab;
 
 
     public override void OnNetworkSpawn()
     {
+        if (parentObject == null) parentObject = GameObject.Find("NPCObjects");
         if (IsServer)
             StartCoroutine(SpawnEnemiesCoroutine());
     }
@@ -31,6 +33,7 @@ public class NPCSpawner : NetworkBehaviour
     {
         while (true)
         {
+            if (parentObject == null) parentObject = GameObject.Find("NPCObjects");
             SpawnRandomEnemy();
             yield return new WaitForSeconds(spawnRate);
         }
@@ -72,7 +75,8 @@ public class NPCSpawner : NetworkBehaviour
         
         NPCData nPCData = enemyDatabase.GetObjectById(NPCId) as NPCData;
         Debug.Log(nPCData);
-        Transform enemyTransform = Instantiate(npcPrefab, spawnPosition, Quaternion.identity, transform);
+        GameObject enemyTransform = Instantiate(npcPrefab, spawnPosition, Quaternion.identity, parentObject.transform);
+        enemyTransform.transform.SetParent(parentObject.transform);
         if (nPCData.spriteLibraryAsset) enemyTransform.GetComponent<SpriteLibrary>().spriteLibraryAsset = nPCData.spriteLibraryAsset;
         enemyTransform.GetComponent<NPCEntity>().setData(nPCData);
         enemyTransform.GetComponent<NetworkObject>().Spawn();

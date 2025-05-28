@@ -15,14 +15,22 @@ public class Database : ScriptableObject
         return objects[Random.Range(0, objects.Length)];
     }
 
-    // [ContextMenu("Update ID's")]
-    // private void UpdateID()
-    // {
-    //     Debug.Log("UpdatingDatabaseItemIds");
-    //     for (int i = 0; i < objects.Length; i++)
-    //     {
-    //         if (objects[i].id != i)
-    //             objects[i].id = i;
-    //     }
-    // }
+    [ContextMenu("Update ID's")]
+    private void UpdateID()
+    {
+        Debug.Log("UpdatingDatabaseItemIds");
+        for (int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i] is IDatabaseObject item)
+            {
+                item.SetId(i);
+            }
+        }
+    }
+}
+
+public interface IDatabaseObject
+{
+    public void SetId(int id);
+    public int GetId();
 }

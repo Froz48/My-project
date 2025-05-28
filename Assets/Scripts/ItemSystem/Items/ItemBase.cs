@@ -7,8 +7,9 @@ public enum EEquipmentSlot{
 }
 [Serializable]
 [CreateAssetMenu(fileName = "Item", menuName = "ItemSystem/Item")]
-public class Item : ScriptableObject
+public class Item : ScriptableObject, IDatabaseObject
 {
+    public int id;
     [SerializeField] public Sprite uiDisplay;
     [SerializeField] public bool isStackable;
     [TextArea(15, 20)][SerializeField] public string description;
@@ -16,6 +17,17 @@ public class Item : ScriptableObject
     public int price;
     public AttributeModifier[] attributeModifiers;
     [SerializeReference] public Ability ability;
+
+    public int GetId()
+    {
+        return id;
+    }
+
+    public void SetId(int id)
+    {
+        this.id = id;
+    }
+
     internal int GetAbilityPosition()
     {
         switch (eEquipmentSlot)

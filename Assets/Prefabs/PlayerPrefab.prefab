@@ -419,7 +419,7 @@ MonoBehaviour:
   enemyDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
   spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
   spawnedEnemyCount: 0
-  npcPrefab: {fileID: 8640623650889022529, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
+  npcPrefab: {fileID: 4355553488569849823, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
 --- !u!114 &7789373438762283640
 MonoBehaviour:
   m_ObjectHideFlags: 0

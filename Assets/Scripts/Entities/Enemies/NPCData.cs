@@ -7,7 +7,9 @@ using UnityEngine;
 using UnityEngine.U2D.Animation;
 [Serializable]
 [CreateAssetMenu(fileName = "MonsterData", menuName = "NPC/MonsterData")]
-public class NPCData : ScriptableObject{
+public class NPCData : ScriptableObject, IDatabaseObject
+{
+    public int id;
     [SerializeField] public NPCBehaviour[] nPCBehaviour;
     [SerializeField] public Ability[] abilities;
     [SerializeField] public float detectionRadius;
@@ -20,6 +22,15 @@ public class NPCData : ScriptableObject{
         return (NPCData)this.MemberwiseClone();
     }
 
+    public int GetId()
+    {
+        return id;
+    }
+
+    public void SetId(int id)
+    {
+        this.id = id;
+    }
 }
 
 

@@ -225,5 +225,10 @@ public class Player : NetworkBehaviour, IDamageable
     public float getCurrentHealth() => currentHealth;
     public Inventory GetInventory() => inventory;
     public EquipmentInventory GetEquipment() => equipment;
+
+    internal void SetCurrentHealth(float health)
+    {
+        currentHealth = health;
+    }
     #endregion
 }

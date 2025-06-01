@@ -32,7 +32,7 @@ public class Player : NetworkBehaviour, IDamageable
     [SerializeField] private Inventory inventory;
     [SerializeField] private EquipmentInventory equipment;
     [SerializeField] private NullAbility nullAbility;
-    [SerializeField] private MeleeStrike meleeAbility;
+    [SerializeField] private Ability meleeAbility;
     [SerializeField] private AttributeListSO baseAttributes;
     #endregion
 
@@ -177,9 +177,11 @@ public class Player : NetworkBehaviour, IDamageable
 
     private void UseAbility(int index){
         if (Time.time >= abilities[index].nextUseTime){
+            Debug.Log("cam = " + playerCamera);
+            Debug.Log("player = " + gameObject);
+            Debug.Log("UseAbility" + index + " " + abilities[index].GetType());
             
             Vector2 worldPosition = playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Debug.Log("UseAbility" + index + " " + abilities[index].GetType());
             UseAbility(worldPosition, index);
         }
     }

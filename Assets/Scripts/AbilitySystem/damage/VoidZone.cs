@@ -18,7 +18,7 @@ public class VoidZone : Ability
         GameObject warningGO = Instantiate(warningPrefab, targetPosition, Quaternion.identity);
         warningGO.transform.localScale = Vector3.one * effectRadius; 
 
-        PulseWarning warningAnim = warningGO.GetComponent<PulseWarning>();
+        CircleWarning warningAnim = warningGO.GetComponent<CircleWarning>();
         warningAnim.SetDuration(warningDuration);
 
         warningGO.GetComponent<NetworkObject>().Spawn();

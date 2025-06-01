@@ -14,13 +14,13 @@ GameObject:
   - component: {fileID: 6132340175927308177}
   - component: {fileID: 8718766786319431982}
   - component: {fileID: -2949108648205446678}
-  - component: {fileID: 2060014312705602438}
-  - component: {fileID: 4791732247001145395}
-  - component: {fileID: 1938599312092625897}
-  - component: {fileID: 7937583898731458034}
-  - component: {fileID: -2087141592998788584}
+  - component: {fileID: 8852142672730889501}
+  - component: {fileID: 595519414244989222}
+  - component: {fileID: 3281032410672781229}
+  - component: {fileID: 2501712643432710111}
+  - component: {fileID: 6457280820980733472}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1842253825, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  m_Sprite: {fileID: 631534408, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 0.8125}
+    oldSize: {x: 0.6875, y: 0.78125}
     newSize: {x: 0.8125, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3589918225
+  GlobalObjectIdHash: 3727954442
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -217,33 +217,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &2060014312705602438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4560789671401021249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3f82fb1ec3ec54985febd246d50c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 4
---- !u!114 &4791732247001145395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4560789671401021249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9145490353c6f2d4083bd89433b41116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
---- !u!114 &1938599312092625897
+--- !u!114 &8852142672730889501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550403a4bd04dff4797aaf9c3e26c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7937583898731458034
+--- !u!114 &595519414244989222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,10 +241,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b39130e7379b04a9404f41cb14cbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTypeString: Player
-  damage: 20
+  targetTypeString: NPCEntity
+  damage: 5
   powerCoefficient: 1
---- !u!114 &-2087141592998788584
+--- !u!114 &3281032410672781229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560789671401021249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b39130e7379b04a9404f41cb14cbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTypeString: BossEntity
+  damage: 5
+  powerCoefficient: 1
+--- !u!114 &2501712643432710111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560789671401021249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3f82fb1ec3ec54985febd246d50c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 3
+--- !u!114 &6457280820980733472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,4 +285,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
-  speed: 5
+  speed: 10

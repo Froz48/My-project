@@ -37,6 +37,7 @@ public class EscMenu : MonoBehaviour
             if (NetworkManager.Singleton.IsHost)
             {
                 NetworkManager.Singleton.Shutdown();
+                Destroy(NetworkManager.Singleton.gameObject);
             }
         }
 

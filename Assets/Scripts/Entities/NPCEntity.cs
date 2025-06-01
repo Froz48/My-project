@@ -28,7 +28,6 @@ public class NPCEntity : NetworkBehaviour, IDamageable
 
         }
         animator = GetComponent<Animator>();
-        Debug.Log("Spawned, animator: " + animator);
     }
 
     public void InitializeAbilities()
@@ -155,4 +154,8 @@ public class NPCEntity : NetworkBehaviour, IDamageable
         StartCoroutine(DespawnCheck());
     }
 
+    public float GetPower()
+    {
+        return 1;
+    }
 }

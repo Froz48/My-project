@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6924443329451162624}
   - component: {fileID: 3109948183876773900}
   - component: {fileID: 5035165166002915018}
+  - component: {fileID: 1001260281657178667}
+  - component: {fileID: 3660848547172425049}
   m_Layer: 0
   m_Name: CirlceWarningPrefab
   m_TagString: Untagged
@@ -121,6 +123,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleTransform: {fileID: 672699902263222025}
+--- !u!114 &1001260281657178667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526734623926506763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550403a4bd04dff4797aaf9c3e26c4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3660848547172425049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526734623926506763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3f82fb1ec3ec54985febd246d50c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 10
 --- !u!1 &7802658317535596843
 GameObject:
   m_ObjectHideFlags: 0

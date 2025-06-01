@@ -121,7 +121,9 @@ public class AbilityCooldownUI : MonoBehaviour
     private Vector3 GetSlotPosition(int i)
     {
         Rect rectItem = prefabSlot.GetComponent<RectTransform>().rect;
-        float x = -i * (rectItem.width + spacing);
+        float yes = rectItem.width + spacing;
+        float leftX = yes * -1.5f;
+        float x = leftX + i * yes;
         return new Vector3(x, 0, 1);
     }
 }

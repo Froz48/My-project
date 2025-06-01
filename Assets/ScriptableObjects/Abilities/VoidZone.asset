@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95d94b804a59e34cac8aac960a20b20, type: 3}
   m_Name: VoidZone
   m_EditorClassIdentifier: 
-  nextUseTime: 21.543709
+  nextUseTime: 0
   sprite: {fileID: -1827566453, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   power: 20
   cooldown: 5

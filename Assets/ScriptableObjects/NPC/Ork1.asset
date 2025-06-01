@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: Ork1
   m_EditorClassIdentifier: 
+  id: 0
   nPCBehaviour:
   - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
   - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}

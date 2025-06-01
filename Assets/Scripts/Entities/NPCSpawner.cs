@@ -74,7 +74,6 @@ public class NPCSpawner : NetworkBehaviour
         spawnedEnemyCount++;
         
         NPCData nPCData = enemyDatabase.GetObjectById(NPCId) as NPCData;
-        Debug.Log(nPCData);
         GameObject enemyTransform = Instantiate(npcPrefab, spawnPosition, Quaternion.identity, parentObject.transform);
         enemyTransform.transform.SetParent(parentObject.transform);
         if (nPCData.spriteLibraryAsset) enemyTransform.GetComponent<SpriteLibrary>().spriteLibraryAsset = nPCData.spriteLibraryAsset;

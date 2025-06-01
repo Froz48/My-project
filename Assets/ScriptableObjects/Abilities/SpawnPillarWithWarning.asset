@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fecda6afdfee714f8682739bb1df5bb, type: 3}
-  m_Name: VZToRandomPlayer
+  m_Script: {fileID: 11500000, guid: 57ff647b586728848ab59ec97f59ab4d, type: 3}
+  m_Name: SpawnPillarWithWarning
   m_EditorClassIdentifier: 
   nextUseTime: 0
   sprite: {fileID: 0}
-  power: 20
+  power: 1
   cooldown: 5
-  ability: {fileID: 11400000, guid: 2a2505d15e01d2b4a94d14fb6097918d, type: 2}
-  NumberOfTimes: 0
-  delayBetweenSpam: 0
-  toEveryone: 0
+  ability: {fileID: 11400000, guid: 96a3d85521b8ac34683ef18d0faca702, type: 2}
+  warningDuration: 2
+  effectRadius: 1
+  warningPrefab: {fileID: 7526734623926506763, guid: d08cfaf4c94919c4f95d36e0374b6c18, type: 3}

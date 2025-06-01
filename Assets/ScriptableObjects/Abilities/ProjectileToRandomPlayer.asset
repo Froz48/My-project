@@ -15,7 +15,7 @@ MonoBehaviour:
   nextUseTime: 0
   sprite: {fileID: 0}
   power: 5
-  cooldown: 0
+  cooldown: 1
   ability: {fileID: 11400000, guid: 250aaa4740858cf4d93513054782d4c0, type: 2}
   NumberOfTimes: 3
   delayBetweenSpam: 2

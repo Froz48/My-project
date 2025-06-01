@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85699714e10dd84fad574f207e7d6fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 2719985aa960bea44858ba859adf4c63, type: 3}
   m_Name: Flamestrike
   m_EditorClassIdentifier: 
   nextUseTime: 0
   sprite: {fileID: -583839529, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   power: 5
   cooldown: 2
-  prefab: {fileID: 4560789671401021249, guid: c81aa54886a925341af469bb2b0e4ab6, type: 3}
-  lifetime: 1
+  objectPrefab: {fileID: 4560789671401021249, guid: c81aa54886a925341af469bb2b0e4ab6, type: 3}
+  spawnOnCaster: 0

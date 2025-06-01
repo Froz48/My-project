@@ -6953,6 +6953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bos
       objectReference: {fileID: 0}
+    - target: {fileID: 4355553488569849823, guid: 38aa3ac9db1432f42ad1ff9f190e3a78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8640623650889022529, guid: 38aa3ac9db1432f42ad1ff9f190e3a78, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -9073,7 +9077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 822.96533, y: -451.2154}
+  m_AnchoredPosition: {x: 0, y: -451.2154}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1826532665

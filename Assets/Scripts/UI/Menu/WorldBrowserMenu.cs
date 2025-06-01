@@ -23,6 +23,7 @@ public class WorldBrowserMenu : MonoBehaviour
     private void Start()
     {
         createNewWorldButton.onClick.AddListener(CreateNewWorld);
+        Debug.Log(createNewWorldButton.onClick);
     }
     public void CreateNewWorld()
     {

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 
 public abstract class Ability : ScriptableObject, IDatabaseObject
 {
+
     int id;
     public float nextUseTime;
     [SerializeField] public Sprite sprite;
@@ -14,7 +16,8 @@ public abstract class Ability : ScriptableObject, IDatabaseObject
     public abstract void AbilityUseServerRpc(Vector2 playerPosition, Vector2 targetPosition);
 
     public Ability CreateInstance(){
-         return (Ability)this.MemberwiseClone();
+        Ability ability = (Ability)this.MemberwiseClone();
+         return ability;
     }
 
     public int GetId()

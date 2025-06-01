@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Netcode;
 using System.Collections;
 
-public class PulseWarning : NetworkBehaviour
+public class CircleWarning : NetworkBehaviour
 {
     [Header("Settings")]
     [SerializeField] private Transform circleTransform;

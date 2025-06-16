@@ -15,12 +15,13 @@ public class BossEntity : NetworkBehaviour, IDamageable
     {
 
     }
+    
 
     void Update()
     {
         if (currentTimer >= data.timer[timerPosition].timer)
         {
-            data.timer[timerPosition].ability.AbilityUseServerRpc(this.gameObject.transform.position, new Vector2(0, 0));
+            data.timer[timerPosition].ability.AbilityUse(this.gameObject.transform.position, new Vector2(0, 0));
             timerPosition++;
             if (timerPosition >= data.timer.Length)
             {
@@ -48,10 +49,13 @@ public class BossEntity : NetworkBehaviour, IDamageable
         }
     }
 
-    public void TakeDamageRpc(float damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        VictoryCheck();
+        if (IsServer)
+        {
+            currentHealth -= damage;
+            VictoryCheck();
+        }
     }
 
     void VictoryCheck()
@@ -69,10 +73,9 @@ public class BossEntity : NetworkBehaviour, IDamageable
         {
             GameObject groundItemPrefab = Resources.Load<GameObject>("GroundItemPrefab");
             var _gameObject = Instantiate(groundItemPrefab, transform.position, quaternion.identity);
-            gameObject.GetComponent<GroundItem>().setItem(i);
-            _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
+            gameObject.GetComponent<GroundItem>().SetItemClientRpc(i.id);
+            _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().GetItem().sprite;
             _gameObject.GetComponent<NetworkObject>().Spawn();
         }
     }
-
 }

@@ -19,10 +19,13 @@ public class WorldBrowserMenu : MonoBehaviour
     [SerializeField] private TMP_InputField worldNameInput;
     [SerializeField] private TMP_InputField seedInput;
     [SerializeField] private Button createNewWorldButton;
+    [SerializeField] private Button joinGameButton;
+    [SerializeField] private RelayManager relayManager;
 
     private void Start()
     {
         createNewWorldButton.onClick.AddListener(CreateNewWorld);
+        joinGameButton.onClick.AddListener(ConnectToGame);
         Debug.Log(createNewWorldButton.onClick);
     }
     public void CreateNewWorld()
@@ -98,7 +101,7 @@ public class WorldBrowserMenu : MonoBehaviour
         deleteButton.onClick.AddListener(() => OnWorldDeleted(worldName, entry));
     }
 
-    private static void OnWorldSelected(string worldName)
+    private void OnWorldSelected(string worldName)
     {
         PlayerPrefs.SetString("CurrentWorld", worldName);
         string path = Path.Combine(Application.persistentDataPath, worldName + ".json");
@@ -123,18 +126,19 @@ public class WorldBrowserMenu : MonoBehaviour
             Debug.Log($"Deleted world: {worldName}");
         }
     }
-        public void ConnectToGame(){
+    public void ConnectToGame(){
         SceneManager.LoadScene("Game");
         SceneManager.sceneLoaded += OnGameSceneLoadedClient;
     }
-    private static void OnGameSceneLoadedClient(Scene scene, LoadSceneMode mode){
+    private void OnGameSceneLoadedClient(Scene scene, LoadSceneMode mode){
         if (scene.name == "Game")
         {
             SceneManager.sceneLoaded -= OnGameSceneLoadedClient;
 
             if (NetworkManager.Singleton != null)
             {
-                NetworkManager.Singleton.StartClient();
+                // NetworkManager.Singleton.StartClient();
+                relayManager.JoinRelay();
             }
             else
             {
@@ -143,7 +147,7 @@ public class WorldBrowserMenu : MonoBehaviour
         }
     }
 
-    private static void OnGameSceneLoadedHost(Scene scene, LoadSceneMode mode)
+    private void OnGameSceneLoadedHost(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Game")
         {
@@ -151,7 +155,8 @@ public class WorldBrowserMenu : MonoBehaviour
 
             if (NetworkManager.Singleton != null)
             {
-                NetworkManager.Singleton.StartHost();
+                // NetworkManager.Singleton.StartHost();
+                relayManager.CreateRelay();
                 SaveManager.LoadWorld();
             }
             else

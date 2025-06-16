@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.Netcode;
+using Unity.Services.Relay;
+using System.Threading.Tasks;
 
 public class EscMenu : MonoBehaviour
 {
@@ -10,12 +12,14 @@ public class EscMenu : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button saveButton;
     [SerializeField] private Button saveAndExitButton;
+    [SerializeField] private TextMeshProUGUI joinCode;
 
     private void Start()
     {
         resumeButton.onClick.AddListener(OnResume);
         saveButton.onClick.AddListener(OnSave);
         saveAndExitButton.onClick.AddListener(OnSaveAndExit);
+        FindObjectOfType<RelayManager>().ShowCode(joinCode);
     }
     private void OnResume()
     {
@@ -30,8 +34,8 @@ public class EscMenu : MonoBehaviour
     private void OnSaveAndExit()
     {
         SaveManager.SaveWorld();
-        
-        
+
+
         if (NetworkManager.Singleton != null)
         {
             if (NetworkManager.Singleton.IsHost)
@@ -40,7 +44,7 @@ public class EscMenu : MonoBehaviour
                 Destroy(NetworkManager.Singleton.gameObject);
             }
         }
-
-        SceneManager.LoadScene("Menu");
+        Application.Quit();
+        // SceneManager.LoadScene("Menu");
     }
 }

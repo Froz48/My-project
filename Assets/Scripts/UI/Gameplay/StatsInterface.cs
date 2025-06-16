@@ -6,7 +6,7 @@ using Unity.Netcode;
 using UnityEngine;
 
 
-public class StatsInterface : NetworkBehaviour
+public class StatsInterface : MonoBehaviour
 {
     Attribute[] attributes;
     [SerializeField] private TextMeshProUGUI text;
@@ -20,7 +20,7 @@ public class StatsInterface : NetworkBehaviour
     }
     public void Start()
     {   
-        if (!IsOwner) {gameObject.SetActive(false); return;}
+        // if (!IsOwner) {gameObject.SetActive(false); return;}
     }
 
     public void UpdateUI(object sender, System.EventArgs e){

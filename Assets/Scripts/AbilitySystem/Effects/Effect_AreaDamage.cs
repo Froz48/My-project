@@ -26,7 +26,7 @@ public class Effect_AreaDamage : MonoBehaviour
             var component = i.GetComponent(targetType);
             if ((component != null) && (component is IDamageable damageable))
             {
-                damageable.TakeDamageRpc(damage);
+                damageable.TakeDamage(damage);
             }
         }
 

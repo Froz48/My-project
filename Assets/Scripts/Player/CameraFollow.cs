@@ -8,7 +8,7 @@ public class CameraFollow : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (!IsOwner){
-            gameObject.SetActive(false);
+            enabled = false;
         }
     }
 }

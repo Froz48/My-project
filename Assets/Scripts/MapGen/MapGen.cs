@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.Collections;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.Jobs;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,6 +9,7 @@ public class MapGen : MonoBehaviour
 { // https://auburn.github.io/FastNoiseLite/
 #region Variables
     private Tilemap tilemap;
+    HashSet<Vector2Int> occupiedCoordinates = new HashSet<Vector2Int>();
     [SerializeField] private BiomeGenerator biomeGenerator;
     [SerializeField] private Transform playerTransform;
     [SerializeField] InterestGenerator interestGenerator;
@@ -20,10 +18,20 @@ public class MapGen : MonoBehaviour
     private Queue<Vector2Int> chunksToGenerate = new Queue<Vector2Int>();
     private const float CHUNK_GEN_TRY_FREQUENCY = 5f;
     private int RenderDistance = 3;
+    private int worldSeed;
+    
 #endregion
 
-#region Unity
-    public void Start(){
+    #region Unity
+    public void Start()
+    {
+        if (!GetComponent<NetworkObject>().IsOwner)
+        {
+            enabled = false;
+            return;
+        }
+        worldSeed = SaveManager.CurrentSeed; 
+
         tilemap = FindObjectOfType<Tilemap>();
         biomeGenerator.Initialize(tilemap);
         StartCoroutine(MapGenerating());
@@ -87,11 +95,10 @@ public class MapGen : MonoBehaviour
 
     private void GenerateChunk(Vector2Int chunkCoords)
     {
-        biomeGenerator.GenerateChunkBiomes(chunkCoords);
-
-        Debug.Log("Generating chunk: " + chunkCoords);
-        interestGenerator.GenerateChunk(chunkCoords);
-        micsGenerator.GenerateChunk(chunkCoords);
+        
+        biomeGenerator.GenerateChunkBiomes(chunkCoords, worldSeed);
+        interestGenerator.GenerateChunk(chunkCoords, worldSeed, occupiedCoordinates);
+        micsGenerator.GenerateChunk(chunkCoords, worldSeed, occupiedCoordinates);
     }
 
 

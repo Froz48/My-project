@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: BaseMonsterData
   m_EditorClassIdentifier: 
+  id: 0
   nPCBehaviour:
   - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
-  - {fileID: 11400000, guid: 08f969aec4f722f45a29fec5fd7e637b, type: 2}
   abilities: []
-  Prefab: {fileID: 8640623650889022529, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
   detectionRadius: 1
   attackDistance: 0
   movementSpeed: 1
+  spriteLibraryAsset: {fileID: 0}
   maxHealth: 1
   lootTable: []

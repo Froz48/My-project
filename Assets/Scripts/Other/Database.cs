@@ -16,7 +16,7 @@ public class Database : ScriptableObject
     }
 
     [ContextMenu("Update ID's")]
-    private void UpdateID()
+    public void UpdateID()
     {
         Debug.Log("UpdatingDatabaseItemIds");
         for (int i = 0; i < objects.Length; i++)
@@ -26,7 +26,11 @@ public class Database : ScriptableObject
                 item.SetId(i);
             }
         }
+        #if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
+        #endif
     }
+    
 }
 
 public interface IDatabaseObject

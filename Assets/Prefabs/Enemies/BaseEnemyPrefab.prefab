@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -6084001932362691105}
   - component: {fileID: -8467992897007729187}
   - component: {fileID: 493272677322176298}
+  - component: {fileID: -8299141348207221220}
   m_Layer: 0
   m_Name: BaseEnemyPrefab
   m_TagString: Untagged
@@ -177,8 +178,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04827271c27d934c8fdcdd6ac0676ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeStatePosition: 0
-  monsterData: {fileID: 11400000, guid: 1c8861bebf937d245b36b63b694d7606, type: 2}
+  npcId:
+    m_InternalValue: 0
+  currentHealth:
+    m_InternalValue: 0
+  animator: {fileID: -8467992897007729187}
+  networkAnimator: {fileID: -8299141348207221220}
+  spriteLibrary: {fileID: 3914059184169762566}
+  npcCollider: {fileID: 5741415495745094009}
+  rb: {fileID: 2741334791539117153}
+  _abilities: []
 --- !u!212 &8729173436074463158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -294,3 +303,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d7c879794dfda4687da0e400131852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8299141348207221220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355553488569849823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: -8467992897007729187}

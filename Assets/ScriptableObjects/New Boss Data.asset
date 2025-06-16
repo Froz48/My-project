@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4355553488569849823, guid: 38aa3ac9db1432f42ad1ff9f190e3a78, type: 3}
   <timer>k__BackingField:
-  - timer: 2
+  - timer: 4
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
   - timer: 3
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}

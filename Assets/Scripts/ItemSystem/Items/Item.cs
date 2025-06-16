@@ -10,7 +10,7 @@ public enum EEquipmentSlot{
 public class Item : ScriptableObject, IDatabaseObject
 {
     public int id;
-    [SerializeField] public Sprite uiDisplay;
+    [SerializeField] public Sprite sprite;
     [SerializeField] public bool isStackable;
     [TextArea(15, 20)][SerializeField] public string description;
     public EEquipmentSlot eEquipmentSlot;

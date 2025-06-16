@@ -22,20 +22,21 @@ public class InventorySlot
         OnBeforeUpdate?.Invoke(this, EventArgs.Empty);
         item = _item;
         amount = _amount;
+        if (amount <= 0) { item = null; }
         OnAfterUpdate?.Invoke(this, EventArgs.Empty);
     }
     public void RemoveItem()
     {
         UpdateSlot(null, 0);
+        if (amount <= 0){
+            RemoveItem();
+        }
     }
     public bool IsEmpty(){
         return item == null;
     }
     public void AddAmount(int value = 1){
         UpdateSlot(item, amount + value);
-        if (amount <= 0){
-            RemoveItem();
-        }
     }
 
 }

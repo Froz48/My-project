@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
   m_Name: Ork1
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   nPCBehaviour:
   - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
   - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}
@@ -26,6 +26,6 @@ MonoBehaviour:
   maxHealth: 10
   lootTable:
   - item: {fileID: 11400000, guid: 2f9075995f75b2744a0bdba43f0b2f2a, type: 2}
-    minAmount: 1
-    maxAmount: 3
-    dropChance: 0.5
+    minAmount: 2
+    maxAmount: 5
+    dropChance: 1

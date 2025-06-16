@@ -43,7 +43,7 @@ public class UserInterface : MonoBehaviour{
             } 
             else
             {
-                slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = slot.Value.item.uiDisplay;
+                slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = slot.Value.item.sprite;
                 slot.Key.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.amount.ToString("n0");
             }
@@ -75,7 +75,7 @@ public class UserInterface : MonoBehaviour{
            // Debug.Log(transform.GetInstanceID());
             tempItem.transform.SetParent(transform.parent.transform, false);
             var img = tempItem.AddComponent<Image>();
-            img.sprite = slotsOnInterface[obj].item.uiDisplay;
+            img.sprite = slotsOnInterface[obj].item.sprite;
             img.raycastTarget = false;
         }
         return tempItem;

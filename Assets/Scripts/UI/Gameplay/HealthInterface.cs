@@ -6,7 +6,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthInterface : NetworkBehaviour
+public class HealthInterface : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Image healthBar;
@@ -21,7 +21,7 @@ public class HealthInterface : NetworkBehaviour
 
     public void Start()
     {   
-        if (!IsOwner) {gameObject.SetActive(false); return;}
+        // if (!IsOwner) {gameObject.SetActive(false); return;}
     }
     public void UpdateUi(object sender, System.EventArgs e){
         float currentHealth = Mathf.Floor(player.getCurrentHealth());

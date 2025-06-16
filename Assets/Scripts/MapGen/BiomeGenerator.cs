@@ -25,7 +25,7 @@ public class BiomeGenerator : ScriptableObject
         }
         biomeCapacity /= 2f; // bcs [-1, 1]
     }
-    public void GenerateChunkBiomes(Vector2Int chunkCoords)
+    public void GenerateChunkBiomes(Vector2Int chunkCoords, int seed)
     {
         NativeArray<float> noiseValues = new NativeArray<float>(
             Config.CHUNK_SIZE * Config.CHUNK_SIZE,
@@ -35,6 +35,7 @@ public class BiomeGenerator : ScriptableObject
         new JGenerateBiomeNoise
         {
             chunkCoord = chunkCoords,
+            seed = seed,
             results = noiseValues
         }.Schedule().Complete();
 
@@ -82,11 +83,11 @@ public struct JGenerateBiomeNoise : IJob
 {
     public Vector2Int chunkCoord;
     public NativeArray<float> results;
-
+    public int seed;
     public void Execute()
     {
         FastNoiseLite noise = new FastNoiseLite();
-        MapGen.SetNoiceParams(noise, seed: 1, frequency: 0.02f);
+        MapGen.SetNoiceParams(noise, seed: seed, frequency: 0.02f);
         Vector2Int startPos = new Vector2Int(
             chunkCoord.x * Config.CHUNK_SIZE,
             chunkCoord.y * Config.CHUNK_SIZE

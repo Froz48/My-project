@@ -29,7 +29,6 @@ public class AbilityCooldownUI : MonoBehaviour
         //CreateOrUpdateSlots();
         player.OnAnyAbilityChanged += UpdateAbilities;
         initialized = true;
-        Debug.Log("AbilityCooldownUI initialized");
     }
 
     private void CreateSlots(){

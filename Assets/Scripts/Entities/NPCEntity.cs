@@ -1,161 +1,212 @@
-
-
-using System;
-using System.Collections;
-using Unity.Mathematics;
-using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Netcode;
+using UnityEngine.U2D.Animation;
+using System.Collections;
 
 public class NPCEntity : NetworkBehaviour, IDamageable
 {
+    [Header("Network")]
+    public NetworkVariable<int> npcId = new NetworkVariable<int>();
+    public NetworkVariable<float> currentHealth = new NetworkVariable<float>();
 
-    [NonSerialized] public Ability[] abilities;
-    float currentHealth;
-    float despawnDistance = 40;
-    public int activeStatePosition = 0;
-    Animator animator;
-    [SerializeField] public NPCData monsterData;
-    // [SerializeField] public Sprite sprite;
+    [Header("Components")]
+    [SerializeField] private Animator animator;
+    [SerializeField] private SpriteLibrary spriteLibrary;
+    [SerializeField] private BoxCollider2D npcCollider;
 
 
-    //---------------------------------------------------------------
+
+    [Header("ServerSide")]
+    [SerializeField] private NPCData _monsterDataInstance;
+    public Ability[] _abilities;
+    [SerializeField] private int _activeStatePosition = 0;
+    private Coroutine _behaviorCoroutine;
+    public NPCData MonsterData => _monsterDataInstance;
+
     public override void OnNetworkSpawn()
     {
-        if (IsServer)
-        {
-            // monsterData = monsterData.CreateInstance(); //doesnt need animore
-
-        }
-        animator = GetComponent<Animator>();
+        npcId.OnValueChanged += OnNpcIdChanged;
     }
-
-    public void InitializeAbilities()
+    private void OnNpcIdChanged(int oldValue, int newValue)
     {
-        abilities = new Ability[monsterData.abilities.Length];
-        for (int i = 0; i < monsterData.abilities.Length; i++)
+        if (!IsServer && newValue > 0)
         {
-            abilities[i] = monsterData.abilities[i].CreateInstance();
+            InitializeClientVisuals(newValue);
         }
     }
-    private IEnumerator DespawnCheck()
+    private void InitializeClientVisuals(int dataId)
+    {   
+        var database = Resources.Load<Database>("NPCDatabase");
+        var templateData = database.GetObjectById(dataId) as NPCData;
+
+        if (templateData != null)
+        {
+            _monsterDataInstance = templateData;
+            UpdateVisuals(_monsterDataInstance);
+        }
+    }
+    [ServerRpc(RequireOwnership = false)]
+    public void InitializeWithDataServerRpc(int dataId, ServerRpcParams rpcParams = default)
+    {
+        var database = Resources.Load<Database>("NPCDatabase");
+        var templateData = database.GetObjectById(dataId) as NPCData;
+
+        _monsterDataInstance = Instantiate(templateData);
+        _monsterDataInstance.name = $"{templateData.name}_Instance_{NetworkObjectId}";
+
+        npcId.Value = dataId;
+        currentHealth.Value = _monsterDataInstance.maxHealth;
+        npcCollider.enabled = true;
+        InitializeAbilities();
+        UpdateVisuals();
+        StartBehaviorCheck();
+    }
+
+
+    private void InitializeAbilities()
+    {
+        if (_monsterDataInstance == null) return;
+
+        _abilities = new Ability[_monsterDataInstance.abilities.Length];
+        for (int i = 0; i < _monsterDataInstance.abilities.Length; i++)
+        {
+            if (_monsterDataInstance.abilities[i] != null)
+            {
+                _abilities[i] = _monsterDataInstance.abilities[i].CreateInstance();
+            }
+        }
+    }
+
+    private void UpdateVisuals(NPCData data = null)
+    {
+        var targetData = data ?? _monsterDataInstance;
+        if (spriteLibrary != null && targetData != null)
+        {
+            spriteLibrary.spriteLibraryAsset = targetData.spriteLibraryAsset;
+        }
+    }
+
+    private void StartBehaviorCheck()
+    {
+        StopBehaviorCheck();
+
+        if (_monsterDataInstance?.nPCBehaviour != null &&
+            _monsterDataInstance.nPCBehaviour.Length > 0)
+        {
+            _behaviorCoroutine = StartCoroutine(BehaviorCheckRoutine());
+        }
+        
+    }
+
+    private void StopBehaviorCheck()
+    {
+        if (_behaviorCoroutine != null)
+        {
+            StopCoroutine(_behaviorCoroutine);
+            _behaviorCoroutine = null;
+        }
+    }
+
+    private IEnumerator BehaviorCheckRoutine()
     {
         while (true)
         {
-            if (GetDistanceToPlayer(FindNearestPlayer().transform) > despawnDistance)
+            if (_monsterDataInstance?.nPCBehaviour == null) continue;
+            
+            // Проверяем все поведения от самого высокого приоритета (последнего в массиве)
+            for (int i = _monsterDataInstance.nPCBehaviour.Length -1; i >= 0 ; i--)
             {
-                Die(false);
+                if (_monsterDataInstance.nPCBehaviour[i].CheckConditions(this))
+                {
+                    if (_activeStatePosition != i)
+                    {
+                        _activeStatePosition = i;
+                    }
+                    break; // Используем первое подходящее поведение
+                }
             }
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(1f);
         }
     }
-    private Player FindNearestPlayer()
+
+    private void FixedUpdate()
     {
-        float minDistance = 5000;
-        Player nearestPlayer = null;
-        foreach (var player in NetworkManager.Singleton.ConnectedClientsList)
+        if (!IsServer || _monsterDataInstance == null) return;
+        
+        if (_activeStatePosition >= 0 && 
+            _activeStatePosition < _monsterDataInstance.nPCBehaviour.Length && 
+            _monsterDataInstance.nPCBehaviour[_activeStatePosition] != null)
         {
-            float distance = GetDistanceToPlayer(player.PlayerObject.transform);
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                nearestPlayer = player.PlayerObject.GetComponent<Player>();
-            }
+            _monsterDataInstance.nPCBehaviour[_activeStatePosition].Act(this, animator);
         }
-        return nearestPlayer;
     }
 
-    private float GetDistanceToPlayer(Transform playerObject)
-    {
-        return (playerObject.transform.position - transform.position).magnitude;
-    }
-
-    public void FixedUpdate()
+    public void TakeDamage(float damage)
     {
         if (IsServer)
         {
-
-            monsterData.nPCBehaviour[activeStatePosition].Act(this, animator);
-
-        }
-    }
-
-
-    // [Rpc(SendTo.Server)]
-    public void TakeDamageRpc(float damage)
-    {
-        if (IsServer)
-        {
-            currentHealth -= damage;
-            if (currentHealth <= 0)
+            currentHealth.Value -= damage;
+            if (currentHealth.Value <= 0)
             {
                 Die();
             }
         }
     }
 
-    private void Die(bool doDropLoot = true)
+    private void Die()
     {
-        if (doDropLoot)
-            DropLoot();
-        this.gameObject.GetComponent<NetworkObject>().Despawn();
-        Destroy(this.gameObject);
-        NPCSpawner enemySpawner = GameObject.FindObjectOfType<NPCSpawner>();
-        enemySpawner.spawnedEnemyCount--;
+        DropLoot();
+        NotifySpawner();
+        DespawnNPC();
     }
 
     private void DropLoot()
     {
-        foreach (var i in monsterData.lootTable)
+        if (IsServer)
         {
-            if (i.dropChance - UnityEngine.Random.Range(0f, 1f) > 0)
+            if (_monsterDataInstance?.lootTable == null) return;
+
+            foreach (var loot in _monsterDataInstance.lootTable)
             {
-                // i.item.SpawnWorldItemCopy(transform.position);
-                GameObject groundItemPrefab = Resources.Load<GameObject>("GroundItemPrefab");
-                var _gameObject = Instantiate(groundItemPrefab, transform.position, quaternion.identity);
-                _gameObject.GetComponent<GroundItem>().setItem(i.item);
-                _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
-                _gameObject.GetComponent<NetworkObject>().Spawn();
+                if (Random.value <= loot.dropChance)
+                {
+                    SpawnLootItem(loot.item);
+                }
             }
         }
     }
-    private IEnumerator CheckForStateConditions()
-    {
-        while (true)
-        {
-            for (int i = monsterData.nPCBehaviour.Length - 1; i >= 0; i--)
-            {
-                if (i <= activeStatePosition)
-                {
-                    if (i == activeStatePosition)
-                    {
-                        if (!monsterData.nPCBehaviour[i].CheckConditions(this))
-                        {
-                            activeStatePosition = 0;
-                        }
-                    }
-                    continue;
-                }
-                if (monsterData.nPCBehaviour[i].CheckConditions(this))
-                {
-                    activeStatePosition = i;
-                }
-            }
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
-    public void setData(NPCData data)
-    {
-        monsterData = data;
-        InitializeAbilities();
-        StartCoroutine(CheckForStateConditions());
-        GetComponent<BoxCollider2D>().enabled = true; // huh?
-        currentHealth = monsterData.maxHealth;
-        StartCoroutine(DespawnCheck());
+    private void UseAbilityOnPosition(int index, Vector2 postition){
+        UseAbilityServerRpc(postition, _abilities[index].id);
     }
 
-    public float GetPower()
-    {
-        return 1;
+    [ServerRpc]
+    public void UseAbilityServerRpc(Vector2 mousePosition, int abilityId){
+        UseAbilityClientRpc(mousePosition, abilityId);
     }
+    [ClientRpc]
+    private void UseAbilityClientRpc(Vector2 mousePosition, int abilityId)
+    {
+        Debug.Log("UseAbilityClientRpc from " + name);
+        ((Resources.Load("AbilityDatabase") as Database).GetObjectById(abilityId) as Ability).AbilityUse(transform.position, mousePosition);
+    }
+    private void SpawnLootItem(Item item)
+    {
+        var lootPrefab = Resources.Load<GameObject>("GroundItemPrefab");
+        var loot = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+        loot.GetComponent<NetworkObject>().Spawn();
+        loot.GetComponent<GroundItem>().SetItemClientRpc(item.id);
+    }
+
+    private void NotifySpawner()
+    {
+        FindObjectOfType<EnemySpawner>()?.OnEnemyDied(gameObject);
+    }
+
+    private void DespawnNPC()
+    {
+        GetComponent<NetworkObject>().Despawn();
+        Destroy(gameObject);
+    }
+
+    public float GetPower() => 1f;
 }

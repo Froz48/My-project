@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2719985aa960bea44858ba859adf4c63, type: 3}
   m_Name: FireballAbility
   m_EditorClassIdentifier: 
+  id: 0
   nextUseTime: 0
   sprite: {fileID: 631534408, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   power: 5
   cooldown: 2
+  initialized: 0
   objectPrefab: {fileID: 4560789671401021249, guid: 8d71a3c01131c714e8adce82c3d706b8, type: 3}
-  spawnOnCaster: 0
+  spawnOnCaster: 1
+  spawnInMelee: 0
+  warningPrefab: {fileID: 0}
+  warningDuration: 2
+  warningRadius: 1
+  warningLineSize: {x: 5, y: 1}

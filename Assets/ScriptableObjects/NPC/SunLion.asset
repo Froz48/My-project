@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d264c088f83f243afe95c157439d69, type: 3}
+  m_Name: SunLion
+  m_EditorClassIdentifier: 
+  id: 1
+  nPCBehaviour:
+  - {fileID: 11400000, guid: 73b3afb0a88edec4bb20aaf7e4f6abbd, type: 2}
+  - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}
+  - {fileID: 11400000, guid: acc7459f9e8ac3c49b5ae1e60d926ca5, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 250aaa4740858cf4d93513054782d4c0, type: 2}
+  detectionRadius: 10
+  attackDistance: 6
+  movementSpeed: 1
+  spriteLibraryAsset: {fileID: 7108339969198208228, guid: ad1d75466979d0c4fbd59387f0c4e496, type: 3}
+  maxHealth: 10
+  lootTable:
+  - item: {fileID: 11400000, guid: 2f9075995f75b2744a0bdba43f0b2f2a, type: 2}
+    minAmount: 2
+    maxAmount: 5
+    dropChance: 1

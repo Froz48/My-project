@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 public interface IDamageable
 {
-    void TakeDamageRpc(float damage);
+    void TakeDamage(float damage);
 }
 
 public class Effect_DamageOnCollision : MonoBehaviour
@@ -30,7 +30,7 @@ public class Effect_DamageOnCollision : MonoBehaviour
     {
         if (collision.TryGetComponent(out IDamageable damageable) && damageable.GetType() == targetType)
         {
-            damageable.TakeDamageRpc(damage * EffectController.GetPower(gameObject) * powerCoefficient);
+            damageable.TakeDamage(damage * EffectController.GetPower(gameObject) * powerCoefficient);
         }
         // var component = collision.GetComponent(targetType);
         // if ((component != null) && component is IDamageable damageable)

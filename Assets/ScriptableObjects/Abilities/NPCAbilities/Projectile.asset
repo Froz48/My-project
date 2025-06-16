@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2719985aa960bea44858ba859adf4c63, type: 3}
   m_Name: Projectile
   m_EditorClassIdentifier: 
-  nextUseTime: 11.329312
+  id: 10
+  nextUseTime: 0
   sprite: {fileID: 631534408, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   power: 10
   cooldown: 2
+  initialized: 0
   objectPrefab: {fileID: 4560789671401021249, guid: bd3035cb346b0444396ca08971e96237, type: 3}
   spawnOnCaster: 1
+  spawnInMelee: 0
+  warningPrefab: {fileID: 943688644814236659, guid: d113ff7ab63eaaa43bdff40e6ec148cc, type: 3}
+  warningDuration: 0.3
+  warningRadius: 1
+  warningLineSize: {x: 0.5, y: 3}

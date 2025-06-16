@@ -182,9 +182,9 @@ GameObject:
   - component: {fileID: 672290427648832350}
   - component: {fileID: 2278221899907619263}
   - component: {fileID: 7387696766932474566}
-  - component: {fileID: 8476313829567043056}
   - component: {fileID: 7789373438762283640}
   - component: {fileID: 4381744598247498949}
+  - component: {fileID: 8188805526442964746}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Untagged
@@ -403,23 +403,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8476313829567043056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5786306326399798581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 768e494dc98b4984d9eed7f5266dcc84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMaxCount: 10
-  enemyDatabase: {fileID: 11400000, guid: 275e0e7220f7b684bb63fcb51f44f6dd, type: 2}
-  spawnPool: {fileID: 11400000, guid: d36c2de92c4e1624a9d6328ef34305ca, type: 2}
-  spawnedEnemyCount: 0
-  npcPrefab: {fileID: 4355553488569849823, guid: dfda11284b89d0b4aab19ce6b7b90e26, type: 3}
 --- !u!114 &7789373438762283640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5786306326399798581}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: feb2cd87b24fc56469e41808e3f0e1fd, type: 3}
   m_Name: 
@@ -467,6 +450,20 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &8188805526442964746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786306326399798581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionStateInfoList: []
+  m_Animator: {fileID: 2278221899907619263}
 --- !u!1 &6578086862113598098
 GameObject:
   m_ObjectHideFlags: 0

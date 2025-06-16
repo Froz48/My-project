@@ -1,23 +1,52 @@
-using Unity.Netcode;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Behaviours/BehaviourKeepDistance")]
-public class BehaviourKeepDistance : NPCBehaviour {
-    public override bool CheckConditions(NPCEntity npc) {
-        return MyMath.GetDistanceToNearestPlayer(npc.transform.position) < npc.monsterData.detectionRadius;
+public class BehaviourKeepDistance : NPCBehaviour 
+{
+    private float distanceTolerance = 0.1f;
+    public override bool CheckConditions(NPCEntity npc)
+    {
+        if (npc == null || npc.MonsterData == null) return false;
+
+        float distance = MyMath.GetDistanceToNearestPlayer(npc.transform.position);
+        return distance < npc.MonsterData.detectionRadius &&
+               distance > npc.MonsterData.attackDistance;
     }
 
     public override void Act(NPCEntity npc, Animator animator = null, dynamic param = null)
     {
+        if (npc == null || npc.MonsterData == null || animator == null) return;
+
         Player player = MyMath.GetNearestPlayer(npc.transform.position);
-        Vector2 targetPosition = (npc.transform.position - player.transform.position).normalized * npc.monsterData.attackDistance + player.transform.position;
-        Vector2 moveDirection = targetPosition - (Vector2)npc.transform.position;
-        if (moveDirection.magnitude > 0.2)
+        if (player == null)
         {
-            Vector2 newPosition2 = (Vector2)npc.transform.position + (targetPosition - (Vector2)npc.transform.position).normalized * npc.monsterData.movementSpeed * Time.deltaTime;
-            npc.GetComponent<Rigidbody2D>().MovePosition(newPosition2);
-            animator.SetFloat("MoveX", moveDirection.normalized.x);
-            animator.SetFloat("MoveY", moveDirection.normalized.y);
+            animator.SetBool("IsMoving", false);
+            return;
         }
+
+        Vector2 directionAwayFromPlayer = (npc.transform.position - player.transform.position).normalized;
+        Vector2 idealPosition = (Vector2)player.transform.position + directionAwayFromPlayer * npc.MonsterData.attackDistance;
+
+        Vector2 moveDirection = (idealPosition - (Vector2)npc.transform.position).normalized;
+        float distanceToIdealPos = Vector2.Distance(npc.transform.position, idealPosition);
+
+        if (distanceToIdealPos > distanceTolerance)
+        {
+            float moveSpeed = npc.MonsterData.movementSpeed * Time.fixedDeltaTime;
+
+            Rigidbody2D rb = npc.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                Vector2 newPosition = (Vector2)npc.transform.position + moveDirection * moveSpeed;
+                rb.MovePosition(newPosition);
+
+                // Обновляем аниматор
+                animator.SetFloat("MoveX", moveDirection.x);
+                animator.SetFloat("MoveY", moveDirection.y);
+                animator.SetBool("IsMoving", true);
+            }
+        }
+        else animator.SetBool("IsMoving", false);
+
     }
 }

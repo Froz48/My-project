@@ -65,7 +65,17 @@ public class Inventory : InventoryBase
         }
         return null;
     }
-
+    public bool IsHasItem(Item item, int amount = 1)
+    {
+        foreach (var i in Slots)
+        {
+            if ((i.item == item) && (i.amount >= amount))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     /*
 public bool AddItem(ItemInstance _item, int _amount)
 {

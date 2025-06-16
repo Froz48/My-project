@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.Netcode;
+using Unity.Netcode.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -25,37 +26,41 @@ public class Player : NetworkBehaviour, IDamageable
     #region Private Variables
     [SerializeField] private float currentHealth;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private PlayerInput input;
+    [SerializeField] private PlayerInputController input;
     [SerializeField] private float reviveTime = 10;
     [SerializeField] private Vector3 spawnPosition = new Vector3(0,0,-1);
-    [SerializeField] private Camera playerCamera;
     [SerializeField] private Inventory inventory;
     [SerializeField] private EquipmentInventory equipment;
     [SerializeField] private NullAbility nullAbility;
     [SerializeField] private Ability meleeAbility;
     [SerializeField] private AttributeListSO baseAttributes;
+    [SerializeField] private NetworkObject playerNetworkObject;
     #endregion
 
     #region Unity Methods
-    public override void OnNetworkSpawn() {
-        if (!IsOwner) {
-            enabled = false;
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+        {
+            if (TryGetComponent(out PlayerInputController input)) input.enabled = false;
+            if (TryGetComponent(out Camera cam)) cam.enabled = false;
+            if (TryGetComponent(out MapGen mapgen)) mapgen.enabled = false;
             return;
-            
-        } 
+
+        }
         transform.position = new Vector3(0, 0, -1);
-        DoStartThings();
+        InitializePlayer();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-       if (other.TryGetComponent(out GroundItem groundItem) && inventory.CanPickupItem(groundItem.getItem()))
+       if (other.TryGetComponent(out GroundItem groundItem) && inventory.CanPickupItem(groundItem.GetItem()))
         {
             PickupItemServerRpc(other.GetComponent<NetworkObject>().NetworkObjectId);
         }
     }
 
-    private void DoStartThings(){ // Fuck Start
+    private void InitializePlayer(){ // Fuck Start
         
         InitializeBaseValues();
         InitializeEvents();
@@ -65,14 +70,48 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     private void FixedUpdate()
-    {       
-        rb.MovePosition(rb.position + input.GetMovementVectorNormalized()*Time.fixedDeltaTime*(float)GetMovementSpeed());
+    {
+        if (IsOwner)
+        {
+            Vector2 movement = input.GetMovementVectorNormalized().normalized;
+            if (movement != Vector2.zero)
+            {
+                MoveInDirectionServerRpc(movement*(float)GetMovementSpeed()*Time.fixedDeltaTime);
+            }
+
+        }
     }
+
+    [ServerRpc]
+    private void MoveInDirectionServerRpc(Vector2 direction)
+    {
+        rb.MovePosition(rb.position + direction);
+        MoveInDirectionClientRpc(direction);
+    }
+    [ClientRpc]
+    private void MoveInDirectionClientRpc(Vector2 direction)
+    {
+        rb.position += direction;
+    }
+    [ServerRpc]
+    private void UpdatePositionServerRpc(Vector2 position)
+    {
+        transform.position = new Vector3(position.x, position.y, -1);
+        UpdatePositionClientRpc(position);
+    }
+    [ClientRpc]
+    private void UpdatePositionClientRpc(Vector2 position)
+    {
+        transform.position = new Vector3(position.x, position.y, -1f);     
+    }
+
     #endregion
 
     #region Initialization Methods
-    private void InitializeEvents(){
-        for (int i = 0; i < equipment.Slots.Length; i++){
+    private void InitializeEvents()
+    {
+        for (int i = 0; i < equipment.Slots.Length; i++)
+        {
             int whyIsItAThing = i;
             equipment.Slots[i].OnAfterUpdate += (ctx1, ctx2) => ItemEquiped(equipment.Slots[whyIsItAThing]);
             equipment.Slots[i].OnBeforeUpdate += (ctx1, ctx2) => ItemUnequiped(equipment.Slots[whyIsItAThing]);
@@ -101,7 +140,7 @@ public class Player : NetworkBehaviour, IDamageable
         {
             int bullshit = i;
             abilities[i] = nullAbility.CreateInstance();
-            input.onAbilityUse[i] += () => UseAbility(bullshit);
+            input.onAbilityUse[i] += () => UseAbilityOnPosition(bullshit);
         }
         ChangeAbilityInstance(0, meleeAbility);
     }
@@ -149,22 +188,29 @@ public class Player : NetworkBehaviour, IDamageable
             attributes[i].UpdateModifiedValue();
         }
     }
-
-    public void TakeDamageRpc(float damage){
-        currentHealth -= damage;
-        OnHealthChanged?.Invoke(this, EventArgs.Empty);
-        if (currentHealth <= 0)
+    
+    public void TakeDamage(float damage)
+    {
+        if (IsOwner)
         {
-            currentHealth = 0;
-            FindAnyObjectByType<ReviveManager>().Kill(gameObject, reviveTime);
+            currentHealth = Mathf.Max(0, currentHealth - damage);
+            OnHealthChanged?.Invoke(this, EventArgs.Empty);
+            if (currentHealth <= 0)
+            {
+                FindAnyObjectByType<ReviveManager>()?.KillPlayerServerRpc(GetComponent<NetworkObject>().NetworkObjectId, reviveTime);
+            }
         }
     }
 
     public void Revive()
     {
-        currentHealth = GetMaxHealth();
-        OnHealthChanged?.Invoke(this, EventArgs.Empty);
-        transform.position = spawnPosition;
+        if (IsOwner)
+        {
+            currentHealth = GetMaxHealth();
+            OnHealthChanged?.Invoke(this, EventArgs.Empty);
+            UpdatePositionServerRpc(spawnPosition);
+        }
+        else Debug.LogError("Tried to revive other players");
     }
     #endregion
 
@@ -174,26 +220,29 @@ public class Player : NetworkBehaviour, IDamageable
         //inventory.Slots[0].item.UseItem(playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
         // inventory.Slots[0].RemoveAmount(1);
     }
-
-    private void UseAbility(int index){
-        if (Time.time >= abilities[index].nextUseTime){
-            Debug.Log("cam = " + playerCamera);
-            Debug.Log("player = " + gameObject);
-            Debug.Log("UseAbility" + index + " " + abilities[index].GetType());
-            
-            Vector2 worldPosition = playerCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            UseAbility(worldPosition, index);
+    private void UseAbilityOnPosition(int index){
+        if (abilities[index].IsReady())
+        {
+            Vector2 worldPosition = GetComponent<Camera>().ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            UseAbilityServerRpc(worldPosition, abilities[index].id);
+            abilities[index].StartCooldown();
         }
     }
 
-    private void UseAbility(Vector2 mousePosition, int index){
-        abilities[index]?.AbilityUseServerRpc(transform.position, mousePosition);
+    [ServerRpc]
+    private void UseAbilityServerRpc(Vector2 mousePosition, int abilityId){
+        UseAbilityClientRpc(mousePosition, abilityId);
+    }
+    [ClientRpc]
+    private void UseAbilityClientRpc(Vector2 mousePosition, int abilityId)
+    {
+        ((Resources.Load("AbilityDatabase") as Database).GetObjectById(abilityId) as Ability).AbilityUse(transform.position, mousePosition);
     }
 
-    private void ChangeAbilityInstance(int index, Ability ability){
+    private void ChangeAbilityInstance(int index, Ability ability)
+    {
         if (index == -1) return;
         abilities[index] = ability.CreateInstance();
-        Debug.Log("Changed ability " + index + " to " + abilities[index].GetType());
         OnAnyAbilityChanged?.Invoke(this, EventArgs.Empty);
     }
     
@@ -215,7 +264,7 @@ public class Player : NetworkBehaviour, IDamageable
     private void PickupItemClientRpc(ulong itemNetworkObjectId, RpcParams rpcParams = default)
     {
         NetworkManager.Singleton.SpawnManager.SpawnedObjects.TryGetValue(itemNetworkObjectId, out NetworkObject _item);
-        inventory.AddItem(_item.GetComponent<GroundItem>().getItem(), 1);
+        inventory.AddItem(_item.GetComponent<GroundItem>().GetItem(), 1);
     }
     #endregion
 

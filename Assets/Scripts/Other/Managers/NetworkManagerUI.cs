@@ -24,8 +24,8 @@ public class NetworkManagerUI : MonoBehaviour {
 
             Debug.Log(textiid.text.ToIntArray());
            int iid = Convert.ToInt32(textiid.text);
-            _gameObject.GetComponent<GroundItem>().setItem((Item)databaseItems.GetObjectById(iid));
-            _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().getItem().uiDisplay;
+            _gameObject.GetComponent<GroundItem>().SetItemClientRpc(iid);
+            _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().GetItem().sprite;
             _gameObject.GetComponent<NetworkObject>().Spawn();
             Debug.Log("Spawned item with id = " + iid);
         }));

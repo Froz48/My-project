@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: MagmaStaff
   m_EditorClassIdentifier: 
-  uiDisplay: {fileID: -1435851473, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  id: 0
+  sprite: {fileID: -1435851473, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
   description: 
   eEquipmentSlot: 7

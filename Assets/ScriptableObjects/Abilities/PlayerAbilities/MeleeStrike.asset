@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e47dcdd3ec937459ff375467a53c7b, type: 3}
   m_Name: MeleeStrike
   m_EditorClassIdentifier: 
+  id: 2
   nextUseTime: 0
   sprite: {fileID: -56906270, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   power: 5
   cooldown: 1
+  initialized: 0
   prefab: {fileID: 4560789671401021249, guid: 07eac73569835674ab6d34c8b95edb62, type: 3}
-  lifetime: 0.2

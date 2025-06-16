@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TornadoHead
   m_EditorClassIdentifier: 
   id: 5
-  uiDisplay: {fileID: 154142814, guid: a265b234540e43846b382b1b199a4a87, type: 3}
+  sprite: {fileID: -1224558456, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
   description: X
   eEquipmentSlot: 0

@@ -8,14 +8,21 @@ public class BossEntity : NetworkBehaviour, IDamageable
 {
     [SerializeField] BossData data;
     float currentHealth;
+    private int spawnerAltarId;
     float currentTimer;
+    NetworkVariable<float> networkCurrentHealth = new NetworkVariable<float>();
     int timerPosition = 0;
 
     void Start()
     {
 
     }
-    
+    public void Initialize(BossData bossData, int altarId)
+    {
+        data = bossData;
+        networkCurrentHealth.Value = data.maxHealth;
+        spawnerAltarId = altarId;
+    }
 
     void Update()
     {
@@ -53,29 +60,40 @@ public class BossEntity : NetworkBehaviour, IDamageable
     {
         if (IsServer)
         {
-            currentHealth -= damage;
+            networkCurrentHealth.Value -= damage;
             VictoryCheck();
         }
     }
-
     void VictoryCheck()
     {
-        if (currentHealth <= 0)
+        if (networkCurrentHealth.Value <= 0)
         {
-            GetComponent<NetworkObject>().Despawn();
+            BossAltarManager.Instance.UpdateAltarStateClientRpc(spawnerAltarId, false);
+
             DropLoot();
+            GetComponent<NetworkObject>().Despawn();
         }
     }
 
     void DropLoot()
     {
-        foreach (var i in data.loot.generateLoot())
+        if (IsServer)
         {
-            GameObject groundItemPrefab = Resources.Load<GameObject>("GroundItemPrefab");
-            var _gameObject = Instantiate(groundItemPrefab, transform.position, quaternion.identity);
-            gameObject.GetComponent<GroundItem>().SetItemClientRpc(i.id);
-            _gameObject.GetComponent<SpriteRenderer>().sprite = _gameObject.GetComponent<GroundItem>().GetItem().sprite;
-            _gameObject.GetComponent<NetworkObject>().Spawn();
+            foreach (var loot in data.loot.lootDrops)
+            {
+                if (UnityEngine.Random.value <= loot.dropChance)
+                {
+                    SpawnLootItem(loot.item);
+                }
+            }
         }
+
+    }
+        private void SpawnLootItem(Item item)
+    {
+        var lootPrefab = Resources.Load<GameObject>("GroundItemPrefab");
+        var loot = Instantiate(lootPrefab, transform.position, Quaternion.identity);
+        loot.GetComponent<NetworkObject>().Spawn();
+        loot.GetComponent<GroundItem>().SetItemClientRpc(item.id);
     }
 }

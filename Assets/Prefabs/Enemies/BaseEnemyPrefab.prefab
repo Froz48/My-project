@@ -183,11 +183,12 @@ MonoBehaviour:
   currentHealth:
     m_InternalValue: 0
   animator: {fileID: -8467992897007729187}
-  networkAnimator: {fileID: -8299141348207221220}
   spriteLibrary: {fileID: 3914059184169762566}
   npcCollider: {fileID: 5741415495745094009}
-  rb: {fileID: 2741334791539117153}
+  spriteRenderer: {fileID: 8729173436074463158}
+  _monsterDataInstance: {fileID: 0}
   _abilities: []
+  _activeStatePosition: 0
 --- !u!212 &8729173436074463158
 SpriteRenderer:
   m_ObjectHideFlags: 0

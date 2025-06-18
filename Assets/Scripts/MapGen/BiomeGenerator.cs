@@ -11,9 +11,11 @@ public class BiomeGenerator : ScriptableObject
     [SerializeField] private List<Biome> biomes;
     private Tilemap tilemap;
     private float biomeCapacity;
-    public void Initialize(Tilemap targetTilemap)
+    private int worldSeed;
+    public void Initialize(Tilemap targetTilemap, int seed)
     {
         tilemap = targetTilemap;
+        worldSeed = seed;
         CalculateBiomeCapacity();
     }
     private void CalculateBiomeCapacity()
@@ -24,6 +26,26 @@ public class BiomeGenerator : ScriptableObject
             biomeCapacity += biome.biomeFrequency;
         }
         biomeCapacity /= 2f; // bcs [-1, 1]
+    }
+    public Biome GetBiomeAt(Vector2 worldPosition)
+    {
+        FastNoiseLite noise = new FastNoiseLite();
+        MapGen.SetNoiceParams(noise, seed: worldSeed, frequency: 0.02f);
+
+        float temperatureValue = noise.GetNoise(worldPosition.x, worldPosition.y);
+
+        float threshold = -1f;
+        foreach (var biome in biomes)
+        {
+            threshold += biome.biomeFrequency / biomeCapacity;
+            if (temperatureValue <= threshold)
+            {
+                return biome;
+            }
+        }
+
+        // Возвращаем биом по умолчанию, если что-то пошло не так
+        return biomes.Count > 0 ? biomes[0] : null;
     }
     public void GenerateChunkBiomes(Vector2Int chunkCoords, int seed)
     {
@@ -64,21 +86,27 @@ public class BiomeGenerator : ScriptableObject
     }
     private TileBase GetBiomeTile(float temperatureValue)
     {
-        float threshold = -1f; // bcs [-1, 1]
-
+        // Этот метод теперь может использовать новый метод
+        Biome biome = GetBiomeAtFromValue(temperatureValue);
+        return biome != null ? biome.tile : (biomes.Count > 0 ? biomes[0].tile : null);
+    }
+    private Biome GetBiomeAtFromValue(float temperatureValue)
+    {
+        float threshold = -1f;
         foreach (var biome in biomes)
         {
             threshold += biome.biomeFrequency / biomeCapacity;
             if (temperatureValue <= threshold)
             {
-                return biome.tile;
+                return biome;
             }
         }
-
         Debug.LogWarning("No suitable biome found, using default");
-        return biomes[0].tile;
+        return biomes.Count > 0 ? biomes[0] : null;
     }
+
 }
+
 public struct JGenerateBiomeNoise : IJob
 {
     public Vector2Int chunkCoord;

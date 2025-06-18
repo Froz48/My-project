@@ -18,14 +18,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae9470fbb860f0d4d8a58eb5247eeb05, type: 2}
   - {fileID: 11400000, guid: acc7459f9e8ac3c49b5ae1e60d926ca5, type: 2}
   abilities:
-  - {fileID: 11400000, guid: 2a2505d15e01d2b4a94d14fb6097918d, type: 2}
+  - {fileID: 11400000, guid: 2795077ea9cc83e4ca3079a37a67f1cd, type: 2}
   detectionRadius: 10
   attackDistance: 3
   movementSpeed: 1
   spriteLibraryAsset: {fileID: 7108339969198208228, guid: a50a80d7ddb27464ba09d9ca3772fcfd, type: 3}
   maxHealth: 10
   lootTable:
-  - item: {fileID: 11400000, guid: 82f2e730c22421f4f8f735e951dea512, type: 2}
+  - item: {fileID: 11400000, guid: a4e9549fcb2af9b4dacc4448c42e220e, type: 2}
     minAmount: 1
     maxAmount: 1
     dropChance: 1
+  sizeScale: 2

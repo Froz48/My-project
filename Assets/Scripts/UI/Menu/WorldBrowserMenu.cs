@@ -13,8 +13,11 @@ public class WorldBrowserMenu : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Transform worldsContainer;
     [SerializeField] private GameObject worldEntryPrefab;
-
     private List<GameObject> currentWorldEntries = new List<GameObject>();
+    [SerializeField] private Toggle localGameToggle;
+    [SerializeField] private TMP_InputField joinCodeInput;
+    [Header("Managers")]
+    [SerializeField] private ConnectionManager connectionManager;
     [Header("New World UI")]
     [SerializeField] private TMP_InputField worldNameInput;
     [SerializeField] private TMP_InputField seedInput;
@@ -26,7 +29,6 @@ public class WorldBrowserMenu : MonoBehaviour
     {
         createNewWorldButton.onClick.AddListener(CreateNewWorld);
         joinGameButton.onClick.AddListener(ConnectToGame);
-        Debug.Log(createNewWorldButton.onClick);
     }
     public void CreateNewWorld()
     {
@@ -111,11 +113,13 @@ public class WorldBrowserMenu : MonoBehaviour
             WorldSaveData data = JsonUtility.FromJson<WorldSaveData>(json);
             PlayerPrefs.SetInt("CurrentSeed", data.seed);
         }
-        SceneManager.LoadScene("Game");
-        SceneManager.sceneLoaded += OnGameSceneLoadedHost;
+        // SceneManager.LoadScene("Game");
+        // SceneManager.sceneLoaded += OnGameSceneLoadedHost;
+        bool useRelay = !localGameToggle.isOn;
+        connectionManager.StartHost(useRelay);
     }
 
-    private  void OnWorldDeleted(string worldName, GameObject entry)
+    private void OnWorldDeleted(string worldName, GameObject entry)
     {
         string path = Path.Combine(Application.persistentDataPath, worldName + ".json");
         if (File.Exists(path))
@@ -126,43 +130,59 @@ public class WorldBrowserMenu : MonoBehaviour
             Debug.Log($"Deleted world: {worldName}");
         }
     }
-    public void ConnectToGame(){
-        SceneManager.LoadScene("Game");
-        SceneManager.sceneLoaded += OnGameSceneLoadedClient;
-    }
-    private void OnGameSceneLoadedClient(Scene scene, LoadSceneMode mode){
-        if (scene.name == "Game")
-        {
-            SceneManager.sceneLoaded -= OnGameSceneLoadedClient;
-
-            if (NetworkManager.Singleton != null)
-            {
-                // NetworkManager.Singleton.StartClient();
-                relayManager.JoinRelay();
-            }
-            else
-            {
-                Debug.LogError("NetworkManager.Singleton is null!");
-            }
-        }
-    }
-
-    private void OnGameSceneLoadedHost(Scene scene, LoadSceneMode mode)
+    public void ConnectToGame()
     {
-        if (scene.name == "Game")
-        {
-            SceneManager.sceneLoaded -= OnGameSceneLoadedHost;
-
-            if (NetworkManager.Singleton != null)
-            {
-                // NetworkManager.Singleton.StartHost();
-                relayManager.CreateRelay();
-                SaveManager.LoadWorld();
-            }
-            else
-            {
-                Debug.LogError("NetworkManager.Singleton is null!");
-            }
-        }
+        bool useRelay = !localGameToggle.isOn;
+        string code = joinCodeInput.text;
+        connectionManager.StartClient(useRelay, code);
+        // SceneManager.LoadScene("Game");
+        // SceneManager.sceneLoaded += OnGameSceneLoadedClient;
     }
+    // private void OnGameSceneLoadedClient(Scene scene, LoadSceneMode mode)
+    // {
+    //     if (scene.name == "Game")
+    //     {
+    //         SceneManager.sceneLoaded -= OnGameSceneLoadedClient;
+
+    //         // if (NetworkManager.Singleton != null)
+    //         // {
+    //         //     // NetworkManager.Singleton.StartClient();
+    //         //     relayManager.JoinRelay();
+    //         // }
+    //         if (connectionManager != null)
+    //         {
+    //             // Передаем в ConnectionManager выбор пользователя
+    //             bool useRelay = !localGameToggle.isOn;
+    //             string code = joinCodeInput.text;
+    //             connectionManager.StartClient(useRelay, code);
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("NetworkManager.Singleton is null!");
+    //         }
+    //     }
+    // }
+
+    // private void OnGameSceneLoadedHost(Scene scene, LoadSceneMode mode)
+    // {
+    //     if (scene.name == "Game")
+    //     {
+    //         SceneManager.sceneLoaded -= OnGameSceneLoadedHost;
+
+    //         // if (NetworkManager.Singleton != null)
+    //         // {
+    //         //     relayManager.CreateRelay();
+    //         // }
+    //                     if (connectionManager != null)
+    //         {
+    //             // Передаем в ConnectionManager выбор пользователя
+    //             bool useRelay = !localGameToggle.isOn;
+    //             connectionManager.StartHost(useRelay);
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError("NetworkManager.Singleton is null!");
+    //         }
+    //     }
+    // }
 }

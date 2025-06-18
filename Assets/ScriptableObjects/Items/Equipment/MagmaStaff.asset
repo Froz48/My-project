@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: MagmaStaff
   m_EditorClassIdentifier: 
-  id: 0
+  id: 10
   sprite: {fileID: -1435851473, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
-  description: 
-  eEquipmentSlot: 7
-  price: 10
+  description: '+3 MovementSpeed
+
+    Gives Flame strike'
+  eEquipmentSlot: 8
+  price: 50
   attributeModifiers:
-  - attribute: 0
-    addValue: 10
+  - attribute: 2
+    addValue: 3
   ability: {fileID: 11400000, guid: 921918b73f29b104f838a69e8761e2a4, type: 2}

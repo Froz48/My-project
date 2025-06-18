@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: IceBiome
   m_EditorClassIdentifier: 
   biomeFrequency: 1
-  tile: {fileID: 11400000, guid: f0e252a72cde6e346aed2bbc637cae11, type: 2}
-  spawnPool: []
+  tile: {fileID: 11400000, guid: aedb7c18a85093f49aaad7ce6b1d7e85, type: 2}
+  <SpawnPool>k__BackingField:
+  - {fileID: 11400000, guid: b9598b5d88ee1d840a769bf0b76a64a8, type: 2}
+  - {fileID: 11400000, guid: 22aaad9f62c910d4d8349588d78451d9, type: 2}
   lootPool: []

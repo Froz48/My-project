@@ -15,10 +15,12 @@ MonoBehaviour:
   id: 9
   sprite: {fileID: -1879327359, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
-  description: 
+  description: '+3 Power
+
+    Gives Fireball'
   eEquipmentSlot: 7
-  price: 100
+  price: 50
   attributeModifiers:
   - attribute: 0
-    addValue: 5
+    addValue: 3
   ability: {fileID: 11400000, guid: dcf510c45580c254d9f797369731de8d, type: 2}

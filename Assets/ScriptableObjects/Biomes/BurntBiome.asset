@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   biomeFrequency: 1
   tile: {fileID: 11400000, guid: fb1b085d0a692e34aaddfc8fec6a88d2, type: 2}
-  spawnPool:
-  - {fileID: 11400000, guid: 78f370c24e4ae40439979ea7f2c939cd, type: 2}
+  spawnPool: []
   lootPool: []

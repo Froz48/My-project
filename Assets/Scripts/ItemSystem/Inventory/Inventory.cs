@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 public enum EItemType 
 {
@@ -64,6 +65,17 @@ public class Inventory : InventoryBase
             }
         }
         return null;
+    }
+    public void RemoveItem(Item itemToRemove, int amountToRemove)
+    {
+        if (itemToRemove == null) return;
+        
+        InventorySlot slot = getSlotWithItem(itemToRemove);
+        if (slot != null && slot.amount >= amountToRemove)
+        {
+            slot.AddAmount(-amountToRemove);
+        }
+        OnItemUpdate();
     }
     public bool IsHasItem(Item item, int amount = 1)
     {

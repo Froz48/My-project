@@ -12,10 +12,12 @@ public class Player : NetworkBehaviour, IDamageable
     #region Constants
     public const int MAX_ABILITIES = 4;
     #endregion
-    
+    [SerializeField] private bool isFullyInitialized = false;
+    private string characterGuid;
     #region Delegates
     public event EventHandler OnHealthChanged;
     public event EventHandler OnAnyAbilityChanged;
+    private string characterName;
     #endregion
 
     #region Public Variables
@@ -23,10 +25,17 @@ public class Player : NetworkBehaviour, IDamageable
     [SerializeField] public Ability[] abilities;
     #endregion
 
+    #region Components
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private Coroutine _damageFlashCoroutine;
+    private Color _originalColor;
+    [SerializeField] private PlayerInputController input;
+    [SerializeField] private NetworkObject playerNetworkObject;
+    [SerializeField] private Rigidbody2D rb;
+    #endregion
+
     #region Private Variables
     [SerializeField] private float currentHealth;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private PlayerInputController input;
     [SerializeField] private float reviveTime = 10;
     [SerializeField] private Vector3 spawnPosition = new Vector3(0,0,-1);
     [SerializeField] private Inventory inventory;
@@ -34,7 +43,6 @@ public class Player : NetworkBehaviour, IDamageable
     [SerializeField] private NullAbility nullAbility;
     [SerializeField] private Ability meleeAbility;
     [SerializeField] private AttributeListSO baseAttributes;
-    [SerializeField] private NetworkObject playerNetworkObject;
     #endregion
 
     #region Unity Methods
@@ -48,12 +56,33 @@ public class Player : NetworkBehaviour, IDamageable
             return;
 
         }
-        transform.position = new Vector3(0, 0, -1);
-        InitializePlayer();
     }
+    public void InitializeForGame()
+    {
+        if (!IsOwner || isFullyInitialized) return;
 
+        Debug.Log("Player.InitializeForGame() called. Initializing systems...");
+        
+        transform.position = new Vector3(0, 0, -1);
+        
+        if (spriteRenderer != null)
+        {
+            _originalColor = spriteRenderer.color;
+        }
+
+        // Инициализируем все системы здесь
+        InitializeBaseValues();
+        InitializeEvents();
+        InitializeAbilities();
+        input.onHotbarButton += () => UseHotbarSlot();
+        
+        // И создаем UI
+        
+        isFullyInitialized = true;
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (!IsOwner) return;
        if (other.TryGetComponent(out GroundItem groundItem) && inventory.CanPickupItem(groundItem.GetItem()))
         {
             PickupItemServerRpc(other.GetComponent<NetworkObject>().NetworkObjectId);
@@ -61,14 +90,26 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     private void InitializePlayer(){ // Fuck Start
-        
+        if (spriteRenderer != null)
+        {
+            _originalColor = spriteRenderer.color;
+        }
         InitializeBaseValues();
         InitializeEvents();
         InitializeAbilities();
         input.onHotbarButton += () => UseHotbarSlot();
         MakeUIs();
     }
+    public void PostLoadInitialize()
+    {
+        if (!IsOwner || isFullyInitialized) return;
 
+        // Теперь, когда данные загружены, мы точно в игровой сцене.
+        // Можно безопасно создавать UI.
+        MakeUIs();
+        
+        isFullyInitialized = true;
+    }
     private void FixedUpdate()
     {
         if (IsOwner)
@@ -81,6 +122,7 @@ public class Player : NetworkBehaviour, IDamageable
 
         }
     }
+
 
     [ServerRpc]
     private void MoveInDirectionServerRpc(Vector2 direction)
@@ -126,6 +168,7 @@ public class Player : NetworkBehaviour, IDamageable
     }
 
     private void MakeUIs(){
+        Debug.Log("MakingUIS");
         FindObjectOfType<AbilityCooldownUI>()?.MakeInterface(this);
         FindObjectOfType<HealthInterface>()?.MakeHealthUI(this);
         FindObjectOfType<StatsInterface>()?.makeUI(attributes);
@@ -188,20 +231,49 @@ public class Player : NetworkBehaviour, IDamageable
             attributes[i].UpdateModifiedValue();
         }
     }
-    
+
+    public bool IsAlive()
+    {
+        return currentHealth > 0;
+    }
+
     public void TakeDamage(float damage)
     {
         if (IsOwner)
         {
-            currentHealth = Mathf.Max(0, currentHealth - damage);
+            if (currentHealth <= 0) return;
+            currentHealth = Mathf.Max(0, currentHealth - damage * GetDamageTakenCoefficient());
             OnHealthChanged?.Invoke(this, EventArgs.Empty);
             if (currentHealth <= 0)
             {
                 FindAnyObjectByType<ReviveManager>()?.KillPlayerServerRpc(GetComponent<NetworkObject>().NetworkObjectId, reviveTime);
             }
+            else
+            {
+                if (_damageFlashCoroutine != null)
+                {
+                    StopCoroutine(_damageFlashCoroutine);
+                }
+                _damageFlashCoroutine = StartCoroutine(DamageFlashRoutine());
+            }
         }
     }
+    private IEnumerator DamageFlashRoutine()
+    {
+        if (spriteRenderer == null) yield break;
 
+        spriteRenderer.color = Color.red;
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        spriteRenderer.color = _originalColor;
+    }
+    public float GetDamageTakenCoefficient()
+    {
+        float armorValue = attributes[(int)EAttributes.Armor].GetValue();
+        if (armorValue < 0) return 1;
+        return 1 - (armorValue / (armorValue + 100));
+    }
     public void Revive()
     {
         if (IsOwner)
@@ -228,7 +300,89 @@ public class Player : NetworkBehaviour, IDamageable
             abilities[index].StartCooldown();
         }
     }
+    [ServerRpc]
+    public void RemoveItemFromInventoryServerRpc(int itemId, int amount)
+    {
+        Item itemToRemove = (Resources.Load(Config.DATABASE_ITEM_NAME) as Database).GetObjectById(itemId) as Item;
+        inventory.RemoveItem(itemToRemove, amount);
+    }
 
+    [ServerRpc]
+    private void RequestStartBossFightServerRpc(int altarId, int bossId, int requiredItemId, Vector3 spawnPosition, ServerRpcParams rpcParams = default)
+    {
+        var bossDatabase = Resources.Load<Database>("BossDatabase");
+        BossData bossToSummon = bossDatabase.GetObjectById(bossId) as BossData;
+        if (bossToSummon == null) return;
+        
+        var clientId = rpcParams.Receive.SenderClientId;
+        Player player = NetworkManager.ConnectedClients[clientId].PlayerObject.GetComponent<Player>();
+        
+        Item requiredItem = (Resources.Load(Config.DATABASE_ITEM_NAME) as Database).GetObjectById(requiredItemId) as Item;
+        if (requiredItem == null) return;
+
+        if (player.GetInventory().IsHasItem(requiredItem, 1))
+        {
+            player.RemoveItemFromInventoryServerRpc(requiredItem.id, 1);
+            
+            SpawnBoss(bossToSummon, spawnPosition, altarId);
+
+            BossAltarManager.Instance.UpdateAltarStateClientRpc(altarId, true);
+        }
+    }
+    public string GetCharacterGuid()
+    {
+        return characterGuid;
+    }
+    public string GetCharacterName() => characterName;
+    public void LoadData(PlayerSaveData data)
+    {
+        InitializeForGame();
+        this.characterGuid = data.characterGuid;
+        this.characterName = data.characterName;
+        UpdatePositionServerRpc(data.position);
+
+        // Здоровье - локальная переменная для владельца, можно менять напрямую
+        currentHealth = data.health;
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+
+        // Загрузка инвентаря
+        for (int i = 0; i < data.inventory.Length; i++)
+        {
+            if (data.inventory[i].amount > 0)
+            {
+                Item item = SaveManager.itemDb.GetObjectById(data.inventory[i].id) as Item;
+                inventory.Slots[i].UpdateSlot(item, data.inventory[i].amount);
+            }
+        }
+
+        // Загрузка экипировки
+        for (int i = 0; i < data.equipment.Length; i++)
+        {
+            if (data.equipment[i].amount > 0)
+            {
+                Item item = SaveManager.itemDb.GetObjectById(data.equipment[i].id) as Item;
+                equipment.Slots[i].UpdateSlot(item, data.equipment[i].amount);
+            }
+        }
+
+        // Обновляем UI после всех изменений
+        inventory.OnItemUpdate();
+        equipment.OnItemUpdate();
+        MakeUIs();
+        // PostLoadInitialize();
+    }
+    private void SpawnBoss(BossData data, Vector3 position, int altarId)
+    {
+        if (!IsServer) return;
+
+        GameObject bossInstance = Instantiate(data.GetPrefab(), position, Quaternion.identity);
+        bossInstance.GetComponent<NetworkObject>().Spawn(true);
+        bossInstance.GetComponent<BossEntity>().Initialize(data, altarId);
+    }
+    public void RequestStartBossFight(int altarId, int bossId, int requiredItemId, Vector3 spawnPosition)
+    {
+        RequestStartBossFightServerRpc(altarId, bossId, requiredItemId, spawnPosition);
+    }
     [ServerRpc]
     private void UseAbilityServerRpc(Vector2 mousePosition, int abilityId){
         UseAbilityClientRpc(mousePosition, abilityId);

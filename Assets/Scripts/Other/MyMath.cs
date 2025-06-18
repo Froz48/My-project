@@ -1,25 +1,37 @@
 
 using Unity.Netcode;
 using UnityEngine;
+using System.Linq;
 
 public static class MyMath
 {
     public static float GetDistanceToNearestPlayer(Vector2 pos)
     {
-        return Vector2.Distance(pos, GetNearestPlayer(pos).transform.position);
+        Player nearestPlayer = GetNearestPlayer(pos);
+        
+        if (nearestPlayer == null)
+        {
+            return float.MaxValue;
+        }
+        return Vector2.Distance(pos, nearestPlayer.transform.position);
     }
 
     public static Player GetNearestPlayer(Vector2 pos)
     {
-        float minDistance = 500000;
+        float minDistance = float.MaxValue;
         Player nearestPlayer = null;
-        foreach (var player in NetworkManager.Singleton.ConnectedClientsList)
+
+        var alivePlayers = NetworkManager.Singleton.ConnectedClientsList;
+            
+
+        foreach (var client in alivePlayers)
         {
-            float distance = Vector2.Distance(player.PlayerObject.transform.position, pos);
+            // if (!client.PlayerObject.GetComponent<Player>().IsAlive()) continue;
+            float distance = Vector2.Distance(client.PlayerObject.transform.position, pos);
             if (distance < minDistance)
             {
                 minDistance = distance;
-                nearestPlayer = player.PlayerObject.GetComponent<Player>();
+                nearestPlayer = client.PlayerObject.GetComponent<Player>();
             }
         }
         return nearestPlayer;

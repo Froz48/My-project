@@ -8,6 +8,6 @@ public class Biome : ScriptableObject
 { //[Range(0f, 1f)]
     [SerializeField] public float biomeFrequency;
     [SerializeField] public TileBase tile;
-    [SerializeField] List<NPCData> spawnPool;
+    [field:SerializeField] public List<NPCData> SpawnPool { get; private set; }
     [SerializeField] List<LootDropEntry> lootPool;
 }

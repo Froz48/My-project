@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: Heart
   m_EditorClassIdentifier: 
-  id: 0
+  id: 4
   sprite: {fileID: -1826717072, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 1
-  description: 
+  description: Reagent
   eEquipmentSlot: 0
   price: 15
   attributeModifiers: []

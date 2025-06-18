@@ -10,6 +10,8 @@ public class EnemySpawner : NetworkBehaviour
     [SerializeField] private int maxEnemiesPerPlayer;
     [SerializeField] private float spawnRadius = 30f;
     [SerializeField] private float minPlayerDistance = 20f;
+    [Header("Dependencies")]
+    [SerializeField] private BiomeGenerator biomeGenerator;
 
     [Header("Despawn Settings")]
     [SerializeField] private float despawnRadius = 30f;
@@ -17,7 +19,7 @@ public class EnemySpawner : NetworkBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private GameObject npcPrefab;
-    [SerializeField] private Database spawnPool;
+    [SerializeField] private Database baseSpawnPool;
 
     private List<GameObject> _activeNPCs = new List<GameObject>();
     private Transform _npcsContainer;
@@ -108,7 +110,11 @@ public class EnemySpawner : NetworkBehaviour
         var spawnPosition = FindSpawnPosition();
         if (spawnPosition != Vector2.zero)
         {
-            SpawnNPC(spawnPosition);
+            var npcData = GetRandomNPCData(spawnPosition);
+            if (npcData != null)
+            {
+                SpawnNPC(spawnPosition, npcData);
+            }
         }
     }
 
@@ -144,7 +150,7 @@ public class EnemySpawner : NetworkBehaviour
         return true;
     }
 
-    private void SpawnNPC(Vector2 position)
+    private void SpawnNPC(Vector2 position, NPCData npcData)
     {
         var npc = Instantiate(npcPrefab, position, Quaternion.identity, _npcsContainer);
         var netObj = npc.GetComponent<NetworkObject>();
@@ -152,16 +158,8 @@ public class EnemySpawner : NetworkBehaviour
         
         netObj.Spawn();
         
-        var npcData = GetRandomNPCData();
-        if (npcData != null)
-        {
-            npcEntity.InitializeWithDataServerRpc(npcData.GetId());
-            _activeNPCs.Add(npc);
-        }
-        else
-        {
-            netObj.Despawn();
-        }
+        npcEntity.InitializeWithDataServerRpc(npcData.GetId());
+        _activeNPCs.Add(npc);
     }
 
         private void DespawnNPC(GameObject npc)
@@ -176,12 +174,45 @@ public class EnemySpawner : NetworkBehaviour
         
         _activeNPCs.Remove(npc);
     }
-    private NPCData GetRandomNPCData()
+    private NPCData GetRandomNPCData(Vector2 spawnPosition)
     {
-        var data = spawnPool.GetRandomObject() as NPCData;
+        // 1. Создаем итоговый список, который будет содержать всех возможных для спавна NPC
+        List<NPCData> finalSpawnPool = new List<NPCData>();
+
+        // 2. Добавляем всех NPC из базового (общего) пула
+        if (baseSpawnPool is Database npcDatabase)
+        {
+            foreach(var obj in npcDatabase.GetAllObjects())
+            {
+                if (obj is NPCData npcData)
+                {
+                    finalSpawnPool.Add(npcData);
+                }
+            }
+        }
+
+        // 3. Определяем биом в точке спавна
+        Biome currentBiome = biomeGenerator.GetBiomeAt(spawnPosition);
+
+        // 4. Если биом определен и у него есть свой уникальный пул, ДОБАВЛЯЕМ его содержимое в общий список
+        if (currentBiome != null && currentBiome.SpawnPool != null && currentBiome.SpawnPool.Count > 0)
+        {
+            finalSpawnPool.AddRange(currentBiome.SpawnPool);
+        }
+        
+        // 5. Если после всех проверок итоговый пул пуст, то спавнить некого.
+        if (finalSpawnPool.Count == 0)
+        {
+            Debug.LogWarning($"No NPC data found for biome at {spawnPosition} and the base pool is also empty.");
+            return null;
+        }
+
+        // 6. Выбираем случайного NPC из объединенного пула
+        NPCData data = finalSpawnPool[Random.Range(0, finalSpawnPool.Count)];
+        
+        // Возвращаем копию, чтобы не изменять оригинальный ScriptableObject
         return data != null ? Instantiate(data) : null;
     }
-
     private Player GetRandomPlayer()
     {
         var clients = NetworkManager.Singleton.ConnectedClientsList;

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Jobs;
+using Unity.Netcode;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "InterestGenerator", menuName = "InterestGenerator")]
 public class InterestGenerator : ScriptableObject
 {
     [SerializeField] List<GameObject> gameObjects;
+    private NetworkManager _networkManager;
     GameObject parentObject;
 
     public void GenerateChunk(Vector2Int chunk, int seed, HashSet<Vector2Int> occupiedCoordinates)

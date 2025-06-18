@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387348723b11e674082a1b743af92f86, type: 3}
-  m_Name: BiomeGenerator
+  m_Script: {fileID: 11500000, guid: 8712996610a54c04393c5d0d9c036e0e, type: 3}
+  m_Name: InterestGenerator
   m_EditorClassIdentifier: 
-  biomes:
-  - {fileID: 11400000, guid: b77fc496ae35425498989d999810f914, type: 2}
-  - {fileID: 11400000, guid: d939e4f1158964d49b4effd3ce6eda63, type: 2}
+  gameObjects:
+  - {fileID: 3903414776312585973, guid: c85c7f2212e8d8942b28469a4a56ba4b, type: 3}
+  - {fileID: 398300569706303581, guid: 29f2cb3f67d234e4d9730b7410d56562, type: 3}

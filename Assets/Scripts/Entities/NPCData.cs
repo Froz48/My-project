@@ -18,6 +18,7 @@ public class NPCData : ScriptableObject, IDatabaseObject
     [SerializeField] public SpriteLibraryAsset spriteLibraryAsset;
     [SerializeField] public float maxHealth;
     [SerializeField] public List<LootDropEntry> lootTable;
+    [SerializeField] public float sizeScale = 1f;
     public NPCData CreateInstance(){
         NPCData instance = Instantiate(this);
         instance.name = this.name + " Instance";

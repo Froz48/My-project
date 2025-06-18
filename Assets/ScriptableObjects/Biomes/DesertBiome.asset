@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DesertBiome
   m_EditorClassIdentifier: 
   biomeFrequency: 1
-  tile: {fileID: 11400000, guid: abc43f78c10c1034597b278c8d1807fe, type: 2}
-  spawnPool:
-  - {fileID: 11400000, guid: 78f370c24e4ae40439979ea7f2c939cd, type: 2}
+  tile: {fileID: 11400000, guid: 7fefc2de02c5ea147bfd7a225410ba35, type: 2}
+  <SpawnPool>k__BackingField:
+  - {fileID: 11400000, guid: 3929e2c777fa23a419f1a239bae1f230, type: 2}
+  - {fileID: 11400000, guid: e558d623db4524d439d88f30187c533e, type: 2}
   lootPool: []

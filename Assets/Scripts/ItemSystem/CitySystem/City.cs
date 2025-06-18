@@ -33,7 +33,6 @@ public class City : NetworkBehaviour, IPointerClickHandler
         districts = new List<District>();
         itemDB = Resources.Load("ItemDatabase") as Database;
         AddRandomDistrict();
-        AddRandomDistrict();
         AddRandomItem();
         AddRandomItem();
         AddRandomItem();

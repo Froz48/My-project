@@ -39,12 +39,14 @@ public class UserInterface : MonoBehaviour{
             if (slot.Value.item == null){
                 slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = null;
                 slot.Key.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 0);
+                slot.Key.transform.GetChild(1).GetComponent<Image>().color = new Color(1, 1, 1, 0);
                 slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
             } 
             else
             {
                 slot.Key.transform.GetChild(0).GetComponent<Image>().sprite = slot.Value.item.sprite;
                 slot.Key.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                slot.Key.transform.GetChild(1).GetComponent<Image>().color = new Color(0.3f, 0.3f, 1, 1);
                 slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = slot.Value.amount.ToString("n0");
             }
         }

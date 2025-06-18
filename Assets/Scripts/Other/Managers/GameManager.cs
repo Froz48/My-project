@@ -1,28 +1,27 @@
 
 using System.Collections;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
-    private static GameManager _instance;
-
-    public static GameManager Instance
+    public static GameManager Instance { get; private set; }
+    public NetworkVariable<int> WorldSeed = new NetworkVariable<int>();
+    public override void OnNetworkSpawn()
     {
-        get
+        if (Instance != null && Instance != this)
         {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameManager>();
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
-                if (_instance == null)
-                {
-                    GameObject obj = new GameObject("AbilityManager");
-                    _instance = obj.AddComponent<GameManager>();
-                    DontDestroyOnLoad(obj); // Чтобы не уничтожался при загрузке сцены
-                }
-            }
-            return _instance;
+        if (IsServer)
+        {
+            WorldSeed.Value = PlayerPrefs.GetInt("CurrentSeed", 0); 
+            Debug.Log($"Server has set the world seed to: {WorldSeed.Value}");
         }
     }
     public Coroutine StartCoroutineM(IEnumerator coroutine)
@@ -32,17 +31,5 @@ public class GameManager : MonoBehaviour
     public GameObject InstantiateM(GameObject prefab, Vector3 position)
     {
         return Instantiate(prefab, position, Quaternion.identity);
-    }
-    private void Awake()
-    {
-        // Защита от дублирования
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 }

@@ -11,6 +11,10 @@ public class BossData : ScriptableObject, IDatabaseObject
     [field: SerializeField] public BossTimer[] timer {get; private set;}
     [field:SerializeField] public LootDropTable loot {get; private set;}
     [field:SerializeField] public float maxHealth {get; private set;}
+    public GameObject GetPrefab()
+    {
+        return prefab;
+    }
 
     public int GetId()
     {

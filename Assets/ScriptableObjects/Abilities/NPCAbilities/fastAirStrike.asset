@@ -9,16 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a0a05443e890446b65e2b9c910370e, type: 3}
-  m_Name: VoidZone
+  m_Script: {fileID: 11500000, guid: 2719985aa960bea44858ba859adf4c63, type: 3}
+  m_Name: fastAirStrike
   m_EditorClassIdentifier: 
-  id: 9
+  id: 0
   nextUseTime: 0
-  sprite: {fileID: -1827566453, guid: a265b234540e43846b382b1b199a4a87, type: 3}
-  power: 20
-  cooldown: 6
+  sprite: {fileID: 0}
+  power: 1
+  cooldown: 2
   initialized: 0
-  warningDuration: 2
-  effectRadius: 8
+  objectPrefab: {fileID: 4560789671401021249, guid: 7ec4f1c3794cc3b44969fbfaa609db85, type: 3}
+  spawnOnCaster: 0
+  spawnInMelee: 0
   warningPrefab: {fileID: 7526734623926506763, guid: d08cfaf4c94919c4f95d36e0374b6c18, type: 3}
-  AbilityPrefab: {fileID: 4560789671401021249, guid: 88ae82ad98d56ff41a3c54642e0e30b3, type: 3}
+  warningDuration: 0.8
+  warningRadius: 2
+  warningLineSize: {x: 5, y: 1}

@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a0a05443e890446b65e2b9c910370e, type: 3}
-  m_Name: SpawnPillarWithWarning
+  m_Script: {fileID: 11500000, guid: 2fecda6afdfee714f8682739bb1df5bb, type: 3}
+  m_Name: FirepitToRP
   m_EditorClassIdentifier: 
-  id: 8
+  id: 7
   nextUseTime: 0
   sprite: {fileID: 0}
-  power: 1
+  power: 20
   cooldown: 5
   initialized: 0
-  warningDuration: 2
-  effectRadius: 1
-  warningPrefab: {fileID: 7526734623926506763, guid: d08cfaf4c94919c4f95d36e0374b6c18, type: 3}
-  AbilityPrefab: {fileID: 4560789671401021249, guid: 99952b226b757b147ab209b73e5c3ed9, type: 3}
+  ability: {fileID: 11400000, guid: 61b0f060b6cc2cc4b9638b5a3619f7f3, type: 2}
+  NumberOfTimes: 0
+  delayBetweenSpam: 0
+  toEveryone: 0

@@ -6,9 +6,13 @@ public class BehaviourKeepDistance : NPCBehaviour
     private float distanceTolerance = 0.1f;
     public override bool CheckConditions(NPCEntity npc)
     {
-        if (npc == null || npc.MonsterData == null) return false;
+        // Получаем текущую цель
+        Player target = npc.GetCurrentTarget();
+        
+        if (npc == null || target == null || npc.MonsterData == null) return false;
 
-        float distance = MyMath.GetDistanceToNearestPlayer(npc.transform.position);
+        float distance = Vector2.Distance(npc.transform.position, target.transform.position);
+        
         return distance < npc.MonsterData.detectionRadius &&
                distance > npc.MonsterData.attackDistance;
     }
@@ -17,7 +21,7 @@ public class BehaviourKeepDistance : NPCBehaviour
     {
         if (npc == null || npc.MonsterData == null || animator == null) return;
 
-        Player player = MyMath.GetNearestPlayer(npc.transform.position);
+        Player player = npc.GetCurrentTarget();
         if (player == null)
         {
             animator.SetBool("IsMoving", false);

@@ -1,13 +1,19 @@
 using System.IO;
 using Unity.Netcode;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System.Collections;
 
-public class SaveManager : MonoBehaviour
+public class SaveManager : NetworkBehaviour
 {
+    public static SaveManager Instance { get; private set; }
+    private WorldSaveData _worldData;
     public static string CurrentWorldName => PlayerPrefs.GetString("CurrentWorld", "default_world");
     public static int CurrentSeed => PlayerPrefs.GetInt("CurrentSeed", 0);
     private static Database _itemDb;
+    [SerializeField] private CharacterSelectionUI characterSelectionUI;
     public static Database itemDb
     {
         get
@@ -23,42 +29,302 @@ public class SaveManager : MonoBehaviour
             return _itemDb;
         }
     }
-    public static void SaveWorld()
+    public override void OnNetworkSpawn()
     {
-        WorldSaveData saveData = new WorldSaveData();
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
-        Player[] players = FindObjectsByType<Player>(FindObjectsSortMode.None);
-        saveData.players = new PlayerSaveData[players.Length];
-        saveData.seed = CurrentSeed;
-        for (int i = 0; i < players.Length; i++)
+        if (IsServer)
         {
-            saveData.players[i] = new PlayerSaveData(players[i]);
+            LoadWorldDataFromFile();
+
+            // NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadedForAll;
+        }
+    }
+    public override void OnNetworkDespawn()
+    {
+        // Не забываем отписаться
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= OnSceneLoadedForAll;
+        }
+        base.OnNetworkDespawn();
+    }
+    // private void OnClientConnected(ulong clientId)
+    // {
+    //     RequestCharacterChoiceClientRpc(JsonUtility.ToJson(_worldData), new ClientRpcParams
+    //     {
+    //         Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+    //     });
+    // }
+        private void OnSceneLoadedForAll(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    {
+        Debug.Log($"[SaveManager] OnSceneLoadedForAll triggered. Scene: {sceneName}, Clients completed: {clientsCompleted.Count}");
+        if (sceneName != "Game")
+        {
+            Debug.Log($"[SaveManager] Scene is not 'Game', ignoring.");
+            return;
+        }
+        if (characterSelectionUI == null)
+            {
+
+                characterSelectionUI = CharacterSelectionUI.Instance;
+            }
+        foreach (var clientId in clientsCompleted)
+        {
+            Debug.Log($"[SaveManager] Processing client ID: {clientId}. Sending RPC...");
+            RequestCharacterChoiceClientRpc(JsonUtility.ToJson(_worldData), new ClientRpcParams
+            {
+                Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+            });
+        }
+    }
+    [ClientRpc]
+    private void RequestCharacterChoiceClientRpc(string worldDataJson, ClientRpcParams rpcParams = default)
+    {
+        Debug.Log($"[SaveManager] Client {NetworkManager.Singleton.LocalClientId} received RequestCharacterChoiceClientRpc.");
+        
+        WorldSaveData worldData = JsonUtility.FromJson<WorldSaveData>(worldDataJson);
+        int characterCount = worldData?.players?.Length ?? 0;
+        Debug.Log($"[SaveManager] Parsed world data. Found {characterCount} characters.");
+
+        if (CharacterSelectionUI.Instance == null)
+        {
+            Debug.LogError("[SaveManager] CharacterSelectionUI.Instance is NULL. Cannot show UI.");
+            return;
         }
 
-
-
-        string json = JsonUtility.ToJson(saveData);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + CurrentWorldName + ".json", json);
-        Debug.Log(Application.persistentDataPath + "/" + CurrentWorldName + ".json");
+        Debug.Log("[SaveManager] Calling CharacterSelectionUI.Instance.Show().");
+        CharacterSelectionUI.Instance.Show(worldData.players);
+    }
+        [ServerRpc(RequireOwnership = false)]
+    public void SelectCharacterServerRpc(string characterGuid, ServerRpcParams rpcParams = default)
+    {
+        Debug.Log("63");
+        ulong clientId = rpcParams.Receive.SenderClientId;
+        PlayerSaveData selectedData = _worldData.players?.FirstOrDefault(p => p.characterGuid == characterGuid);
+        Debug.Log("66");
+        Player playerObject = NetworkManager.Singleton.ConnectedClients[clientId].PlayerObject.GetComponent<Player>();
+        if (playerObject != null && selectedData != null)
+        {
+            Debug.Log("69");
+             string playerDataJson = JsonUtility.ToJson(selectedData);
+             LoadPlayerClientRpc(playerDataJson, new ClientRpcParams
+             {
+                 Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+             });
+        }
     }
 
-    public static void LoadWorld()
+    [ServerRpc(RequireOwnership = false)]
+    public void CreateNewCharacterServerRpc(string characterName, ServerRpcParams rpcParams = default)
     {
-        string path = Application.persistentDataPath + "/" + CurrentWorldName + ".json";
-        if (!File.Exists(path))
+        ulong clientId = rpcParams.Receive.SenderClientId;
+
+        PlayerSaveData newPlayerData = new PlayerSaveData();
+        newPlayerData.ownerClientId = clientId;
+        newPlayerData.characterName = characterName;
+
+        var playerList = _worldData.players?.ToList() ?? new System.Collections.Generic.List<PlayerSaveData>();
+        playerList.Add(newPlayerData);
+        _worldData.players = playerList.ToArray();
+
+        string playerDataJson = JsonUtility.ToJson(newPlayerData);
+
+        LoadPlayerClientRpc(playerDataJson, new ClientRpcParams
         {
-            SaveWorld();
+            Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+        });
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void RequestSaveWorldServerRpc(bool andExit, ServerRpcParams rpcParams = default)
+    {
+        StartCoroutine(SaveRoutine(andExit));
+    }
+
+    private IEnumerator SaveRoutine(bool andExit)
+    {
+        // Очищаем список тех, от кого ждем ответа
+        _pendingClientSaves = NetworkManager.Singleton.ConnectedClientsIds.ToList();
+
+        // Хост не в списке клиентов, убираем его ID
+        if (IsHost) _pendingClientSaves.Remove(NetworkManager.Singleton.LocalClientId);
+
+        // Отправляем запрос клиентам
+        RequestPlayerDataClientRpc();
+
+        // Обрабатываем данные хоста сразу
+        if (IsHost)
+        {
+            Player hostPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<Player>();
+            UpdatePlayerData(JsonUtility.ToJson(new PlayerSaveData(hostPlayer)));
+        }
+
+        // Ждем ответов от всех клиентов (или тайм-аут)
+        float timeout = 5f; // 5 секунд на ответ
+        while (_pendingClientSaves.Count > 0 && timeout > 0)
+        {
+            timeout -= Time.deltaTime;
+            yield return null;
+        }
+
+        if (timeout <= 0)
+        {
+            Debug.LogWarning("[SaveManager] Save timed out. Some clients did not respond.");
+        }
+
+        // Наконец, записываем всё в файл
+        SaveWorld();
+
+        if (andExit)
+        {
+            // Команда всем отключаться
+            ShutdownClientRpc();
+            // Даем время на отправку RPC
+            yield return new WaitForSeconds(0.5f);
+            NetworkManager.Singleton.Shutdown();
+        }
+    }
+    [ClientRpc]
+    private void ShutdownClientRpc()
+    {
+        // Клиенты получают команду и выходят
+        if(!IsHost) NetworkManager.Singleton.Shutdown();
+    }
+    private List<ulong> _pendingClientSaves = new List<ulong>();
+    [ServerRpc(RequireOwnership = false)]
+    private void SubmitPlayerDataServerRpc(string playerDataJson, ServerRpcParams rpcParams = default)
+    {
+        // Сервер получил данные от клиента.
+        UpdatePlayerData(playerDataJson);
+        // Убираем клиента из списка ожидания
+        _pendingClientSaves.Remove(rpcParams.Receive.SenderClientId);
+    }
+
+    [ClientRpc]
+    private void RequestPlayerDataClientRpc()
+    {
+        // Этот RPC получат все клиенты (кроме хоста, если он не слушает свои же RPC)
+        if (IsServer) return; // Хост обработает свои данные отдельно
+
+        Player localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<Player>();
+        if (localPlayer != null && !string.IsNullOrEmpty(localPlayer.GetCharacterGuid()))
+        {
+            // Клиент собирает свои данные и отправляет их на сервер
+            PlayerSaveData saveData = new PlayerSaveData(localPlayer);
+            SubmitPlayerDataServerRpc(JsonUtility.ToJson(saveData));
+        }
+    }
+    private void UpdatePlayerData(string playerDataJson)
+    {
+        PlayerSaveData receivedData = JsonUtility.FromJson<PlayerSaveData>(playerDataJson);
+        if (receivedData == null || string.IsNullOrEmpty(receivedData.characterGuid)) return;
+
+        // Находим соответствующее сохранение в _worldData и обновляем его
+        PlayerSaveData saveDataToUpdate = _worldData.players.FirstOrDefault(p => p.characterGuid == receivedData.characterGuid);
+        if (saveDataToUpdate != null)
+        {
+            // Обновляем все поля из полученных данных
+            saveDataToUpdate.position = receivedData.position;
+            saveDataToUpdate.health = receivedData.health;
+            saveDataToUpdate.ownerClientId = receivedData.ownerClientId;
+            saveDataToUpdate.inventory = receivedData.inventory;
+            saveDataToUpdate.equipment = receivedData.equipment;
+            
+            Debug.Log($"[SaveManager] Updated data for character {saveDataToUpdate.characterName} (Client: {saveDataToUpdate.ownerClientId})");
+        }
+    }
+    private void SaveWorld()
+    {
+        if (!IsServer) return;
+        
+        // Просто записываем то, что накопили в _worldData
+        string json = JsonUtility.ToJson(_worldData);
+        File.WriteAllText(Path.Combine(Application.persistentDataPath, CurrentWorldName + ".json"), json);
+        Debug.Log($"[SaveManager] World '{CurrentWorldName}' saved to file.");
+    }
+
+    //     private void SaveWorld()
+    // {
+    //     if (!IsServer) return;
+
+    //     foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+    //     {
+    //         Player player = client.PlayerObject.GetComponent<Player>();
+    //         if (player == null || string.IsNullOrEmpty(player.GetCharacterGuid())) continue;
+
+    //         PlayerSaveData saveData = _worldData.players.FirstOrDefault(p => p.characterGuid == player.GetCharacterGuid());
+    //         if (saveData != null)
+    //         {
+    //             saveData.position = player.transform.position;
+    //             saveData.health = player.getCurrentHealth();
+    //             saveData.ownerClientId = player.OwnerClientId;
+
+    //             for (int i = 0; i < saveData.inventory.Length; i++)
+    //             {
+    //                 saveData.inventory[i] = new InventorySlotSaveData(player.GetInventory().Slots[i]);
+    //             }
+    //             for (int i = 0; i < saveData.equipment.Length; i++)
+    //             {
+    //                 saveData.equipment[i] = new InventorySlotSaveData(player.GetEquipment().Slots[i]);
+    //             }
+    //         }
+    //     }
+
+    //     string json = JsonUtility.ToJson(_worldData);
+    //     File.WriteAllText(Path.Combine(Application.persistentDataPath, CurrentWorldName + ".json"), json);
+    //     Debug.Log($"[SaveManager] World '{CurrentWorldName}' saved.");
+    // }
+    private void LoadWorldDataFromFile()
+    {
+        string path = Path.Combine(Application.persistentDataPath, CurrentWorldName + ".json");
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            _worldData = JsonUtility.FromJson<WorldSaveData>(json);
+            Debug.Log($"[SaveManager] World data for '{CurrentWorldName}' loaded.");
         }
         else
         {
-            string json = File.ReadAllText(path);
-            WorldSaveData data = JsonUtility.FromJson<WorldSaveData>(json);
+            _worldData = new WorldSaveData(); // Создаем пустые данные, если файла нет
+        }
+    }
+    private void LoadPlayerForClient(ulong clientId)
+    {
+        if (!IsServer || _worldData == null) return;
 
-            foreach (PlayerSaveData playerData in data.players)
+        PlayerSaveData playerData = _worldData.players?.FirstOrDefault(p => p.ownerClientId == clientId);
+
+        if (playerData != null)
+        {
+            string playerDataJson = JsonUtility.ToJson(playerData);
+            
+            LoadPlayerClientRpc(playerDataJson, new ClientRpcParams
             {
-                Player player = FindAnyObjectByType<Player>();
-                LoadToPlayer(player, playerData);
-            }
+                Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+            });
+            Debug.Log($"[SaveManager] Found and sent save data to client {clientId}");
+        }
+        else
+        {
+             Debug.Log($"[SaveManager] No save data found for client {clientId}. They will start fresh.");
+        }
+    }
+    [ClientRpc]
+    private void LoadPlayerClientRpc(string playerDataJson, ClientRpcParams clientRpcParams = default)
+    {
+        PlayerSaveData data = JsonUtility.FromJson<PlayerSaveData>(playerDataJson);
+        Player localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<Player>();
+        
+        if (localPlayer != null)
+        {
+            localPlayer.LoadData(data);
+            Debug.Log($"[SaveManager] Client {OwnerClientId} loaded data for character '{data.characterName}'.");
+
+            CharacterSelectionUI.Instance.Hide();
         }
     }
     public static void LoadToPlayer(Player player, PlayerSaveData data)

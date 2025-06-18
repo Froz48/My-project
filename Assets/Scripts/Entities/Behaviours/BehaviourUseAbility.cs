@@ -6,10 +6,13 @@ public class BehaviourUseAbility : NPCBehaviour
 {
     public override bool CheckConditions(NPCEntity npc)
     {
-        if (npc == null || npc.MonsterData == null || npc._abilities == null)
+        // Получаем текущую цель, которую выбрал сам NPC
+        Player target = npc.GetCurrentTarget();
+        
+        if (npc == null || target == null || npc.MonsterData == null || npc._abilities == null)
             return false;
 
-        float distance = MyMath.GetDistanceToNearestPlayer(npc.transform.position);
+        float distance = Vector2.Distance(npc.transform.position, target.transform.position);
         if (distance > npc.MonsterData.attackDistance)
             return false;
 
@@ -27,19 +30,18 @@ public class BehaviourUseAbility : NPCBehaviour
     {
         if (npc == null || npc.MonsterData == null || npc._abilities == null) return;
 
-        Player player = MyMath.GetNearestPlayer(npc.transform.position);
+        // Берем цель напрямую из NPC
+        Player player = npc.GetCurrentTarget();
         if (player == null) return;
 
         for (int i = 0; i < npc._abilities.Length; i++)
         {
-            if (npc._abilities[i] != null &&
-                npc._abilities[i].IsReady() &&
-                MyMath.GetDistanceToNearestPlayer(npc.transform.position) < npc.MonsterData.attackDistance)
+            if (npc._abilities[i] != null && npc._abilities[i].IsReady() &&
+                Vector2.Distance(npc.transform.position, player.transform.position) < npc.MonsterData.attackDistance)
             {
                 npc.UseAbilityServerRpc(player.transform.position, npc._abilities[i].id);
                 npc._abilities[i].StartCooldown();
 
-                // Обновляем аниматор
                 if (animator != null)
                 {
                     animator.SetTrigger("Action1");
@@ -48,6 +50,4 @@ public class BehaviourUseAbility : NPCBehaviour
             }
         }
     }
-
-
 }

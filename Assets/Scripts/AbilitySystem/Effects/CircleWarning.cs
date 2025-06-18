@@ -6,7 +6,7 @@ public class Effect_CircleWarning : NetworkBehaviour
 {
     [Header("Settings")]
     [SerializeField] private Transform circleTransform;
-    
+
     private float growDuration;
     public void SetDuration(float duration) => growDuration = duration;
 
@@ -18,6 +18,7 @@ public class Effect_CircleWarning : NetworkBehaviour
 
     private void StartAnimation(float duration)
     {
+        GetComponent<Effect_DestroyAfterDelay>().delay = duration;
         growDuration = duration;
         StartCoroutine(GrowAnimation());
     }

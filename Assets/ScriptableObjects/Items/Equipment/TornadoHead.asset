@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: TornadoHead
   m_EditorClassIdentifier: 
-  id: 5
+  id: 11
   sprite: {fileID: -1224558456, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
-  description: X
+  description: '+20 Armor
+
+    Gives Tornado'
   eEquipmentSlot: 0
-  price: 11
+  price: 50
   attributeModifiers:
-  - attribute: 2
-    addValue: 11
+  - attribute: 3
+    addValue: 20
   ability: {fileID: 11400000, guid: c8386c6ef4c83a4459b02f6969fd53f5, type: 2}

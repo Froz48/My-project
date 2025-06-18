@@ -30,7 +30,10 @@ public class Database : ScriptableObject
         UnityEditor.EditorUtility.SetDirty(this);
         #endif
     }
-    
+    public ScriptableObject[] GetAllObjects()
+    {
+        return objects;
+    }
 }
 
 public interface IDatabaseObject

@@ -157,9 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributes: []
   abilities: []
-  currentHealth: 0
-  rb: {fileID: 5978686421145323852}
+  spriteRenderer: {fileID: 7387696766932474566}
   input: {fileID: 8613447394975551226}
+  playerNetworkObject: {fileID: 0}
+  rb: {fileID: 5978686421145323852}
+  currentHealth: 0
   reviveTime: 10
   spawnPosition: {x: 0, y: 0, z: -1}
   inventory:
@@ -169,7 +171,6 @@ MonoBehaviour:
   nullAbility: {fileID: 11400000, guid: 77bcea0491f26214cb51d8a1febc9eb4, type: 2}
   meleeAbility: {fileID: 11400000, guid: 152b91436bc4aaf4d896e341d24c9be2, type: 2}
   baseAttributes: {fileID: 11400000, guid: c8681301f01a70a4c9d9ac561d24004d, type: 2}
-  playerNetworkObject: {fileID: 0}
 --- !u!95 &2278221899907619263
 Animator:
   serializedVersion: 5

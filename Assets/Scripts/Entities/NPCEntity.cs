@@ -13,19 +13,35 @@ public class NPCEntity : NetworkBehaviour, IDamageable
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteLibrary spriteLibrary;
     [SerializeField] private BoxCollider2D npcCollider;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
-
+    [Header("Coloring on damage")]
+    private Coroutine _damageFlashCoroutine;
+    private Color _originalColor;
 
     [Header("ServerSide")]
     [SerializeField] private NPCData _monsterDataInstance;
     public Ability[] _abilities;
     [SerializeField] private int _activeStatePosition = 0;
     private Coroutine _behaviorCoroutine;
+    private Player _currentTarget;
+    
     public NPCData MonsterData => _monsterDataInstance;
-
+    public Player GetCurrentTarget()
+    {
+        return _currentTarget;
+    }
     public override void OnNetworkSpawn()
     {
         npcId.OnValueChanged += OnNpcIdChanged;
+        if (spriteRenderer != null)
+        {
+            _originalColor = spriteRenderer.color;
+        }
+        if (IsClient && npcId.Value > 0)
+        {
+            InitializeClientVisuals(npcId.Value);
+        }
     }
     private void OnNpcIdChanged(int oldValue, int newValue)
     {
@@ -80,10 +96,14 @@ public class NPCEntity : NetworkBehaviour, IDamageable
     private void UpdateVisuals(NPCData data = null)
     {
         var targetData = data ?? _monsterDataInstance;
-        if (spriteLibrary != null && targetData != null)
+        if (targetData == null) return; 
+
+        if (spriteLibrary != null)
         {
             spriteLibrary.spriteLibraryAsset = targetData.spriteLibraryAsset;
         }
+        
+        transform.localScale = Vector3.one * targetData.sizeScale;
     }
 
     private void StartBehaviorCheck()
@@ -107,28 +127,40 @@ public class NPCEntity : NetworkBehaviour, IDamageable
         }
     }
 
-    private IEnumerator BehaviorCheckRoutine()
+private IEnumerator BehaviorCheckRoutine()
+{
+    if (!IsServer)
     {
-        while (true)
-        {
-            if (_monsterDataInstance?.nPCBehaviour == null) continue;
-            
-            // Проверяем все поведения от самого высокого приоритета (последнего в массиве)
-            for (int i = _monsterDataInstance.nPCBehaviour.Length -1; i >= 0 ; i--)
-            {
-                if (_monsterDataInstance.nPCBehaviour[i].CheckConditions(this))
-                {
-                    if (_activeStatePosition != i)
-                    {
-                        _activeStatePosition = i;
-                    }
-                    break; // Используем первое подходящее поведение
-                }
-            }
-            yield return new WaitForSeconds(1f);
-        }
+        yield break; 
     }
 
+    var wait = new WaitForSeconds(1f); 
+
+    while (true)
+    {
+        Player nearestPlayer = MyMath.GetNearestPlayer(transform.position);
+
+        if (nearestPlayer != null && Vector2.Distance(transform.position, nearestPlayer.transform.position) <= _monsterDataInstance.detectionRadius)
+        {
+            _currentTarget = nearestPlayer;
+        }
+        else
+        {
+            _currentTarget = null;
+        }
+
+        for (int i = _monsterDataInstance.nPCBehaviour.Length - 1; i >= 0; i--)
+        {
+            if (_monsterDataInstance.nPCBehaviour[i].CheckConditions(this))
+            {
+                _activeStatePosition = i;
+                break;
+            }
+        }
+
+        yield return wait;
+    }
+}
     private void FixedUpdate()
     {
         if (!IsServer || _monsterDataInstance == null) return;
@@ -145,14 +177,43 @@ public class NPCEntity : NetworkBehaviour, IDamageable
     {
         if (IsServer)
         {
+            // Проверяем, жив ли еще NPC
+            if (currentHealth.Value <= 0) return;
+
             currentHealth.Value -= damage;
+            
+            // НОВОЕ: Запускаем эффект на всех клиентах
+            DamageFlashClientRpc();
+
             if (currentHealth.Value <= 0)
             {
                 Die();
             }
         }
     }
+    [ClientRpc]
+    private void DamageFlashClientRpc()
+    {
+        if (_damageFlashCoroutine != null)
+        {
+            StopCoroutine(_damageFlashCoroutine);
+        }
+        _damageFlashCoroutine = StartCoroutine(DamageFlashRoutine());
+    }
+        // НОВОЕ: Сама корутина эффекта
+    private IEnumerator DamageFlashRoutine()
+    {
+        if (spriteRenderer == null) yield break;
 
+        // Перекрашиваем в красный
+        spriteRenderer.color = Color.red;
+        
+        // Ждем 0.2 секунды
+        yield return new WaitForSeconds(0.2f);
+        
+        // Возвращаем оригинальный цвет
+        spriteRenderer.color = _originalColor;
+    }
     private void Die()
     {
         DropLoot();

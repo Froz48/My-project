@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 7
   sprite: {fileID: 338887090, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 1
-  description: 
+  description: Reagent
   eEquipmentSlot: 0
   price: 10
   attributeModifiers: []

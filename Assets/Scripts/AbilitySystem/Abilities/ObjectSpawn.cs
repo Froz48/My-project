@@ -30,7 +30,8 @@ public class ObjectSpawn : Ability
     private void SpawnMainPrefab(Vector2 playerPosition, Vector2 targetPosition)
     {
         Vector2 startingPos = spawnOnCaster ? playerPosition : targetPosition;
-        GameObject spawnedObject = Instantiate(objectPrefab, startingPos, Quaternion.identity);
+        Vector2 direction = (targetPosition - playerPosition).normalized;
+        GameObject spawnedObject = Instantiate(objectPrefab, startingPos, Quaternion.AngleAxis(Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, Vector3.forward));
         spawnedObject.GetComponent<EffectController>()?.Initialize(playerPosition, targetPosition);
     }
     

@@ -10,20 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d934068c2b73530418997710240a470b, type: 3}
-  m_Name: New Boss Data
+  m_Name: PhoenixBossData
   m_EditorClassIdentifier: 
   prefab: {fileID: 4355553488569849823, guid: 38aa3ac9db1432f42ad1ff9f190e3a78, type: 3}
   <timer>k__BackingField:
-  - timer: 4
+  - timer: 1
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
-  - timer: 3
-    ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
-  - timer: 3
+  - timer: 1
     ability: {fileID: 11400000, guid: 5f0eb7c11e91f08439c1986637316a71, type: 2}
-  - timer: 3.5
+  - timer: 1.5
     ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
-  - timer: 4
+  - timer: 2
+    ability: {fileID: 11400000, guid: e42ca8341431bfa4085cf96c3ab78c79, type: 2}
+  - timer: 2
     ability: {fileID: 11400000, guid: 5f0eb7c11e91f08439c1986637316a71, type: 2}
+  - timer: 2
+    ability: {fileID: 11400000, guid: bb707a9cc2887654cbfb31ca3a6ce989, type: 2}
   <loot>k__BackingField:
-    lootDrops: []
+    lootDrops:
+    - item: {fileID: 11400000, guid: f7302acc0a5506e41a908bef71064b7c, type: 2}
+      minAmount: 10
+      maxAmount: 50
+      dropChance: 1
+    - item: {fileID: 11400000, guid: 9d94ea184b4cbba46a562c775708db36, type: 2}
+      minAmount: 1
+      maxAmount: 1
+      dropChance: 0.33
+    - item: {fileID: 11400000, guid: 8f4d92d229c196042b72f6b956eaf7d2, type: 2}
+      minAmount: 1
+      maxAmount: 1
+      dropChance: 0.33
+    - item: {fileID: 11400000, guid: b3bde7e99295f824282626d107d80174, type: 2}
+      minAmount: 1
+      maxAmount: 1
+      dropChance: 0.33
   <maxHealth>k__BackingField: 50

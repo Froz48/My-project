@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79b712c3397f934197a8228ed513766, type: 3}
   m_Name: Diamond
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1
   sprite: {fileID: -619330345, guid: a265b234540e43846b382b1b199a4a87, type: 3}
   isStackable: 0
-  description: 
+  description: Can be consumed by boss altars for summoning Phoenix
   eEquipmentSlot: 0
   price: 100
   attributeModifiers: []

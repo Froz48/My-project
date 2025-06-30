@@ -14,15 +14,13 @@ public class Coloring : MonoBehaviour
     [ContextMenu("Change UI Colors")]
     public void ChangeUIColors()
     {
-        // Изменение цвета у всех компонентов Image
-        Image[] images = FindObjectsOfType<Image>(true); // true включает неактивные объекты
+        Image[] images = FindObjectsOfType<Image>(true); 
         foreach (Image image in images)
         {
             image.color = imageColor;
         }
 
-        // Изменение цвета у всех компонентов TextMeshProUGUI
-        TextMeshProUGUI[] textMeshPros = FindObjectsOfType<TextMeshProUGUI>(true); // true включает неактивные объекты
+        TextMeshProUGUI[] textMeshPros = FindObjectsOfType<TextMeshProUGUI>(true); 
         foreach (TextMeshProUGUI textMeshPro in textMeshPros)
         {
             textMeshPro.color = textMPColor;
@@ -35,7 +33,6 @@ public class Coloring : MonoBehaviour
     [MenuItem("Tools/Change UI Colors")]
     public static void ChangeUIColorsMenu()
     {
-        // Найти скрипт в сцене
         Coloring colorChanger = FindObjectOfType<Coloring>();
 
         if (colorChanger == null)
@@ -44,7 +41,6 @@ public class Coloring : MonoBehaviour
             return;
         }
 
-        // Вызвать метод изменения цветов
         colorChanger.ChangeUIColors();
     }
 #endif

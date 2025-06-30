@@ -1,4 +1,3 @@
-// Файл: ConnectionManager.cs
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
@@ -26,13 +25,11 @@ public class ConnectionManager : MonoBehaviour
         if (useRelay)
         {
             Debug.Log("Starting host with Relay...");
-            await relayManager.SetupRelay(); // Ждем, пока Relay настроится
+            await relayManager.SetupRelay(); 
         }
         else
         {
             Debug.Log("Starting host locally...");
-            // Для локальной игры ничего дополнительно настраивать не нужно.
-            // UnityTransport по умолчанию использует локальный IP.
         }
         if (NetworkManager.Singleton.StartHost())
             {
@@ -50,13 +47,13 @@ public class ConnectionManager : MonoBehaviour
         if (useRelay)
         {
             Debug.Log("Joining with Relay...");
-            relayManager.JoinRelay(joinCode); // RelayManager сам запустит StartClient после настройки
+            relayManager.JoinRelay(joinCode); 
         }
         else
         {
             Debug.Log("Joining locally...");
             var utp = NetworkManager.Singleton.GetComponent<UnityTransport>();
-            utp.SetConnectionData("127.0.0.1", 7777); // Стандартный порт
+            utp.SetConnectionData("127.0.0.1", 7777); 
             NetworkManager.Singleton.StartClient();
         }
     }

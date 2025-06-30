@@ -177,12 +177,10 @@ private IEnumerator BehaviorCheckRoutine()
     {
         if (IsServer)
         {
-            // Проверяем, жив ли еще NPC
             if (currentHealth.Value <= 0) return;
 
             currentHealth.Value -= damage;
             
-            // НОВОЕ: Запускаем эффект на всех клиентах
             DamageFlashClientRpc();
 
             if (currentHealth.Value <= 0)
@@ -200,18 +198,14 @@ private IEnumerator BehaviorCheckRoutine()
         }
         _damageFlashCoroutine = StartCoroutine(DamageFlashRoutine());
     }
-        // НОВОЕ: Сама корутина эффекта
     private IEnumerator DamageFlashRoutine()
     {
         if (spriteRenderer == null) yield break;
 
-        // Перекрашиваем в красный
         spriteRenderer.color = Color.red;
         
-        // Ждем 0.2 секунды
         yield return new WaitForSeconds(0.2f);
         
-        // Возвращаем оригинальный цвет
         spriteRenderer.color = _originalColor;
     }
     private void Die()
@@ -231,7 +225,9 @@ private IEnumerator BehaviorCheckRoutine()
             {
                 if (Random.value <= loot.dropChance)
                 {
-                    SpawnLootItem(loot.item);
+                    int dropCount = Random.Range(loot.minAmount, loot.maxAmount + 1);
+                    for (int i = 0; i<dropCount; i++)
+                        SpawnLootItem(loot.item);
                 }
             }
         }

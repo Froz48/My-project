@@ -6,7 +6,6 @@ public class BehaviourUseAbility : NPCBehaviour
 {
     public override bool CheckConditions(NPCEntity npc)
     {
-        // Получаем текущую цель, которую выбрал сам NPC
         Player target = npc.GetCurrentTarget();
         
         if (npc == null || target == null || npc.MonsterData == null || npc._abilities == null)
@@ -30,7 +29,6 @@ public class BehaviourUseAbility : NPCBehaviour
     {
         if (npc == null || npc.MonsterData == null || npc._abilities == null) return;
 
-        // Берем цель напрямую из NPC
         Player player = npc.GetCurrentTarget();
         if (player == null) return;
 

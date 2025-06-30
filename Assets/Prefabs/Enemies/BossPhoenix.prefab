@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8b1ae4e4e52b34ea557c1c11e076fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CategoryHash: 3.3650703e-32
-  m_labelHash: 3.3650703e-32
+  m_CategoryHash: 0.009161512
+  m_labelHash: 2.538427e-25
   m_SpriteKey: 0
   m_SpriteHash: 235981029
 --- !u!95 &-8467992897007729187
@@ -280,3 +280,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: dc27aee59c328e64b9a6de7ea91b85f1, type: 2}
+  spriteRenderer: {fileID: 8729173436074463158}

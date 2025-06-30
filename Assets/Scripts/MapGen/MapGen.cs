@@ -12,7 +12,6 @@ private Tilemap tilemap;
 HashSet<Vector2Int> occupiedCoordinates = new HashSet<Vector2Int>();
 [SerializeField] private BiomeGenerator biomeGenerator;
 private bool isReadyToGenerate = false;
-private bool isInitialized = false; 
 [SerializeField] private Transform playerTransform;
 [SerializeField] InterestGenerator interestGenerator;
 [SerializeField] MicsGenerator micsGenerator;
@@ -39,24 +38,20 @@ public int GetWorldSeed() => worldSeed;
     }
         private IEnumerator FullInitializationRoutine()
     {
-        // --- Этап 1: Ждем Tilemap ---
         while (tilemap == null)
         {
             tilemap = FindObjectOfType<Tilemap>();
             if (tilemap == null)
             {
-                // Если не нашли, ждем следующий кадр и пробуем снова
                 yield return null; 
             }
         }
 
-        // --- Этап 2: Ждем GameManager ---
         while (GameManager.Instance == null || !GameManager.Instance.IsSpawned)
         {
-            yield return null; // Ждем следующий кадр
+            yield return null; 
         }
 
-        // --- Этап 3: Финальная инициализация ---
         worldSeed = GameManager.Instance.WorldSeed.Value;
         biomeGenerator.Initialize(tilemap, worldSeed);
         

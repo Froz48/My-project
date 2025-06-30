@@ -1,4 +1,3 @@
-// Файл: Effect_RotatingLaser.cs
 using UnityEngine;
 using Unity.Netcode;
 
@@ -12,7 +11,6 @@ public class Effect_RotatingLaser : MonoBehaviour
         _duration = duration;
         _rotationSpeed = rotationSpeed;
         
-        // Настраиваем самоуничтожение
         GetComponent<Effect_DestroyAfterDelay>().delay = _duration;
     }
 

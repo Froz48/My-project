@@ -43,9 +43,9 @@ public class SaveManager : NetworkBehaviour
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += OnSceneLoadedForAll;
         }
     }
+    
     public override void OnNetworkDespawn()
     {
-        // Не забываем отписаться
         if (NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.SceneManager.OnLoadEventCompleted -= OnSceneLoadedForAll;
@@ -59,7 +59,7 @@ public class SaveManager : NetworkBehaviour
     //         Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
     //     });
     // }
-        private void OnSceneLoadedForAll(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    private void OnSceneLoadedForAll(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
         Debug.Log($"[SaveManager] OnSceneLoadedForAll triggered. Scene: {sceneName}, Clients completed: {clientsCompleted.Count}");
         if (sceneName != "Game")
@@ -81,24 +81,35 @@ public class SaveManager : NetworkBehaviour
             });
         }
     }
+    [ServerRpc(RequireOwnership = false)]
+    public void RefreshCharacterListServerRpc(ServerRpcParams rpcParams = default)
+    {
+        ulong clientId = rpcParams.Receive.SenderClientId;
+        Debug.Log($"[SaveManager] Received character list request from client {clientId}.");
+
+        RequestCharacterChoiceClientRpc(JsonUtility.ToJson(_worldData), new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams { TargetClientIds = new[] { clientId } }
+        });
+    }
+
     [ClientRpc]
-    private void RequestCharacterChoiceClientRpc(string worldDataJson, ClientRpcParams rpcParams = default)
+    public void RequestCharacterChoiceClientRpc(string worldDataJson, ClientRpcParams rpcParams = default)
     {
         Debug.Log($"[SaveManager] Client {NetworkManager.Singleton.LocalClientId} received RequestCharacterChoiceClientRpc.");
         
         WorldSaveData worldData = JsonUtility.FromJson<WorldSaveData>(worldDataJson);
         int characterCount = worldData?.players?.Length ?? 0;
-        Debug.Log($"[SaveManager] Parsed world data. Found {characterCount} characters.");
 
         if (CharacterSelectionUI.Instance == null)
         {
             Debug.LogError("[SaveManager] CharacterSelectionUI.Instance is NULL. Cannot show UI.");
             return;
         }
-
-        Debug.Log("[SaveManager] Calling CharacterSelectionUI.Instance.Show().");
+        
         CharacterSelectionUI.Instance.Show(worldData.players);
     }
+
         [ServerRpc(RequireOwnership = false)]
     public void SelectCharacterServerRpc(string characterGuid, ServerRpcParams rpcParams = default)
     {
@@ -147,24 +158,19 @@ public class SaveManager : NetworkBehaviour
 
     private IEnumerator SaveRoutine(bool andExit)
     {
-        // Очищаем список тех, от кого ждем ответа
         _pendingClientSaves = NetworkManager.Singleton.ConnectedClientsIds.ToList();
 
-        // Хост не в списке клиентов, убираем его ID
         if (IsHost) _pendingClientSaves.Remove(NetworkManager.Singleton.LocalClientId);
 
-        // Отправляем запрос клиентам
         RequestPlayerDataClientRpc();
 
-        // Обрабатываем данные хоста сразу
         if (IsHost)
         {
             Player hostPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<Player>();
             UpdatePlayerData(JsonUtility.ToJson(new PlayerSaveData(hostPlayer)));
         }
 
-        // Ждем ответов от всех клиентов (или тайм-аут)
-        float timeout = 5f; // 5 секунд на ответ
+        float timeout = 5f;
         while (_pendingClientSaves.Count > 0 && timeout > 0)
         {
             timeout -= Time.deltaTime;
@@ -176,14 +182,11 @@ public class SaveManager : NetworkBehaviour
             Debug.LogWarning("[SaveManager] Save timed out. Some clients did not respond.");
         }
 
-        // Наконец, записываем всё в файл
         SaveWorld();
 
         if (andExit)
         {
-            // Команда всем отключаться
             ShutdownClientRpc();
-            // Даем время на отправку RPC
             yield return new WaitForSeconds(0.5f);
             NetworkManager.Singleton.Shutdown();
         }
@@ -191,29 +194,24 @@ public class SaveManager : NetworkBehaviour
     [ClientRpc]
     private void ShutdownClientRpc()
     {
-        // Клиенты получают команду и выходят
         if(!IsHost) NetworkManager.Singleton.Shutdown();
     }
     private List<ulong> _pendingClientSaves = new List<ulong>();
     [ServerRpc(RequireOwnership = false)]
     private void SubmitPlayerDataServerRpc(string playerDataJson, ServerRpcParams rpcParams = default)
     {
-        // Сервер получил данные от клиента.
         UpdatePlayerData(playerDataJson);
-        // Убираем клиента из списка ожидания
         _pendingClientSaves.Remove(rpcParams.Receive.SenderClientId);
     }
 
     [ClientRpc]
     private void RequestPlayerDataClientRpc()
     {
-        // Этот RPC получат все клиенты (кроме хоста, если он не слушает свои же RPC)
-        if (IsServer) return; // Хост обработает свои данные отдельно
+        if (IsServer) return; 
 
         Player localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<Player>();
         if (localPlayer != null && !string.IsNullOrEmpty(localPlayer.GetCharacterGuid()))
         {
-            // Клиент собирает свои данные и отправляет их на сервер
             PlayerSaveData saveData = new PlayerSaveData(localPlayer);
             SubmitPlayerDataServerRpc(JsonUtility.ToJson(saveData));
         }
@@ -223,11 +221,9 @@ public class SaveManager : NetworkBehaviour
         PlayerSaveData receivedData = JsonUtility.FromJson<PlayerSaveData>(playerDataJson);
         if (receivedData == null || string.IsNullOrEmpty(receivedData.characterGuid)) return;
 
-        // Находим соответствующее сохранение в _worldData и обновляем его
         PlayerSaveData saveDataToUpdate = _worldData.players.FirstOrDefault(p => p.characterGuid == receivedData.characterGuid);
         if (saveDataToUpdate != null)
         {
-            // Обновляем все поля из полученных данных
             saveDataToUpdate.position = receivedData.position;
             saveDataToUpdate.health = receivedData.health;
             saveDataToUpdate.ownerClientId = receivedData.ownerClientId;
@@ -241,7 +237,6 @@ public class SaveManager : NetworkBehaviour
     {
         if (!IsServer) return;
         
-        // Просто записываем то, что накопили в _worldData
         string json = JsonUtility.ToJson(_worldData);
         File.WriteAllText(Path.Combine(Application.persistentDataPath, CurrentWorldName + ".json"), json);
         Debug.Log($"[SaveManager] World '{CurrentWorldName}' saved to file.");
@@ -289,7 +284,7 @@ public class SaveManager : NetworkBehaviour
         }
         else
         {
-            _worldData = new WorldSaveData(); // Создаем пустые данные, если файла нет
+            _worldData = new WorldSaveData();
         }
     }
     private void LoadPlayerForClient(ulong clientId)

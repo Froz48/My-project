@@ -1,4 +1,3 @@
-// ObjectFootprint.cs
 using UnityEngine;
 
 public class ObjectFootprint : MonoBehaviour

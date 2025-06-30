@@ -1,4 +1,3 @@
-// BossAltarManager.cs
 using UnityEngine;
 using Unity.Netcode;
 using System.Collections.Generic;
@@ -6,8 +5,6 @@ using System.Collections.Generic;
 public class BossAltarManager : NetworkBehaviour
 {
     public static BossAltarManager Instance { get; private set; }
-
-    // Словарь для локального доступа к алтарям по их ID
     private Dictionary<int, BossAltar> _altars = new Dictionary<int, BossAltar>();
 
     private void Awake()
@@ -31,7 +28,6 @@ public class BossAltarManager : NetworkBehaviour
         }
     }
 
-    // Этот Rpc будет вызывать сервер, чтобы обновить состояние на всех клиентах
     [ClientRpc]
     public void UpdateAltarStateClientRpc(int altarId, bool isFightInProgress)
     {

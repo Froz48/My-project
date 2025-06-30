@@ -44,7 +44,6 @@ public class BiomeGenerator : ScriptableObject
             }
         }
 
-        // Возвращаем биом по умолчанию, если что-то пошло не так
         return biomes.Count > 0 ? biomes[0] : null;
     }
     public void GenerateChunkBiomes(Vector2Int chunkCoords, int seed)
@@ -86,7 +85,6 @@ public class BiomeGenerator : ScriptableObject
     }
     private TileBase GetBiomeTile(float temperatureValue)
     {
-        // Этот метод теперь может использовать новый метод
         Biome biome = GetBiomeAtFromValue(temperatureValue);
         return biome != null ? biome.tile : (biomes.Count > 0 ? biomes[0].tile : null);
     }

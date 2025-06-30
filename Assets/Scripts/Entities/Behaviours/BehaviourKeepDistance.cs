@@ -6,7 +6,6 @@ public class BehaviourKeepDistance : NPCBehaviour
     private float distanceTolerance = 0.1f;
     public override bool CheckConditions(NPCEntity npc)
     {
-        // Получаем текущую цель
         Player target = npc.GetCurrentTarget();
         
         if (npc == null || target == null || npc.MonsterData == null) return false;
@@ -44,7 +43,6 @@ public class BehaviourKeepDistance : NPCBehaviour
                 Vector2 newPosition = (Vector2)npc.transform.position + moveDirection * moveSpeed;
                 rb.MovePosition(newPosition);
 
-                // Обновляем аниматор
                 animator.SetFloat("MoveX", moveDirection.x);
                 animator.SetFloat("MoveY", moveDirection.y);
                 animator.SetBool("IsMoving", true);

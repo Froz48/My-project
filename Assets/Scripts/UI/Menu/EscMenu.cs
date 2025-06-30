@@ -12,11 +12,12 @@ public class EscMenu : MonoBehaviour
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button saveButton;
     [SerializeField] private Button saveAndExitButton;
+    [SerializeField] private Button showOptionsButton;
+    [SerializeField] private GameObject optionsGO;
     [SerializeField] private TextMeshProUGUI joinCodeText;
 
        private bool isInitialized = false;
 
-    // Используем OnEnable, чтобы меню обновлялось каждый раз при открытии
     private void OnEnable()
     {
         InitializeMenu();
@@ -24,26 +25,29 @@ public class EscMenu : MonoBehaviour
 
     private void InitializeMenu()
     {
-        // Если инициализация уже была, просто обновляем код
         if (isInitialized)
         {
             UpdateJoinCode();
             return;
         }
 
-        // Подписываемся на кнопки только один раз
         resumeButton.onClick.AddListener(OnResume);
         saveButton.onClick.AddListener(OnSave);
         saveAndExitButton.onClick.AddListener(OnSaveAndExit);
+        showOptionsButton.onClick.AddListener(ShowOptions);
         
         UpdateJoinCode();
 
         isInitialized = true;
     }
+    private void ShowOptions()
+    {
+        optionsGO.SetActive(true);
+        gameObject.SetActive(false);
+    }
 
     private void UpdateJoinCode()
     {
-        // Находим RelayManager и просим показать код
         RelayManager relayManager = FindObjectOfType<RelayManager>();
         if (relayManager != null)
         {
@@ -53,7 +57,6 @@ public class EscMenu : MonoBehaviour
 
     private void OnResume()
     {
-        // Просто выключаем панель меню
         gameObject.SetActive(false);
     }
 
@@ -61,7 +64,7 @@ private void OnSave()
 {
     if (SaveManager.Instance != null)
     {
-        SaveManager.Instance.RequestSaveWorldServerRpc(false); // false - не выходить
+        SaveManager.Instance.RequestSaveWorldServerRpc(false); 
         Debug.Log("Save request sent to server.");
     }
 }
@@ -70,7 +73,7 @@ private void OnSaveAndExit()
 {
     if (SaveManager.Instance != null)
     {
-        SaveManager.Instance.RequestSaveWorldServerRpc(true); // true - выйти после сохранения
+        SaveManager.Instance.RequestSaveWorldServerRpc(true); 
     }
 }
 
@@ -78,18 +81,14 @@ private void OnSaveAndExit()
     {
         yield return new WaitForSeconds(delay);
 
-        // Логика выхода из сети и закрытия приложения
         if (NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.Shutdown();
-            // Уничтожать NetworkManager не всегда безопасно, Shutdown обычно достаточно
-            // Destroy(NetworkManager.Singleton.gameObject); 
         }
         
         Application.Quit();
 
         #if UNITY_EDITOR
-        // Остановка Play Mode в редакторе
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }

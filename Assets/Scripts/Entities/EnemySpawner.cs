@@ -176,10 +176,8 @@ public class EnemySpawner : NetworkBehaviour
     }
     private NPCData GetRandomNPCData(Vector2 spawnPosition)
     {
-        // 1. Создаем итоговый список, который будет содержать всех возможных для спавна NPC
         List<NPCData> finalSpawnPool = new List<NPCData>();
 
-        // 2. Добавляем всех NPC из базового (общего) пула
         if (baseSpawnPool is Database npcDatabase)
         {
             foreach(var obj in npcDatabase.GetAllObjects())
@@ -191,26 +189,20 @@ public class EnemySpawner : NetworkBehaviour
             }
         }
 
-        // 3. Определяем биом в точке спавна
         Biome currentBiome = biomeGenerator.GetBiomeAt(spawnPosition);
 
-        // 4. Если биом определен и у него есть свой уникальный пул, ДОБАВЛЯЕМ его содержимое в общий список
         if (currentBiome != null && currentBiome.SpawnPool != null && currentBiome.SpawnPool.Count > 0)
         {
             finalSpawnPool.AddRange(currentBiome.SpawnPool);
         }
         
-        // 5. Если после всех проверок итоговый пул пуст, то спавнить некого.
         if (finalSpawnPool.Count == 0)
         {
             Debug.LogWarning($"No NPC data found for biome at {spawnPosition} and the base pool is also empty.");
             return null;
         }
-
-        // 6. Выбираем случайного NPC из объединенного пула
         NPCData data = finalSpawnPool[Random.Range(0, finalSpawnPool.Count)];
         
-        // Возвращаем копию, чтобы не изменять оригинальный ScriptableObject
         return data != null ? Instantiate(data) : null;
     }
     private Player GetRandomPlayer()

@@ -43,29 +43,21 @@ public class InterestGenerator : ScriptableObject
                 {
                     Vector2Int spawnOrigin = new Vector2Int(startWorldPosition.x + x, startWorldPosition.y + y);
 
-                    // --- НАЧАЛО НОВОЙ ЛОГИКИ ---
-
-                    // 1. Выбираем, какой объект мы ХОТИМ здесь разместить
                     GameObject prefabToSpawn = GetRandomGameObject(random);
                     if (prefabToSpawn == null) continue;
 
-                    // 2. Получаем его размер (footprint)
                     Vector2Int footprintSize = new Vector2Int(1, 1);
                     if (prefabToSpawn.TryGetComponent<ObjectFootprint>(out var footprint))
                     {
                         footprintSize = footprint.size;
                     }
 
-                    // 3. ПРОВЕРКА: Свободна ли вся область под объект?
                     if (IsAreaFree(spawnOrigin, footprintSize, occupiedCoordinates))
                     {
-                        // 4. РЕЗЕРВИРОВАНИЕ: Если свободна, занимаем все клетки
                         ReserveArea(spawnOrigin, footprintSize, occupiedCoordinates);
 
-                        // 5. РАЗМЕЩЕНИЕ: Создаем объект
                         Instantiate(prefabToSpawn, (Vector3Int)spawnOrigin, Quaternion.identity, parentObject.transform);
                     }
-                    // --- КОНЕЦ НОВОЙ ЛОГИКИ ---
                 }
             }
         }
@@ -79,11 +71,11 @@ public class InterestGenerator : ScriptableObject
                 Vector2Int currentTile = new Vector2Int(origin.x + i, origin.y + j);
                 if (occupiedCoordinates.Contains(currentTile))
                 {
-                    return false; // Нашли занятую клетку, область не свободна
+                    return false; 
                 }
             }
         }
-        return true; // Все клетки свободны
+        return true; 
     }
     private void ReserveArea(Vector2Int origin, Vector2Int size, HashSet<Vector2Int> occupiedCoordinates)
 {

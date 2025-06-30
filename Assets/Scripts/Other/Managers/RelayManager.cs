@@ -56,7 +56,6 @@ public class RelayManager : MonoBehaviour
         var relayServerData = AllocationUtils.ToRelayServerData(allocation, "dtls");
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
         joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-        // Больше не вызываем StartHost() здесь!
     }
 
     // public async void JoinRelay()
@@ -96,7 +95,6 @@ public class RelayManager : MonoBehaviour
             var relayServerData = AllocationUtils.ToRelayServerData(joinAllocation, "dtls");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             
-            // Запускаем клиент ПОСЛЕ настройки транспорта
             NetworkManager.Singleton.StartClient();
         }
         catch (RelayServiceException e)
@@ -109,10 +107,8 @@ public class RelayManager : MonoBehaviour
         if (string.IsNullOrEmpty(rawCode))
             return "";
 
-        // Удаляем все пробелы и невидимые символы
         string cleaned = new string(rawCode.Where(c => !char.IsWhiteSpace(c)).ToArray());
 
-        // Оставляем только допустимые символы и переводим в верхний регистр
         string allowedChars = "6789BCDFGHJKLMNPQRTWbcdfghjklmnpqrtw";
         cleaned = new string(cleaned.Where(c => allowedChars.Contains(c)).ToArray());
         cleaned = cleaned.ToUpper();

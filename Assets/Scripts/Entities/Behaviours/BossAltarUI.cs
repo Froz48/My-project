@@ -1,4 +1,3 @@
-// BossAltarUI.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -29,13 +28,11 @@ public class BossAltarUI : MonoBehaviour
         mainPanel.SetActive(false);
     }
     
-    // Открываем UI, когда игрок взаимодействует с алтарем
     public void Open(BossAltar altar, Player player)
     {
     currentAltar = altar;
     localPlayer = player;
 
-    // ИЗМЕНЕНИЕ: Получаем информацию о предмете через метод
     Item item = currentAltar.GetRequiredItem();
     if (item == null)
     {
@@ -64,7 +61,6 @@ public class BossAltarUI : MonoBehaviour
         if (localPlayer != null && currentAltar != null)
         {
             var item = currentAltar.GetComponent<BossAltar>().requiredItem;
-            // Кнопка активна, только если у игрока есть предмет
             startButton.interactable = localPlayer.GetInventory().IsHasItem(item);
         }
     }
@@ -75,12 +71,11 @@ public class BossAltarUI : MonoBehaviour
         {
             currentAltar.TryStartRitual(localPlayer);
         }
-        Close(); // Закрываем UI после нажатия
+        Close(); 
     }
 
     public void Close()
     {
-        // Отписываемся от события, чтобы избежать утечек памяти
         if (localPlayer != null)
         {
             localPlayer.GetInventory().onItemUpdate -= OnInventoryChanged;

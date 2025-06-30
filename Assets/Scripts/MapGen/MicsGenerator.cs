@@ -40,13 +40,11 @@ public class MicsGenerator : ScriptableObject
                 {
                     Vector2Int worldPos = new Vector2Int(startWorldPosition.x + x, startWorldPosition.y + y);
 
-                    // Проверяем ОДНУ клетку, так как объект маленький
                     if (occupiedCoordinates.Contains(worldPos))
                     {
                         continue;
                     }
 
-                    // Занимаем ОДНУ клетку
                     occupiedCoordinates.Add(worldPos);
 
                     Instantiate(GetRandomGameObject(random), (Vector3Int)worldPos, Quaternion.identity, parentObject.transform);

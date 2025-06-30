@@ -11,6 +11,7 @@ public class Player : NetworkBehaviour, IDamageable
 {
     #region Constants
     public const int MAX_ABILITIES = 4;
+    private Coroutine _healthRegenCoroutine;
     #endregion
     [SerializeField] private bool isFullyInitialized = false;
     private string characterGuid;
@@ -56,28 +57,60 @@ public class Player : NetworkBehaviour, IDamageable
             return;
 
         }
+    } 
+    public void ApplyHealthRegen(bool isActive, float amountPerSecond)
+    {
+        if (!IsOwner) return;
+
+        if (_healthRegenCoroutine != null)
+        {
+            StopCoroutine(_healthRegenCoroutine);
+            _healthRegenCoroutine = null;
+        }
+
+        if (isActive)
+        {
+            _healthRegenCoroutine = StartCoroutine(HealthRegenRoutine(amountPerSecond));
+        }
     }
+    private IEnumerator HealthRegenRoutine(float amountPerSecond)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            if (IsAlive())
+            {
+                Heal(amountPerSecond);
+            }
+        }
+    }
+    public void Heal(float amount)
+    {
+        if (!IsOwner) return;
+
+        currentHealth = Mathf.Min(currentHealth + amount, GetMaxHealth());
+
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public void InitializeForGame()
     {
         if (!IsOwner || isFullyInitialized) return;
 
         Debug.Log("Player.InitializeForGame() called. Initializing systems...");
-        
+
         transform.position = new Vector3(0, 0, -1);
-        
+
         if (spriteRenderer != null)
         {
             _originalColor = spriteRenderer.color;
         }
-
-        // Инициализируем все системы здесь
         InitializeBaseValues();
         InitializeEvents();
         InitializeAbilities();
+        ApplyHealthRegen(true, 1.0f);
         input.onHotbarButton += () => UseHotbarSlot();
-        
-        // И создаем UI
-        
+
         isFullyInitialized = true;
     }
     public void OnTriggerEnter2D(Collider2D other)
@@ -103,9 +136,6 @@ public class Player : NetworkBehaviour, IDamageable
     public void PostLoadInitialize()
     {
         if (!IsOwner || isFullyInitialized) return;
-
-        // Теперь, когда данные загружены, мы точно в игровой сцене.
-        // Можно безопасно создавать UI.
         MakeUIs();
         
         isFullyInitialized = true;
@@ -341,11 +371,9 @@ public class Player : NetworkBehaviour, IDamageable
         this.characterName = data.characterName;
         UpdatePositionServerRpc(data.position);
 
-        // Здоровье - локальная переменная для владельца, можно менять напрямую
         currentHealth = data.health;
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
 
-        // Загрузка инвентаря
         for (int i = 0; i < data.inventory.Length; i++)
         {
             if (data.inventory[i].amount > 0)
@@ -355,7 +383,6 @@ public class Player : NetworkBehaviour, IDamageable
             }
         }
 
-        // Загрузка экипировки
         for (int i = 0; i < data.equipment.Length; i++)
         {
             if (data.equipment[i].amount > 0)
@@ -365,11 +392,9 @@ public class Player : NetworkBehaviour, IDamageable
             }
         }
 
-        // Обновляем UI после всех изменений
         inventory.OnItemUpdate();
         equipment.OnItemUpdate();
         MakeUIs();
-        // PostLoadInitialize();
     }
     private void SpawnBoss(BossData data, Vector3 position, int altarId)
     {
@@ -410,7 +435,6 @@ public class Player : NetworkBehaviour, IDamageable
             var client = NetworkManager.ConnectedClients[clientId];
             PickupItemClientRpc(itemNetworkObjectId, RpcTarget.Single(clientId, RpcTargetUse.Temp));
             _item.Despawn(); 
-            // Probably there's a bug if 2 people will try to pickup the same item at the same time then item will duplicated and game crashes? Or server works in monothreaded mode?
         }
     }
 

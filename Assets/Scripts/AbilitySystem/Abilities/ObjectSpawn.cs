@@ -10,12 +10,12 @@ public class ObjectSpawn : Ability
     public bool spawnInMelee = false;
 
     [Header("Warning Settings (Optional)")]
-    public GameObject warningPrefab; // Сюда перетаскиваем CircleWarningPrefab или LineWarningPrefab
+    public GameObject warningPrefab; 
     public float warningDuration = 2f;
 
     [Header("Warning Visuals")]
-    public float warningRadius = 1f; // Для CircleWarning
-    public Vector2 warningLineSize = new Vector2(5f, 1f); // Для LineWarning
+    public float warningRadius = 1f; 
+    public Vector2 warningLineSize = new Vector2(5f, 1f); 
     public override void AbilityUse(Vector2 playerPosition, Vector2 targetPosition)
     {
         if (warningPrefab == null)

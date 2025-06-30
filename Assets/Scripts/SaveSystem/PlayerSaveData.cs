@@ -33,7 +33,7 @@ public class PlayerSaveData
     public PlayerSaveData(Player player)
     {
         characterGuid = player.GetCharacterGuid();
-        characterName = player.GetCharacterName(); // Вам нужно будет добавить этот метод в Player.cs
+        characterName = player.GetCharacterName(); 
         ownerClientId = player.OwnerClientId;
         position = player.transform.position;
         health = player.getCurrentHealth();

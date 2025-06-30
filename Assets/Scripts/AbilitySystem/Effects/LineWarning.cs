@@ -5,13 +5,12 @@ using Unity.Netcode;
 public class LineWarning : NetworkBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Transform outlineTransform; // Трансформ рамки
-    [SerializeField] private Transform fillTransform;    // Трансформ заполнения
+    [SerializeField] private Transform outlineTransform; 
+    [SerializeField] private Transform fillTransform;   
     private Vector2 size;
 
     private float _animationDuration;
 
-    // Этот метод будет вызываться для запуска анимации
     public void StartWarning(float duration, Vector2 size)
     {
         this.size = size;

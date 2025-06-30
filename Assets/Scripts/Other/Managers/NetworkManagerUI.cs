@@ -1,5 +1,3 @@
-
-
 using System;
 using TMPro;
 using Unity.Mathematics;

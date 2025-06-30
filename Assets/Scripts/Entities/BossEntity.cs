@@ -12,10 +12,21 @@ public class BossEntity : NetworkBehaviour, IDamageable
     float currentTimer;
     NetworkVariable<float> networkCurrentHealth = new NetworkVariable<float>();
     int timerPosition = 0;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private Coroutine _damageFlashCoroutine;
+    private Color _originalColor;
 
     void Start()
     {
 
+    }
+    public override void OnNetworkSpawn()
+    {
+        if (spriteRenderer != null)
+        {
+            _originalColor = spriteRenderer.color;
+        }
+        base.OnNetworkSpawn();
     }
     public void Initialize(BossData bossData, int altarId)
     {
@@ -62,7 +73,27 @@ public class BossEntity : NetworkBehaviour, IDamageable
         {
             networkCurrentHealth.Value -= damage;
             VictoryCheck();
+            DamageFlashClientRpc();
         }
+    }
+        [ClientRpc]
+    private void DamageFlashClientRpc()
+    {
+        if (_damageFlashCoroutine != null)
+        {
+            StopCoroutine(_damageFlashCoroutine);
+        }
+        _damageFlashCoroutine = StartCoroutine(DamageFlashRoutine());
+    }
+    private IEnumerator DamageFlashRoutine()
+    {
+        if (spriteRenderer == null) yield break;
+
+        spriteRenderer.color = Color.red;
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        spriteRenderer.color = _originalColor;
     }
     void VictoryCheck()
     {
